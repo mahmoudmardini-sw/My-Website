@@ -277,7 +277,7 @@
         }
 
         /* ─── Service Cards ─── */
-        .grid-4 { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px,1fr)); gap: 22px; }
+        .grid-4 { display: grid; grid-template-columns: repeat(auto-fill, minmax(210px,1fr)); gap: 22px; }
 
         .service-card {
             background: var(--c-white);
@@ -419,7 +419,7 @@
 
         .calendly-wrap {
             background: white; border-radius: 14px;
-            overflow: hidden; max-width: 900px; margin: 0 auto;
+            overflow: hidden; max-width: 680px; margin: 0 auto;
         }
         .calendly-note {
             text-align: center; color: #4a5c7a;
@@ -472,6 +472,7 @@
         .reveal-d2 { transition-delay: 0.16s; }
         .reveal-d3 { transition-delay: 0.24s; }
         .reveal-d4 { transition-delay: 0.32s; }
+        .reveal-d5 { transition-delay: 0.40s; }
 
         /* ─── Responsive ─── */
         @media (max-width: 820px) {
@@ -729,6 +730,11 @@
                 <h3 data-i18n="srv4_title">حلول IoT للطاقة الذكية</h3>
                 <p data-i18n="srv4_desc">دمج الأنظمة المدمجة مع السحابة لتطبيقات الطاقة المتجددة والشبكات الذكية، بالاستفادة من خلفيتي الأكاديمية المتخصصة.</p>
             </article>
+            <article class="service-card reveal reveal-d5">
+                <div class="service-icon-wrap">🧠</div>
+                <h3 data-i18n="srv5_title">دمج الذكاء الاصطناعي (Digitalisierung)</h3>
+                <p data-i18n="srv5_desc">مساعدة الشركات على دمج تقنيات الذكاء الاصطناعي والأتمتة في عملياتها اليومية، وتحديث بنيتها التقنية لتحسين الإنتاجية وتقليل التكاليف.</p>
+            </article>
         </div>
     </div>
 </section>
@@ -825,6 +831,21 @@
                     </div>
                 </div>
             </article>
+            <article class="project-card reveal reveal-d5">
+                <div class="project-img-wrap">
+                    <img src="https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=80" alt="Network Security">
+                </div>
+                <div class="project-body">
+                    <h3 data-i18n="p5_title">شبكة آمنة · OpenWrt & AdGuard DNS</h3>
+                    <p data-i18n="p5_desc">ضبط الراوترات عبر OpenWrt ودمج AdGuard DNS (DNS-over-HTTPS/TLS) لحجب الإعلانات وحماية الخصوصية وفلترة البرمجيات الخبيثة على مستوى الشبكة كاملاً.</p>
+                    <div class="project-tags">
+                        <span class="tag">OpenWrt</span>
+                        <span class="tag">AdGuard DNS</span>
+                        <span class="tag">DoH / DoT</span>
+                        <span class="tag">Network Security</span>
+                    </div>
+                </div>
+            </article>
         </div>
     </div>
 </section>
@@ -856,11 +877,12 @@
         <div class="contact-methods reveal">
             <div class="contact-item">📧 <a href="mailto:mahmoud.mardini@outlook.com">mahmoud.mardini@outlook.com</a></div>
             <div class="contact-item">📱 <a href="tel:+4915779899849" dir="ltr">+49 157 79899849</a></div>
+            <div class="contact-item">💬 <a href="https://wa.me/4915779899849" target="_blank" rel="noopener">WhatsApp</a></div>
         </div>
         <div class="calendly-wrap reveal">
             <div class="calendly-inline-widget"
-     data-url="https://calendly.com/mahmoud-mardini?hide_gdpr_banner=1"
-     style="min-width:320px;height:700px;"></div>
+     data-url="https://calendly.com/mahmoud-mardini?hide_gdpr_banner=1&hide_event_type_details=1"
+     style="min-width:320px;height:560px;"></div>
             <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
         </div>
         <p class="calendly-note" data-i18n="calendly_note">* قم باختيار اليوم والوقت المناسبين لك من التقويم أعلاه.</p>
@@ -901,6 +923,8 @@
             srv3_desc: "تطوير أولي للوحات الإلكترونية والأنظمة المدمجة، وربطها ببروتوكولات آمنة لنقل البيانات إلى السحابة.",
             srv4_title: "حلول IoT للطاقة الذكية",
             srv4_desc: "دمج الأنظمة المدمجة مع السحابة لتطبيقات الطاقة المتجددة والشبكات الذكية، بالاستفادة من خلفيتي الأكاديمية.",
+            srv5_title: "دمج الذكاء الاصطناعي (Digitalisierung)",
+            srv5_desc: "مساعدة الشركات على دمج تقنيات الذكاء الاصطناعي والأتمتة في عملياتها اليومية، وتحديث بنيتها التقنية لتحسين الإنتاجية وتقليل التكاليف.",
             focus_eyebrow: "التركيز الحالي", focus_title: "مجال التركيز الحالي",
             focus_ai_title: "تطوير ونشر وكلاء الذكاء الاصطناعي (AI Agents)",
             focus_ai_desc: "أركز حالياً بشكل مكثف على تصميم وتطوير وكلاء الذكاء الاصطناعي المستقلة (Autonomous AI Agents) لأتمتة العمليات المعقدة والمهام الإنتاجية، ونشرها على بنية تحتية سحابية متقدمة ومحسنة التكلفة لضمان أعلى أداء واستقرار.",
@@ -916,6 +940,8 @@
             p3_desc: "عملت كمطور أنظمة مدمجة ومشرف على تطوير Embedded في شتوتغارت. برمجة بـ C++ وتصميم اللوحات بـ Altium, Eagle, و KiCad لشركات كمرسيدس وفولفو.",
             p4_title: "برمجة المتحكمات (ARM Cortex)",
             p4_desc: "برمجة ARM Cortex M4 ببيئة STM32Cube ومكتبات HAL. تطوير Arduino وتطوير واجهات (CAN, SPI, I2C) مع فك تشفير الإشارات.",
+            p5_title: "شبكة آمنة · OpenWrt & AdGuard DNS",
+            p5_desc: "ضبط الراوترات عبر OpenWrt ودمج AdGuard DNS (DNS-over-HTTPS/TLS) لحجب الإعلانات وحماية الخصوصية وفلترة البرمجيات الخبيثة على مستوى الشبكة كاملاً.",
             contact_eyebrow: "التواصل", contact_title: "تواصل معي أو احجز استشارة",
             calendly_note: "* قم باختيار اليوم والوقت المناسبين لك من التقويم أعلاه.",
             footer: "© 2026 محمود مارديني. جميع الحقوق محفوظة."
@@ -938,6 +964,8 @@
             srv3_desc: "Prototyping electronic boards and embedded systems, connecting them via secure protocols to the cloud.",
             srv4_title: "Smart Energy IoT Solutions",
             srv4_desc: "Integrating embedded systems with the cloud for renewable energy and smart grid applications.",
+            srv5_title: "AI Integration & Digitalisierung",
+            srv5_desc: "Helping businesses integrate AI technology and automation into their daily workflows, modernizing their tech stack to boost productivity and reduce operational costs.",
             focus_eyebrow: "CURRENT FOCUS", focus_title: "Current Focus Area",
             focus_ai_title: "AI Agents Development & Deployment",
             focus_ai_desc: "Currently focusing heavily on designing and developing autonomous AI Agents to automate complex workflows, deploying them on advanced, cost-optimized cloud infrastructure for top performance and stability.",
@@ -953,6 +981,8 @@
             p3_desc: "Embedded Developer and Embedded Development Lead in Stuttgart's automotive sector. C++ programming, PCB design with Altium, Eagle, and KiCad for Mercedes and Volvo.",
             p4_title: "Microcontroller Programming (ARM)",
             p4_desc: "ARM Cortex M4 programming using STM32Cube & HAL libraries. Arduino development, interfaces (CAN, SPI, I2C) and signal decoding.",
+            p5_title: "Secure Network · OpenWrt & AdGuard DNS",
+            p5_desc: "Router configuration with OpenWrt OS and AdGuard DNS (DNS-over-HTTPS/TLS) for network-wide ad blocking, privacy protection, and malware filtering — no per-device setup needed.",
             contact_eyebrow: "CONTACT", contact_title: "Contact Me or Book a Consultation",
             calendly_note: "* Please select a suitable day and time from the calendar above.",
             footer: "© 2026 Mahmoud Mardini. All rights reserved."
@@ -975,6 +1005,8 @@
             srv3_desc: "Prototyping für elektronische Baugruppen und Embedded Systems inklusive sicherer Cloud-Anbindung.",
             srv4_title: "Smart Energy IoT-Lösungen",
             srv4_desc: "Integration von Embedded Systems mit der Cloud für Smart-Grid-Anwendungen, basierend auf meinem akademischen Hintergrund.",
+            srv5_title: "KI-Integration & Digitalisierung",
+            srv5_desc: "Unterstützung von Unternehmen bei der Integration von KI-Technologie und Automatisierung in ihre Geschäftsprozesse – zur Steigerung der Produktivität und Senkung der Betriebskosten.",
             focus_eyebrow: "AKTUELLER FOKUS", focus_title: "Aktueller Schwerpunkt",
             focus_ai_title: "Entwicklung & Bereitstellung von KI-Agenten",
             focus_ai_desc: "Aktuell konzentriere ich mich auf das Design und die Entwicklung autonomer KI-Agenten zur Automatisierung komplexer Arbeitsabläufe und deren Bereitstellung in einer kostenoptimierten Cloud-Infrastruktur.",
@@ -990,6 +1022,8 @@
             p3_desc: "Tätig als Embedded Developer und Embedded Entwicklungsleiter in Stuttgart. Programmierung in C++, PCB-Design mit Altium, Eagle und KiCad für Mercedes und Volvo.",
             p4_title: "Mikrocontroller-Programmierung",
             p4_desc: "ARM Cortex M4 Programmierung (STM32Cube & HAL). Arduino-Entwicklung, Schnittstellen (CAN, SPI, I2C) und Signaldecodierung.",
+            p5_title: "Sicheres Netzwerk · OpenWrt & AdGuard DNS",
+            p5_desc: "Router-Konfiguration mit OpenWrt und AdGuard DNS (DNS-over-HTTPS/TLS) für netzwerkweite Werbeblockierung, Datenschutz und Schutz vor Schadsoftware – ohne Konfiguration auf jedem Gerät.",
             contact_eyebrow: "KONTAKT", contact_title: "Kontaktieren Sie mich",
             calendly_note: "* Bitte wählen Sie einen passenden Tag und eine Uhrzeit aus dem Kalender oben.",
             footer: "© 2026 Mahmoud Mardini. Alle Rechte vorbehalten."
