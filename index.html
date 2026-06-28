@@ -394,42 +394,6 @@
         .project-body p  { font-size: 0.87rem; color: var(--c-muted); line-height: 1.72; flex-grow: 1; }
         .project-tags { margin-top: 16px; display: flex; flex-wrap: wrap; gap: 6px; }
 
-        /* ─── Blog Cards ─── */
-        .blog-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(270px,1fr)); gap: 22px; }
-
-        .blog-card {
-            background: var(--c-white);
-            border: 1px solid var(--c-border); border-radius: var(--radius);
-            padding: 26px; display: flex; flex-direction: column;
-            transition: all var(--trans);
-        }
-        .blog-card:hover {
-            transform: translateY(-3px);
-            border-color: rgba(59,130,246,0.22);
-            box-shadow: 0 10px 28px rgba(59,130,246,0.08);
-        }
-        .blog-category {
-            display: inline-block;
-            background: rgba(59,130,246,0.08);
-            color: var(--c-blue);
-            border: 1px solid rgba(59,130,246,0.18);
-            padding: 4px 13px; border-radius: 100px;
-            font-size: 0.73rem; font-weight: 700;
-            margin-bottom: 14px; align-self: flex-start;
-        }
-        .blog-card h3 {
-            font-size: 0.97rem; font-weight: 700;
-            color: var(--c-dark); line-height: 1.55;
-            flex-grow: 1; margin-bottom: 18px;
-        }
-        .blog-link {
-            display: inline-flex; align-items: center; gap: 6px;
-            color: var(--c-blue); font-weight: 700; font-size: 0.86rem;
-            text-decoration: none; align-self: flex-start;
-            transition: gap var(--trans);
-        }
-        .blog-link:hover { gap: 11px; }
-
         /* ─── Contact ─── */
         .contact-section { background: var(--c-dark); color: white; }
         .contact-section .section-title { color: white; }
@@ -614,7 +578,6 @@
             <li><a href="#services"  data-i18n="nav_services">الخدمات</a></li>
             <li><a href="#focus"     data-i18n="nav_focus">التركيز الحالي</a></li>
             <li><a href="#projects"  data-i18n="nav_projects">الخبرات</a></li>
-            <li><a href="#blog"      data-i18n="nav_blog">المدونة</a></li>
         </ul>
         <div class="social-icons">
             <a href="https://www.linkedin.com/in/mahmoud-mardini-de/" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
@@ -883,33 +846,6 @@
     </div>
 </section>
 
-<!-- ═══ Blog ═══ -->
-<section id="blog" class="section section-alt">
-    <div class="container">
-        <div class="section-header reveal">
-            <div class="section-eyebrow" data-i18n="blog_eyebrow">Blog</div>
-            <h2 class="section-title" data-i18n="blog_title">رؤى تقنية (المدونة)</h2>
-        </div>
-        <div class="blog-grid">
-            <article class="blog-card reveal reveal-d1">
-                <div class="blog-category">DevOps</div>
-                <h3 data-i18n="blog1_title">لماذا يعتبر Terraform أساسياً في البنية السحابية؟</h3>
-                <a href="#" class="blog-link" data-i18n="read_more">اقرأ المقال ←</a>
-            </article>
-            <article class="blog-card reveal reveal-d2">
-                <div class="blog-category">Embedded Linux</div>
-                <h3 data-i18n="blog2_title">تحديات بناء أنظمة Yocto في قطاع السيارات الحديث.</h3>
-                <a href="#" class="blog-link" data-i18n="read_more">اقرأ المقال ←</a>
-            </article>
-            <article class="blog-card reveal reveal-d3">
-                <div class="blog-category">AI & Cloud</div>
-                <h3 data-i18n="blog3_title">كيف يقلل معمار ARM تكلفة تشغيل وكلاء الذكاء الاصطناعي؟</h3>
-                <a href="#" class="blog-link" data-i18n="read_more">اقرأ المقال ←</a>
-            </article>
-        </div>
-    </div>
-</section>
-
 <!-- ═══ Contact ═══ -->
 <section id="contact" class="section contact-section">
     <div class="container">
@@ -923,7 +859,7 @@
         </div>
         <div class="calendly-wrap reveal">
             <div class="calendly-inline-widget"
-                 data-url="https://calendly.com/YOUR_USERNAME_HERE/30min?hide_event_type_details=1&hide_gdpr_banner=1"
+                 data-url="https://calendly.com/mahmoud-mardini/30min?hide_event_type_details=1&hide_gdpr_banner=1"
                  style="min-width:320px;height:700px;"></div>
             <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
         </div>
@@ -950,7 +886,7 @@
         ar: {
             logo: "م. محمود مارديني",
             nav_services: "الخدمات", nav_focus: "التركيز الحالي", nav_projects: "الخبرات",
-            nav_blog: "المدونة", nav_contact: "احجز استشارة", btn_cv: "تحميل السيرة الذاتية",
+            nav_contact: "احجز استشارة", btn_cv: "تحميل السيرة الذاتية",
             hero_badge: "مهندس سحابي · شتوتغارت، ألمانيا",
             hero_title: "أهلاً بك، أنا محمود مارديني",
             hero_subtitle: "مهندس بحث وتطوير ومهندس سحابي | Cloud & R&D Engineer",
@@ -980,11 +916,6 @@
             p3_desc: "عملت كمطور أنظمة مدمجة ومشرف على تطوير Embedded في شتوتغارت. برمجة بـ C++ وتصميم اللوحات بـ Altium, Eagle, و KiCad لشركات كمرسيدس وفولفو.",
             p4_title: "برمجة المتحكمات (ARM Cortex)",
             p4_desc: "برمجة ARM Cortex M4 ببيئة STM32Cube ومكتبات HAL. تطوير Arduino وتطوير واجهات (CAN, SPI, I2C) مع فك تشفير الإشارات.",
-            blog_eyebrow: "المدونة", blog_title: "رؤى تقنية (المدونة)",
-            blog1_title: "لماذا يعتبر Terraform أساسياً في البنية السحابية؟",
-            blog2_title: "تحديات بناء أنظمة Yocto في قطاع السيارات الحديث.",
-            blog3_title: "كيف يقلل معمار ARM تكلفة تشغيل وكلاء الذكاء الاصطناعي؟",
-            read_more: "اقرأ المقال ←",
             contact_eyebrow: "التواصل", contact_title: "تواصل معي أو احجز استشارة",
             calendly_note: "* قم باختيار اليوم والوقت المناسبين لك من التقويم أعلاه.",
             footer: "© 2026 محمود مارديني. جميع الحقوق محفوظة."
@@ -992,7 +923,7 @@
         en: {
             logo: "Mahmoud Mardini",
             nav_services: "Services", nav_focus: "Current Focus", nav_projects: "Experience",
-            nav_blog: "Blog", nav_contact: "Book a Call", btn_cv: "Download CV",
+            nav_contact: "Book a Call", btn_cv: "Download CV",
             hero_badge: "Cloud & R&D Engineer · Stuttgart, DE",
             hero_title: "Welcome, I'm Mahmoud Mardini",
             hero_subtitle: "Cloud & R&D Engineer",
@@ -1022,11 +953,6 @@
             p3_desc: "Embedded Developer and Embedded Development Lead in Stuttgart's automotive sector. C++ programming, PCB design with Altium, Eagle, and KiCad for Mercedes and Volvo.",
             p4_title: "Microcontroller Programming (ARM)",
             p4_desc: "ARM Cortex M4 programming using STM32Cube & HAL libraries. Arduino development, interfaces (CAN, SPI, I2C) and signal decoding.",
-            blog_eyebrow: "BLOG", blog_title: "Tech Insights (Blog)",
-            blog1_title: "Why is Terraform essential for Cloud Architecture?",
-            blog2_title: "Challenges of building Yocto systems in modern Automotive.",
-            blog3_title: "How ARM architecture reduces AI agents running costs?",
-            read_more: "Read Article →",
             contact_eyebrow: "CONTACT", contact_title: "Contact Me or Book a Consultation",
             calendly_note: "* Please select a suitable day and time from the calendar above.",
             footer: "© 2026 Mahmoud Mardini. All rights reserved."
@@ -1034,7 +960,7 @@
         de: {
             logo: "Mahmoud Mardini",
             nav_services: "Leistungen", nav_focus: "Aktueller Fokus", nav_projects: "Erfahrung",
-            nav_blog: "Blog", nav_contact: "Termin buchen", btn_cv: "Lebenslauf Herunterladen",
+            nav_contact: "Termin buchen", btn_cv: "Lebenslauf Herunterladen",
             hero_badge: "Cloud & R&D Engineer · Stuttgart, DE",
             hero_title: "Willkommen, ich bin Mahmoud Mardini",
             hero_subtitle: "Cloud & R&D Engineer",
@@ -1064,11 +990,6 @@
             p3_desc: "Tätig als Embedded Developer und Embedded Entwicklungsleiter in Stuttgart. Programmierung in C++, PCB-Design mit Altium, Eagle und KiCad für Mercedes und Volvo.",
             p4_title: "Mikrocontroller-Programmierung",
             p4_desc: "ARM Cortex M4 Programmierung (STM32Cube & HAL). Arduino-Entwicklung, Schnittstellen (CAN, SPI, I2C) und Signaldecodierung.",
-            blog_eyebrow: "BLOG", blog_title: "Tech Insights (Blog)",
-            blog1_title: "Warum Terraform in der Cloud-Architektur unverzichtbar ist.",
-            blog2_title: "Herausforderungen beim Aufbau von Yocto-Systemen im Automotive-Bereich.",
-            blog3_title: "Wie die ARM-Architektur die Betriebskosten von KI-Agenten senkt.",
-            read_more: "Artikel lesen →",
             contact_eyebrow: "KONTAKT", contact_title: "Kontaktieren Sie mich",
             calendly_note: "* Bitte wählen Sie einen passenden Tag und eine Uhrzeit aus dem Kalender oben.",
             footer: "© 2026 Mahmoud Mardini. Alle Rechte vorbehalten."
