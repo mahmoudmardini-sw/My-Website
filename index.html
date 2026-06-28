@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="en" dir="ltr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -586,7 +586,7 @@
         </div>
         <select class="lang-switcher" id="langSelect" onchange="changeLanguage(this.value)">
             <option value="ar">العربية</option>
-            <option value="en">English</option>
+            <option value="en" selected>English</option>
             <option value="de">Deutsch</option>
         </select>
         <a href="#contact" class="btn-primary" data-i18n="nav_contact">احجز استشارة</a>
@@ -1077,6 +1077,9 @@
         entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
     }, { threshold: 0.1 });
     document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+    /* ── Default language: English ── */
+    changeLanguage('en');
 </script>
 </body>
 </html>
