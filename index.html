@@ -5,6 +5,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>محمود مارديني | Cloud & R&D Engineer</title>
     <meta name="description" content="Mahmoud Mardini — Cloud & R&D Engineer based in Stuttgart. AWS, AI Agents, Embedded Systems, IoT.">
+
+    <!-- Favicon (inline SVG, no extra file needed) -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23060e20'/%3E%3Ctext x='32' y='42' font-family='Arial, sans-serif' font-weight='800' font-size='30' fill='%233b82f6' text-anchor='middle'%3EM%3C/text%3E%3C/svg%3E">
+
+    <!-- Canonical -->
+    <link rel="canonical" href="https://mahmoudmardini.dev/">
+
+    <!-- Open Graph / social sharing preview -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Mahmoud Mardini | Cloud & R&D Engineer">
+    <meta property="og:description" content="Cloud & R&D Engineer based in Stuttgart, Germany. AWS, AI Agents, Embedded Systems, IoT.">
+    <meta property="og:image" content="https://mahmoudmardini.dev/og-image.jpg">
+    <meta property="og:url" content="https://mahmoudmardini.dev/">
+    <meta property="og:locale" content="en_US">
+    <meta property="og:locale:alternate" content="ar_AR">
+    <meta property="og:locale:alternate" content="de_DE">
+
+    <!-- Twitter card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Mahmoud Mardini | Cloud & R&D Engineer">
+    <meta name="twitter:description" content="Cloud & R&D Engineer based in Stuttgart, Germany. AWS, AI Agents, Embedded Systems, IoT.">
+    <meta name="twitter:image" content="https://mahmoudmardini.dev/og-image.jpg">
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
@@ -26,6 +49,34 @@
             --trans:       0.3s cubic-bezier(0.4,0,0.2,1);
         }
 
+        html[data-theme="dark"] {
+            --c-bg:        #0a1428;
+            --c-white:     #101d3a;
+            --c-text:      #e6ecfc;
+            --c-muted:     #94a3c4;
+            --c-border:    #1f2c4d;
+            --c-blue-glow: rgba(59,130,246,0.22);
+        }
+
+        html[data-theme="dark"] .navbar { background: rgba(10,20,40,0.85); }
+        html[data-theme="dark"] .hero-status { background: rgba(59,130,246,0.12); }
+        html[data-theme="dark"] .lang-switcher { background: var(--c-white); color: var(--c-text); }
+        html[data-theme="dark"] .hamburger span { background: var(--c-text); }
+        html[data-theme="dark"] .project-card,
+        html[data-theme="dark"] .service-card { border-color: rgba(255,255,255,.06); }
+        html[data-theme="dark"] .project-card:hover,
+        html[data-theme="dark"] .service-card:hover { box-shadow: 0 20px 40px rgba(0,0,0,.35); }
+
+        /* Headings hardcoded to navy (--c-dark) need a light color on dark backgrounds */
+        html[data-theme="dark"] .logo,
+        html[data-theme="dark"] .section-title,
+        html[data-theme="dark"] .service-card h3,
+        html[data-theme="dark"] .focus-card h3,
+        html[data-theme="dark"] .project-body h3,
+        html[data-theme="dark"] .edu-degree {
+            color: var(--c-text);
+        }
+
         *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
         html { scroll-behavior: smooth; }
@@ -36,7 +87,18 @@
             color: var(--c-text);
             line-height: 1.7;
             overflow-x: hidden;
+            transition: background var(--trans), color var(--trans);
         }
+
+        .theme-toggle {
+            display: inline-flex; align-items: center; justify-content: center;
+            width: 40px; height: 40px;
+            border: 1px solid var(--c-border); border-radius: 8px;
+            background: var(--c-white); color: var(--c-text);
+            cursor: pointer; font-size: 1rem;
+            transition: all var(--trans);
+        }
+        .theme-toggle:hover { border-color: var(--c-blue); color: var(--c-blue); }
 
         /* ─── Scroll Progress ─── */
         #scroll-progress {
@@ -387,6 +449,15 @@
         }
         .project-card:hover .project-img-wrap img { transform: scale(1.06); }
 
+        .project-img-icon {
+            width: 100%; height: 100%;
+            display: flex; align-items: center; justify-content: center;
+            background: linear-gradient(135deg, var(--c-dark) 0%, var(--c-dark-2) 100%);
+            font-size: 2.6rem; color: var(--c-blue-l);
+            transition: transform 0.55s ease;
+        }
+        .project-card:hover .project-img-icon { transform: scale(1.06); }
+
         .project-body {
             padding: 16px; flex-grow: 1; display: flex; flex-direction: column;
         }
@@ -609,6 +680,9 @@
     border:1px solid rgba(59,130,246,.15);
     font-size:.9rem;
     font-weight:600;
+    display:inline-flex;
+    align-items:center;
+    gap:6px;
 }
 
 .project-card,
@@ -649,6 +723,7 @@
             <option value="en" selected>🌍 English</option>
             <option value="de">🌍 Deutsch</option>
         </select>
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode"><i class="fas fa-moon"></i></button>
         <a href="#contact" class="btn-primary" data-i18n="nav_contact">احجز استشارة</a>
     </div>
 </header>
@@ -723,7 +798,10 @@
                 <i class="fas fa-calendar-check"></i>
                 <span data-i18n="nav_contact">احجز استشارة</span>
             </a>
-
+            <a href="#projects" class="btn-secondary">
+                <i class="fas fa-diagram-project"></i>
+                <span data-i18n="hero_btn_projects">شاهد المشاريع</span>
+            </a>
         </div>
     </div>
 </section>
@@ -826,7 +904,7 @@
         <div class="project-grid">
             <article class="project-card reveal reveal-d1">
                 <div class="project-img-wrap">
-                    <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=600&q=80" alt="Cloud Infrastructure">
+                    <div class="project-img-icon"><i class="fas fa-cloud-arrow-up"></i></div>
                 </div>
                 <div class="project-body">
                     <h3 data-i18n="p1_title">هندسة السحابة والأتمتة</h3>
@@ -841,7 +919,7 @@
             </article>
             <article class="project-card reveal reveal-d2">
                 <div class="project-img-wrap">
-                    <img src="https://images.unsplash.com/photo-1629654297299-c8506221ca97?auto=format&fit=crop&w=600&q=80" alt="Embedded Linux">
+                    <div class="project-img-icon"><i class="fab fa-linux"></i></div>
                 </div>
                 <div class="project-body">
                     <h3 data-i18n="p2_title">أنظمة Embedded Linux</h3>
@@ -854,7 +932,7 @@
             </article>
             <article class="project-card reveal reveal-d3">
                 <div class="project-img-wrap">
-                    <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=600&q=80" alt="Automotive PCB">
+                    <div class="project-img-icon"><i class="fas fa-car-side"></i></div>
                 </div>
                 <div class="project-body">
                     <h3 data-i18n="p3_title">مطور ومشرف Embedded · قطاع السيارات</h3>
@@ -868,7 +946,7 @@
             </article>
             <article class="project-card reveal reveal-d4">
                 <div class="project-img-wrap">
-                    <img src="https://images.unsplash.com/photo-1555664424-778a1e5e1b48?auto=format&fit=crop&w=600&q=80" alt="STM32 Microcontroller">
+                    <div class="project-img-icon"><i class="fas fa-microchip"></i></div>
                 </div>
                 <div class="project-body">
                     <h3 data-i18n="p4_title">برمجة المتحكمات (ARM Cortex)</h3>
@@ -882,7 +960,7 @@
             </article>
             <article class="project-card reveal reveal-d5">
                 <div class="project-img-wrap">
-                    <img src="https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=80" alt="Network Security">
+                    <div class="project-img-icon"><i class="fas fa-shield-halved"></i></div>
                 </div>
                 <div class="project-body">
                     <h3 data-i18n="p5_title">شبكة آمنة · OpenWrt & AdGuard DNS</h3>
@@ -897,7 +975,7 @@
             </article>
             <article class="project-card reveal reveal-d6">
                 <div class="project-img-wrap">
-                    <img src="https://images.unsplash.com/photo-1555949963-aa79dcee981c?auto=format&fit=crop&w=600&q=80" alt="Cyber Security & IAM">
+                    <div class="project-img-icon"><i class="fas fa-key"></i></div>
                 </div>
                 <div class="project-body">
                     <h3 data-i18n="p6_title">إدارة الهويات والأسرار (Security)</h3>
@@ -938,16 +1016,16 @@
             <h2 class="section-title">Technologies</h2>
         </div>
         <div class="tags-row">
-            <span class="tag">AWS</span>
-            <span class="tag">Terraform</span>
-            <span class="tag">Docker</span>
-            <span class="tag">Kubernetes</span>
-            <span class="tag">Linux</span>
-            <span class="tag">Python</span>
-            <span class="tag">C++</span>
-            <span class="tag">AI Agents</span>
-            <span class="tag">Embedded</span>
-            <span class="tag">DevOps</span>
+            <span class="tag"><i class="fab fa-aws"></i> AWS</span>
+            <span class="tag"><i class="fas fa-cubes"></i> Terraform</span>
+            <span class="tag"><i class="fab fa-docker"></i> Docker</span>
+            <span class="tag"><i class="fas fa-dharmachakra"></i> Kubernetes</span>
+            <span class="tag"><i class="fab fa-linux"></i> Linux</span>
+            <span class="tag"><i class="fab fa-python"></i> Python</span>
+            <span class="tag"><i class="fas fa-code"></i> C++</span>
+            <span class="tag"><i class="fas fa-robot"></i> AI Agents</span>
+            <span class="tag"><i class="fas fa-microchip"></i> Embedded</span>
+            <span class="tag"><i class="fas fa-infinity"></i> DevOps</span>
         </div>
     </div>
 </section>
@@ -967,7 +1045,6 @@
             <div class="calendly-inline-widget"
      data-url="https://calendly.com/mahmoud-mardini?hide_gdpr_banner=1&hide_event_type_details=1"
      style="min-width:320px;height:560px;"></div>
-            <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
         </div>
         <p class="calendly-note" data-i18n="calendly_note">* قم باختيار اليوم والوقت المناسبين لك من التقويم أعلاه.</p>
     </div>
@@ -978,7 +1055,7 @@
         <a href="https://www.linkedin.com/in/mahmoud-mardini-de/" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
         <a href="https://github.com/mahmoudmardini-sw" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
     </div>
-    <p data-i18n="footer">© 2026 محمود مارديني. جميع الحقوق محفوظة.</p>
+    <p data-i18n="footer">© {YEAR} محمود مارديني. جميع الحقوق محفوظة.</p>
 </footer>
 
 <button id="scroll-top" aria-label="Scroll to top"><i class="fas fa-arrow-up"></i></button>
@@ -989,7 +1066,7 @@
         ar: {
             logo: "م. محمود مارديني",
             nav_services: "الخدمات", nav_focus: "التركيز الحالي", nav_projects: "الخبرات",
-            nav_contact: "احجز استشارة", btn_cv: "تحميل السيرة الذاتية",
+            nav_contact: "احجز استشارة", hero_btn_projects: "شاهد المشاريع",
             hero_badge: "مهندس سحابي · شتوتغارت، ألمانيا",
             hero_title: "أهلاً بك، أنا محمود مارديني",
             hero_subtitle: "مهندس بحث وتطوير ومهندس سحابي | Cloud & R&D Engineer",
@@ -1029,12 +1106,12 @@
             p6_desc: "بناء وتطبيق سياسات الوصول الآمن (IAM) للبيئات السحابية. إدارة كلمات المرور عبر منصات مثل Bitwarden وحماية بيانات التطبيقات عبر AWS Secrets Manager.",
             contact_eyebrow: "التواصل", contact_title: "تواصل معي أو احجز استشارة",
             calendly_note: "* قم باختيار اليوم والوقت المناسبين لك من التقويم أعلاه.",
-            footer: "© 2026 محمود مارديني. جميع الحقوق محفوظة."
+            footer: "© {YEAR} محمود مارديني. جميع الحقوق محفوظة."
         },
         en: {
             logo: "Mahmoud Mardini",
             nav_services: "Services", nav_focus: "Current Focus", nav_projects: "Experience",
-            nav_contact: "Book a Call", btn_cv: "Download CV",
+            nav_contact: "Book a Call", hero_btn_projects: "View Projects",
             hero_badge: "Cloud & R&D Engineer · Stuttgart, DE",
             hero_title: "Welcome, I'm Mahmoud Mardini",
             hero_subtitle: "Cloud & R&D Engineer",
@@ -1074,12 +1151,12 @@
             p6_desc: "Implementing secure access policies (IAM) for cloud environments. Enterprise password management via Bitwarden and application data protection via AWS Secrets Manager.",
             contact_eyebrow: "CONTACT", contact_title: "Contact Me or Book a Consultation",
             calendly_note: "* Please select a suitable day and time from the calendar above.",
-            footer: "© 2026 Mahmoud Mardini. All rights reserved."
+            footer: "© {YEAR} Mahmoud Mardini. All rights reserved."
         },
         de: {
             logo: "Mahmoud Mardini",
             nav_services: "Leistungen", nav_focus: "Aktueller Fokus", nav_projects: "Erfahrung",
-            nav_contact: "Termin buchen", btn_cv: "Lebenslauf Herunterladen",
+            nav_contact: "Termin buchen", hero_btn_projects: "Projekte ansehen",
             hero_badge: "Cloud & R&D Engineer · Stuttgart, DE",
             hero_title: "Willkommen, ich bin Mahmoud Mardini",
             hero_subtitle: "Cloud & R&D Engineer",
@@ -1119,7 +1196,7 @@
             p6_desc: "Implementierung sicherer Zugriffsrichtlinien (IAM) für Cloud-Umgebungen. Passwortverwaltung über Bitwarden und Schutz von Anwendungsdaten mittels AWS Secrets Manager.",
             contact_eyebrow: "KONTAKT", contact_title: "Kontaktieren Sie mich",
             calendly_note: "* Bitte wählen Sie einen passenden Tag und eine Uhrzeit aus dem Kalender oben.",
-            footer: "© 2026 Mahmoud Mardini. Alle Rechte vorbehalten."
+            footer: "© {YEAR} Mahmoud Mardini. Alle Rechte vorbehalten."
         }
     };
 
@@ -1129,7 +1206,9 @@
         document.documentElement.dir = (lang === 'ar') ? 'rtl' : 'ltr';
         document.querySelectorAll('[data-i18n]').forEach(el => {
             const key = el.getAttribute('data-i18n');
-            if (translations[lang]?.[key]) el.textContent = translations[lang][key];
+            if (translations[lang]?.[key]) {
+                el.textContent = translations[lang][key].replace('{YEAR}', new Date().getFullYear());
+            }
         });
     }
 
@@ -1170,6 +1249,39 @@
         entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
     }, { threshold: 0.1 });
     document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+    /* ── Dark mode toggle (persists for this session) ── */
+    const themeToggle = document.getElementById('themeToggle');
+    const themeIcon   = themeToggle.querySelector('i');
+    function applyTheme(theme) {
+        document.documentElement.setAttribute('data-theme', theme);
+        themeIcon.className = theme === 'dark' ? 'fas fa-sun' : 'fas fa-moon';
+        try { sessionStorage.setItem('theme', theme); } catch (e) {}
+    }
+    let savedTheme = 'light';
+    try { savedTheme = sessionStorage.getItem('theme') || 'light'; } catch (e) {}
+    applyTheme(savedTheme);
+    themeToggle.addEventListener('click', () => {
+        const next = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+        applyTheme(next);
+    });
+
+    /* ── Lazy-load Calendly widget only when the contact section is near view ── */
+    const contactSection = document.getElementById('contact');
+    if (contactSection) {
+        const calendlyObserver = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const script = document.createElement('script');
+                    script.src = 'https://assets.calendly.com/assets/external/widget.js';
+                    script.async = true;
+                    document.body.appendChild(script);
+                    calendlyObserver.disconnect();
+                }
+            });
+        }, { rootMargin: '300px' });
+        calendlyObserver.observe(contactSection);
+    }
 
     /* ── Default language: English ── */
     changeLanguage('en');
