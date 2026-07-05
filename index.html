@@ -6,27 +6,11 @@
     <title>محمود مارديني | Cloud & R&D Engineer</title>
     <meta name="description" content="Mahmoud Mardini — Cloud & R&D Engineer based in Stuttgart. AWS, AI Agents, Embedded Systems, IoT.">
 
-    <!-- Favicon (inline SVG, no extra file needed) -->
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23060e20'/%3E%3Ctext x='32' y='42' font-family='Arial, sans-serif' font-weight='800' font-size='30' fill='%233b82f6' text-anchor='middle'%3EM%3C/text%3E%3C/svg%3E">
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%232dd4bf'/%3E%3Ctext x='32' y='42' font-family='Arial, sans-serif' font-weight='800' font-size='30' fill='%230b1120' text-anchor='middle'%3EM%3C/text%3E%3C/svg%3E">
 
     <!-- Canonical -->
     <link rel="canonical" href="https://mahmoudmardini.dev/">
-
-    <!-- Open Graph / social sharing preview -->
-    <meta property="og:type" content="website">
-    <meta property="og:title" content="Mahmoud Mardini | Cloud & R&D Engineer">
-    <meta property="og:description" content="Cloud & R&D Engineer based in Stuttgart, Germany. AWS, AI Agents, Embedded Systems, IoT.">
-    <meta property="og:image" content="https://mahmoudmardini.dev/og-image.jpg">
-    <meta property="og:url" content="https://mahmoudmardini.dev/">
-    <meta property="og:locale" content="en_US">
-    <meta property="og:locale:alternate" content="ar_AR">
-    <meta property="og:locale:alternate" content="de_DE">
-
-    <!-- Twitter card -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Mahmoud Mardini | Cloud & R&D Engineer">
-    <meta name="twitter:description" content="Cloud & R&D Engineer based in Stuttgart, Germany. AWS, AI Agents, Embedded Systems, IoT.">
-    <meta name="twitter:image" content="https://mahmoudmardini.dev/og-image.jpg">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -35,50 +19,24 @@
 
     <style>
         :root {
-            --c-dark:      #060e20;
-            --c-dark-2:    #0c1a38;
-            --c-blue:      #3b82f6;
-            --c-blue-l:    #60a5fa;
-            --c-blue-glow: rgba(59,130,246,0.15);
-            --c-bg:        #f0f4ff;
-            --c-white:     #ffffff;
-            --c-text:      #1e293b;
+            --c-bg:        #070b14; 
+            --c-white:     #111827; 
+            --c-dark:      #030712;
+            --c-teal:      #2dd4bf; 
+            --c-teal-dark: #0f766e;
+            --c-teal-light:rgba(45, 212, 191, 0.1);
+            --c-indigo:    #818cf8;
+            --c-text:      #94a3b8; 
+            --c-heading:   #f8fafc; 
             --c-muted:     #64748b;
-            --c-border:    #e2e8f0;
-            --radius:      12px;
+            --c-border:    #1e293b;
+            --shadow-sm:   0 4px 6px -1px rgba(0,0,0,0.5);
+            --shadow-md:   0 10px 25px -3px rgba(45, 212, 191, 0.15);
+            --radius:      16px;
             --trans:       0.3s cubic-bezier(0.4,0,0.2,1);
         }
 
-        html[data-theme="dark"] {
-            --c-bg:        #0a1428;
-            --c-white:     #101d3a;
-            --c-text:      #e6ecfc;
-            --c-muted:     #94a3c4;
-            --c-border:    #1f2c4d;
-            --c-blue-glow: rgba(59,130,246,0.22);
-        }
-
-        html[data-theme="dark"] .navbar { background: rgba(10,20,40,0.85); }
-        html[data-theme="dark"] .hero-status { background: rgba(59,130,246,0.12); }
-        html[data-theme="dark"] .lang-switcher { background: var(--c-white); color: var(--c-text); }
-        html[data-theme="dark"] .hamburger span { background: var(--c-text); }
-        html[data-theme="dark"] .project-card,
-        html[data-theme="dark"] .service-card { border-color: rgba(255,255,255,.06); }
-        html[data-theme="dark"] .project-card:hover,
-        html[data-theme="dark"] .service-card:hover { box-shadow: 0 20px 40px rgba(0,0,0,.35); }
-
-        /* Headings hardcoded to navy (--c-dark) need a light color on dark backgrounds */
-        html[data-theme="dark"] .logo,
-        html[data-theme="dark"] .section-title,
-        html[data-theme="dark"] .service-card h3,
-        html[data-theme="dark"] .focus-card h3,
-        html[data-theme="dark"] .project-body h3,
-        html[data-theme="dark"] .edu-degree {
-            color: var(--c-text);
-        }
-
         *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
         html { scroll-behavior: smooth; }
 
         body {
@@ -90,21 +48,10 @@
             transition: background var(--trans), color var(--trans);
         }
 
-        .theme-toggle {
-            display: inline-flex; align-items: center; justify-content: center;
-            width: 40px; height: 40px;
-            border: 1px solid var(--c-border); border-radius: 8px;
-            background: var(--c-white); color: var(--c-text);
-            cursor: pointer; font-size: 1rem;
-            transition: all var(--trans);
-        }
-        .theme-toggle:hover { border-color: var(--c-blue); color: var(--c-blue); }
-
-        /* ─── Scroll Progress ─── */
         #scroll-progress {
             position: fixed; top: 0; left: 0;
             height: 3px;
-            background: linear-gradient(90deg, var(--c-blue), #a78bfa);
+            background: linear-gradient(90deg, var(--c-teal), var(--c-indigo));
             width: 0%;
             z-index: 9999;
             transition: width 0.1s linear;
@@ -113,76 +60,87 @@
         /* ─── Navbar ─── */
         .navbar {
             position: sticky; top: 0; z-index: 1000;
-            background: rgba(255,255,255,0.92);
-            backdrop-filter: blur(14px);
-            -webkit-backdrop-filter: blur(14px);
+            background: rgba(7, 11, 20, 0.85);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
             border-bottom: 1px solid var(--c-border);
             padding: 0 5%;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            height: 72px;
+            height: 76px;
         }
 
         .logo {
-            font-size: 1.28rem; font-weight: 800;
-            color: var(--c-dark); letter-spacing: -0.02em;
+            font-size: 1.4rem; font-weight: 800;
+            color: var(--c-heading); letter-spacing: -0.02em;
             white-space: nowrap;
         }
-        .logo span { color: var(--c-blue); }
+        .logo span { color: var(--c-teal); }
 
         .nav-controls {
-            display: flex; align-items: center; gap: 12px;
+            display: flex; align-items: center; gap: 16px;
         }
 
         .nav-links {
             list-style: none;
-            display: flex; gap: 2px; align-items: center;
+            display: flex; gap: 8px; align-items: center;
         }
         .nav-links a {
             text-decoration: none;
-            color: var(--c-muted); font-weight: 600;
-            font-size: 0.9rem;
-            padding: 7px 12px; border-radius: 7px;
+            color: var(--c-text); font-weight: 600;
+            font-size: 0.95rem;
+            padding: 8px 16px; border-radius: 8px;
             transition: all var(--trans);
         }
         .nav-links a:hover,
         .nav-links a.active {
-            color: var(--c-blue);
-            background: var(--c-blue-glow);
+            color: var(--c-teal);
+            background: var(--c-teal-light);
         }
 
         .social-icons a {
-            color: var(--c-muted); font-size: 1.22rem;
-            width: 42px; height: 42px;
+            color: var(--c-text); font-size: 1.25rem;
+            width: 40px; height: 40px;
             display: inline-flex; align-items: center; justify-content: center;
-            border-radius: 9px;
+            border-radius: 8px;
             transition: all var(--trans);
         }
         .social-icons a:hover {
-            color: var(--c-blue);
-            background: var(--c-blue-glow);
+            color: var(--c-teal);
+            background: var(--c-teal-light);
         }
 
+        .language-control {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 0 4px 0 10px;
+            border: 1px solid var(--c-border);
+            border-radius: 10px;
+            background: var(--c-white);
+            color: var(--c-teal);
+        }
+        .language-control i { font-size: 0.95rem; }
         .lang-switcher {
-            padding: 6px 10px;
-            border: 1px solid var(--c-border); border-radius: 8px;
-            background: var(--c-white); color: var(--c-text);
-            font-family: inherit; font-weight: 700; font-size: 0.82rem;
+            padding: 8px 10px;
+            border: none; border-radius: 8px;
+            background: transparent; color: var(--c-heading);
+            font-family: inherit; font-weight: 700; font-size: 0.85rem;
             cursor: pointer; outline: none;
-            transition: border-color var(--trans);
+            transition: all var(--trans);
         }
-        .lang-switcher:hover { border-color: var(--c-blue); }
+        .language-control:hover { border-color: var(--c-teal); }
+        .lang-switcher:hover { color: var(--c-teal); }
 
-        /* Hamburger */
         .hamburger {
             display: none; flex-direction: column; gap: 5px;
             cursor: pointer; padding: 8px;
             border: none; background: none; border-radius: 8px;
         }
         .hamburger span {
-            display: block; width: 22px; height: 2px;
-            background: var(--c-text); border-radius: 2px;
+            display: block; width: 24px; height: 2px;
+            background: var(--c-heading); border-radius: 2px;
             transition: all 0.3s;
         }
         .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
@@ -191,518 +149,549 @@
 
         /* ─── Buttons ─── */
         .btn-primary {
-            background: var(--c-blue); color: white !important;
-            padding: 11px 22px; border-radius: 9px;
-            font-weight: 700; font-size: 0.9rem;
+            background: var(--c-teal); color: #020617 !important;
+            padding: 12px 24px; border-radius: 10px;
+            font-weight: 800; font-size: 0.95rem;
             text-decoration: none;
             display: inline-flex; align-items: center; gap: 8px;
             transition: all var(--trans);
-            border: 2px solid var(--c-blue);
+            border: 2px solid var(--c-teal);
             font-family: inherit; white-space: nowrap;
             cursor: pointer;
+            box-shadow: 0 4px 14px rgba(45, 212, 191, 0.15);
         }
         .btn-primary:hover {
-            background: #2563eb; border-color: #2563eb;
+            background: var(--c-teal-dark); border-color: var(--c-teal-dark);
             transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(59,130,246,0.35);
+            box-shadow: 0 8px 20px rgba(45, 212, 191, 0.3);
         }
         .btn-secondary {
-            background: transparent; color: rgba(255,255,255,0.9) !important;
-            border: 2px solid rgba(255,255,255,0.35);
-            padding: 10px 20px; border-radius: 8px;
-            font-weight: 700; font-size: 0.88rem;
+            background: rgba(30, 41, 59, 0.5); color: var(--c-heading) !important;
+            border: 1px solid var(--c-border);
+            padding: 12px 24px; border-radius: 10px;
+            font-weight: 700; font-size: 0.95rem;
             text-decoration: none;
             display: inline-flex; align-items: center; gap: 8px;
             transition: all var(--trans);
             font-family: inherit;
         }
         .btn-secondary:hover {
-            background: rgba(255,255,255,0.1);
-            border-color: rgba(255,255,255,0.7);
+            border-color: var(--c-teal); color: var(--c-teal) !important;
             transform: translateY(-2px);
+            background: var(--c-teal-light);
         }
 
         /* ─── Hero ─── */
         .hero {
             position: relative;
-            text-align: center;
-            padding: 90px 20px 70px;
-            background: var(--c-dark);
-            color: white;
+            padding: 100px 5% 120px;
+            background: radial-gradient(circle at 80% 50%, rgba(45, 212, 191, 0.05) 0%, var(--c-bg) 60%);
             overflow: hidden;
+            border-bottom: 1px solid var(--c-border);
         }
 
-        /* Animated grid */
         .hero::before {
             content: '';
             position: absolute; inset: 0;
-            background-image:
-                linear-gradient(rgba(59,130,246,0.08) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(59,130,246,0.08) 1px, transparent 1px);
-            background-size: 52px 52px;
-            animation: gridDrift 30s linear infinite;
-        }
-        /* Center fade */
-        .hero::after {
-            content: '';
-            position: absolute; inset: 0;
-            background: radial-gradient(ellipse 70% 55% at 50% 40%, transparent 20%, var(--c-dark) 85%);
-        }
-        @keyframes gridDrift {
-            from { transform: translate(0,0); }
-            to   { transform: translate(52px,52px); }
+            background-image: 
+                linear-gradient(rgba(129, 140, 248, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(129, 140, 248, 0.03) 1px, transparent 1px);
+            background-size: 40px 40px;
+            pointer-events: none;
         }
 
-        .hero-content { position: relative; z-index: 2; max-width: 780px; margin: 0 auto; }
-
-        .hero-avatar {
-            width: 92px; height: 92px; border-radius: 50%;
-            background: linear-gradient(135deg, #3b82f6, #8b5cf6);
-            display: flex; align-items: center; justify-content: center;
-            font-size: 1.9rem; font-weight: 800; color: white;
-            margin: 0 auto 28px;
-            box-shadow: 0 0 0 4px rgba(59,130,246,0.25), 0 0 0 8px rgba(59,130,246,0.1);
+        .hero-inner {
+            max-width: 1300px; margin: 0 auto;
+            display: flex; align-items: center; justify-content: space-between;
+            gap: 40px; position: relative; z-index: 2;
         }
 
-        .hero-badge {
-            display: inline-flex; align-items: center; gap: 8px;
-            background: rgba(59,130,246,0.12);
-            border: 1px solid rgba(59,130,246,0.28);
-            color: var(--c-blue-l);
-            padding: 6px 18px; border-radius: 100px;
-            font-size: 0.82rem; font-weight: 600;
-            margin-bottom: 22px;
-        }
-        .hero-badge-dot {
-            width: 6px; height: 6px; border-radius: 50%;
-            background: var(--c-blue-l);
-            animation: blink 2.2s ease-in-out infinite;
-        }
-        @keyframes blink {
-            0%, 100% { opacity: 1; transform: scale(1); }
-            50%       { opacity: 0.3; transform: scale(0.7); }
+        .hero-content {
+            flex: 1; max-width: 600px;
+            text-align: start;
         }
 
         .hero h1 {
-            font-size: clamp(1.9rem, 5vw, 2.9rem);
+            font-size: clamp(2.4rem, 4vw, 3.8rem);
             font-weight: 800; line-height: 1.2;
-            letter-spacing: -0.02em; margin-bottom: 12px;
+            color: var(--c-heading);
+            letter-spacing: -0.02em; margin-bottom: 16px;
         }
         .hero h2 {
-            font-size: clamp(0.95rem, 2.5vw, 1.15rem);
-            color: var(--c-blue-l); font-weight: 500;
-            margin-bottom: 20px; letter-spacing: 0.02em;
+            font-size: clamp(1rem, 2vw, 1.25rem);
+            color: var(--c-teal); font-weight: 600;
+            margin-bottom: 16px; letter-spacing: 0.02em;
+        }
+        .availability-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 8px 14px;
+            margin-bottom: 24px;
+            border-radius: 999px;
+            border: 1px solid rgba(34, 197, 94, 0.34);
+            background: rgba(34, 197, 94, 0.09);
+            color: #bbf7d0;
+            font-family: 'Fira Code', monospace;
+            font-size: 0.82rem;
+            font-weight: 700;
+            letter-spacing: 0.02em;
+            box-shadow: 0 0 24px rgba(34, 197, 94, 0.08);
+        }
+        .availability-badge::before {
+            content: '';
+            width: 9px;
+            height: 9px;
+            border-radius: 50%;
+            background: #22c55e;
+            box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.55), 0 0 16px rgba(34, 197, 94, 0.9);
+            animation: availabilityPulse 1.8s ease-out infinite;
+            flex-shrink: 0;
+        }
+        @keyframes availabilityPulse {
+            0% { box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.55), 0 0 16px rgba(34, 197, 94, 0.9); }
+            70% { box-shadow: 0 0 0 9px rgba(34, 197, 94, 0), 0 0 16px rgba(34, 197, 94, 0.9); }
+            100% { box-shadow: 0 0 0 0 rgba(34, 197, 94, 0), 0 0 16px rgba(34, 197, 94, 0.9); }
         }
         .hero-desc {
-            max-width: 600px; margin: 0 auto 36px;
-            font-size: 1.02rem; color: #94a3b8; line-height: 1.85;
+            font-size: 1.1rem; color: var(--c-text); 
+            line-height: 1.8; margin-bottom: 40px;
         }
-        .hero-actions { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+        .hero-actions { 
+            display: flex; gap: 16px; flex-wrap: wrap; 
+        }
+
+        .hero-proof-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin: -20px 0 32px;
+        }
+        .hero-proof-chip {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 12px;
+            border-radius: 999px;
+            border: 1px solid rgba(45, 212, 191, 0.18);
+            background: rgba(15, 23, 42, 0.72);
+            color: #cbd5e1;
+            font-size: 0.84rem;
+            font-weight: 700;
+            box-shadow: inset 0 1px 0 rgba(255,255,255,0.04);
+        }
+        .hero-proof-chip i { color: var(--c-teal); }
+
+        .workflow-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 22px;
+            position: relative;
+        }
+        .workflow-card {
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(145deg, rgba(17, 24, 39, 0.98), rgba(2, 6, 23, 0.96));
+            border: 1px solid var(--c-border);
+            border-radius: var(--radius);
+            padding: 28px;
+            box-shadow: var(--shadow-sm);
+            transition: all var(--trans);
+        }
+        .workflow-card::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at top right, rgba(45, 212, 191, 0.12), transparent 42%);
+            opacity: 0;
+            transition: opacity var(--trans);
+        }
+        .workflow-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(45, 212, 191, 0.42);
+            box-shadow: var(--shadow-md);
+        }
+        .workflow-card:hover::before { opacity: 1; }
+        .workflow-step {
+            position: relative;
+            width: 42px;
+            height: 42px;
+            border-radius: 12px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--c-teal-light);
+            color: var(--c-teal);
+            border: 1px solid rgba(45, 212, 191, 0.25);
+            font-family: 'Fira Code', monospace;
+            font-weight: 800;
+            margin-bottom: 18px;
+        }
+        .workflow-card h3 {
+            position: relative;
+            color: var(--c-heading);
+            font-size: 1.15rem;
+            font-weight: 800;
+            margin-bottom: 10px;
+        }
+        .workflow-card p {
+            position: relative;
+            color: var(--c-text);
+            font-size: 0.96rem;
+            line-height: 1.75;
+        }
+
+        .cta-band {
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(45, 212, 191, 0.22);
+            border-radius: 24px;
+            padding: 34px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 28px;
+            background:
+                radial-gradient(circle at 12% 18%, rgba(45, 212, 191, 0.16), transparent 34%),
+                radial-gradient(circle at 84% 80%, rgba(129, 140, 248, 0.14), transparent 35%),
+                linear-gradient(145deg, rgba(15, 23, 42, 0.98), rgba(2, 6, 23, 0.98));
+            box-shadow: 0 22px 50px rgba(0,0,0,0.45);
+        }
+        .cta-band::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-image: linear-gradient(rgba(45, 212, 191, 0.045) 1px, transparent 1px), linear-gradient(90deg, rgba(129, 140, 248, 0.04) 1px, transparent 1px);
+            background-size: 28px 28px;
+            opacity: 0.7;
+            pointer-events: none;
+        }
+        .cta-copy, .cta-actions { position: relative; z-index: 1; }
+        .cta-copy h2 {
+            color: var(--c-heading);
+            font-size: clamp(1.55rem, 2.4vw, 2.1rem);
+            line-height: 1.2;
+            margin-bottom: 10px;
+            font-weight: 800;
+        }
+        .cta-copy p { color: var(--c-text); font-size: 1rem; max-width: 640px; }
+        .cta-actions {
+            display: flex;
+            flex-direction: column;
+            align-items: stretch;
+            gap: 12px;
+            min-width: 220px;
+        }
+        .cta-note {
+            color: var(--c-muted);
+            font-size: 0.82rem;
+            font-weight: 700;
+            text-align: center;
+        }
+
+
+        /* ─── Premium Hero Visual ─── */
+        .hero-visual {
+            flex: 1.15;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            min-width: 0;
+        }
+        .svg-container {
+            width: 100%;
+            max-width: 780px;
+            aspect-ratio: 16 / 11;
+            position: relative;
+            overflow: hidden;
+            border-radius: 30px;
+            border: 1px solid rgba(45, 212, 191, 0.18);
+            background:
+                radial-gradient(circle at 18% 18%, rgba(129, 140, 248, 0.20), transparent 34%),
+                radial-gradient(circle at 78% 62%, rgba(45, 212, 191, 0.16), transparent 36%),
+                linear-gradient(145deg, rgba(15, 23, 42, 0.96), rgba(2, 6, 23, 0.98));
+            box-shadow:
+                0 30px 90px rgba(0, 0, 0, 0.58),
+                inset 0 1px 0 rgba(255, 255, 255, 0.06),
+                inset 0 -1px 0 rgba(45, 212, 191, 0.08),
+                0 0 48px rgba(45, 212, 191, 0.10);
+        }
+        .svg-container::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-image:
+                linear-gradient(rgba(45, 212, 191, 0.05) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(129, 140, 248, 0.045) 1px, transparent 1px);
+            background-size: 32px 32px;
+            mask-image: radial-gradient(circle at 50% 54%, black 0 48%, transparent 82%);
+            -webkit-mask-image: radial-gradient(circle at 50% 54%, black 0 48%, transparent 82%);
+            pointer-events: none;
+        }
+        .svg-container::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(120deg, transparent 0 35%, rgba(255,255,255,0.04) 50%, transparent 64%);
+            transform: translateX(-70%);
+            animation: shineSweep 7s ease-in-out infinite;
+            pointer-events: none;
+        }
+        .svg-container svg {
+            position: relative;
+            z-index: 1;
+            display: block;
+            width: 100%;
+            height: 100%;
+        }
+        .tech-label {
+            font-family: 'Fira Code', monospace;
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 0.11em;
+            fill: #dbeafe;
+            text-anchor: middle;
+        }
+        .tech-caption {
+            font-family: 'Cairo', sans-serif;
+            font-size: 10px;
+            font-weight: 700;
+            fill: #7dd3fc;
+            opacity: 0.72;
+            text-anchor: middle;
+        }
+        @keyframes shineSweep {
+            0%, 52% { transform: translateX(-78%); opacity: 0; }
+            62% { opacity: 0.6; }
+            100% { transform: translateX(78%); opacity: 0; }
+        }
 
         /* ─── Stats Strip ─── */
-        .stats-strip {
-            background: var(--c-dark-2);
-            border-bottom: 1px solid rgba(59,130,246,0.12);
-            padding: 32px 5%;
+        .stats-wrapper {
+            max-width: 1100px; margin: -50px auto 50px;
+            position: relative; z-index: 10;
+            padding: 0 20px;
         }
         .stats-grid {
-            max-width: 880px; margin: 0 auto;
-            display: grid; grid-template-columns: repeat(4,1fr);
-            gap: 16px; text-align: center;
+            background: rgba(17, 24, 39, 0.8);
+            border: 1px solid var(--c-border);
+            border-radius: var(--radius);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.6);
+            display: grid; grid-template-columns: repeat(4, 1fr);
+            padding: 30px; text-align: center; gap: 20px;
+            backdrop-filter: blur(12px);
         }
         .stat-number {
-            font-size: 2.7rem; font-weight: 800;
-            color: white; line-height: 1;
+            font-size: 2.5rem; font-weight: 800;
+            color: var(--c-heading); line-height: 1;
         }
-        .stat-number em { color: var(--c-blue); font-style: normal; }
+        .stat-number em { color: var(--c-teal); font-style: normal; }
         .stat-label {
-            font-size: 0.85rem; color: #5a7098;
-            margin-top: 6px; font-weight: 500;
+            font-size: 0.85rem; color: var(--c-muted);
+            margin-top: 8px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em;
         }
 
         /* ─── Layout ─── */
-        .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
-        .section { padding: 50px 0; }
-        .section-alt { background: var(--c-white); }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+        .section { padding: 80px 0; }
+        .section-alt { background: #0b1120; }
 
-        .section-header { text-align: center; margin-bottom: 56px; }
+        .section-header { margin-bottom: 50px; text-align: start; }
         .section-eyebrow {
             display: inline-block;
-            color: var(--c-blue); font-size: 0.72rem; font-weight: 800;
-            letter-spacing: 0.14em; text-transform: uppercase;
-            margin-bottom: 10px;
+            color: var(--c-teal); font-size: 0.85rem; font-weight: 800;
+            letter-spacing: 0.1em; text-transform: uppercase;
+            margin-bottom: 12px;
+            background: var(--c-teal-light);
+            padding: 6px 14px; border-radius: 6px;
         }
         .section-title {
-            font-size: clamp(1.55rem, 3vw, 2.1rem);
-            font-weight: 800; color: var(--c-dark);
+            font-size: clamp(1.8rem, 3vw, 2.4rem);
+            font-weight: 800; color: var(--c-heading);
             letter-spacing: -0.02em; line-height: 1.2;
         }
 
         /* ─── Service Cards ─── */
-        .grid-4 { display: grid; grid-template-columns: repeat(auto-fill, minmax(210px,1fr)); gap: 22px; }
+        .grid-4 { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 24px; }
 
         .service-card {
             background: var(--c-white);
             border: 1px solid var(--c-border);
             border-radius: var(--radius);
-            padding: 16px 16px;
-            position: relative; overflow: hidden;
+            padding: 32px 24px;
             transition: all var(--trans);
-        }
-        .service-card::before {
-            content: '';
-            position: absolute;
-            inset-inline-start: 0; top: 0; bottom: 0;
-            width: 3px;
-            background: linear-gradient(180deg, #3b82f6, #8b5cf6);
-            border-radius: 0 3px 3px 0;
+            box-shadow: var(--shadow-sm);
         }
         .service-card:hover {
-            transform: translateY(-4px);
-            border-color: rgba(59,130,246,0.28);
-            box-shadow: 0 14px 36px rgba(59,130,246,0.09);
+            transform: translateY(-5px);
+            border-color: rgba(45, 212, 191, 0.4);
+            box-shadow: var(--shadow-md);
+            background: #1e293b;
         }
         .service-icon-wrap {
-            width: 42px; height: 42px; border-radius: 12px;
-            background: linear-gradient(135deg, rgba(59,130,246,0.1), rgba(139,92,246,0.1));
+            width: 54px; height: 54px; border-radius: 14px;
+            background: var(--c-teal-light);
             display: flex; align-items: center; justify-content: center;
-            font-size: 1.2rem; margin-bottom: 12px;
+            font-size: 1.5rem; margin-bottom: 20px;
+            color: var(--c-teal);
+            border: 1px solid rgba(45, 212, 191, 0.2);
         }
-        .service-card h3 { font-size: 1.02rem; font-weight: 700; color: var(--c-dark); margin-bottom: 10px; }
-        .service-card p  { font-size: 0.91rem; color: var(--c-muted); line-height: 1.74; }
+        .service-card h3 { font-size: 1.1rem; font-weight: 800; color: var(--c-heading); margin-bottom: 12px; }
+        .service-card p  { font-size: 0.95rem; color: var(--c-text); line-height: 1.7; }
 
         /* ─── Focus Card ─── */
         .focus-card {
-            max-width: 740px; margin: 0 auto;
             background: var(--c-white);
-            border: 1px solid rgba(59,130,246,0.18);
-            border-radius: 16px;
-            padding: 40px 30px; text-align: center;
-            position: relative; overflow: hidden;
-            box-shadow: 0 0 60px rgba(59,130,246,0.06);
+            border: 1px solid var(--c-border);
+            border-radius: var(--radius);
+            padding: 40px; 
+            display: flex; gap: 40px; align-items: center;
+            box-shadow: var(--shadow-sm);
         }
-        .focus-card::after {
-            content: '';
-            position: absolute;
-            top: -80px; inset-inline-end: -80px;
-            width: 240px; height: 240px;
-            background: radial-gradient(circle, rgba(59,130,246,0.09) 0%, transparent 70%);
-            border-radius: 50%;
-            pointer-events: none;
-        }
-
-        .focus-icon-wrap {
-            position: relative;
-            display: inline-flex; align-items: center; justify-content: center;
-            width: 96px; height: 96px; margin-bottom: 32px;
-        }
-        .focus-ring {
-            position: absolute; border-radius: 50%;
-            animation: ringPulse 2.8s ease-out infinite;
-        }
-        .focus-ring-1 { inset: -16px; border: 1.5px solid rgba(59,130,246,0.28); }
-        .focus-ring-2 { inset: -32px; border: 1px solid rgba(59,130,246,0.13); animation-delay: 0.7s; }
-        @keyframes ringPulse {
-            0%   { transform: scale(0.88); opacity: 1; }
-            100% { transform: scale(1.08); opacity: 0; }
-        }
-        .focus-icon-inner {
-            width: 96px; height: 96px; border-radius: 50%;
-            background: linear-gradient(135deg, rgba(59,130,246,0.12), rgba(139,92,246,0.08));
-            border: 1px solid rgba(59,130,246,0.2);
+        .focus-icon-area {
+            flex-shrink: 0; width: 120px; height: 120px;
+            background: var(--c-bg); border-radius: 20px;
             display: flex; align-items: center; justify-content: center;
-            font-size: 2.5rem; color: var(--c-blue);
+            font-size: 3rem; color: var(--c-teal);
+            border: 1px solid rgba(45, 212, 191, 0.3);
+            box-shadow: inset 0 0 20px rgba(45, 212, 191, 0.05);
         }
+        .focus-content h3 { font-size: 1.5rem; font-weight: 800; color: var(--c-heading); margin-bottom: 16px; }
+        .focus-content p  { font-size: 1rem; color: var(--c-text); line-height: 1.8; margin-bottom: 24px; }
 
-        .focus-card h3 { font-size: 1.35rem; font-weight: 800; color: var(--c-dark); margin-bottom: 14px; }
-        .focus-card p  { font-size: 0.97rem; color: var(--c-muted); max-width: 540px; margin: 0 auto 24px; line-height: 1.82; }
-
-        .tags-row { display: flex; gap: 8px; flex-wrap: wrap; justify-content: center; }
+        .tags-row { display: flex; gap: 10px; flex-wrap: wrap; }
         .tag {
-            display: inline-block;
-            background: #f1f5f9; color: var(--c-text);
-            border: 1px solid #e2e8f0;
-            padding: 5px 13px; border-radius: 6px;
-            font-size: 0.76rem; font-weight: 700;
-            font-family: 'Fira Code', monospace;
-            letter-spacing: 0.02em;
+            background: var(--c-bg); color: var(--c-teal);
+            border: 1px solid var(--c-border);
+            padding: 6px 14px; border-radius: 8px;
+            font-size: 0.85rem; font-weight: 700;
         }
 
         /* ─── Project Cards ─── */
-        .project-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(270px,1fr)); gap: 22px; }
-
         .project-card {
             background: var(--c-white);
             border: 1px solid var(--c-border); border-radius: var(--radius);
-            overflow: hidden; display: flex; flex-direction: column;
-            transition: all var(--trans);
+            padding: 24px; display: flex; flex-direction: column;
+            transition: all var(--trans); box-shadow: var(--shadow-sm);
         }
         .project-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 18px 44px rgba(0,0,0,0.1);
-            border-color: rgba(59,130,246,0.2);
+            border-color: rgba(45, 212, 191, 0.4);
+            box-shadow: var(--shadow-md);
+            background: #1e293b;
         }
-        .project-img-wrap { position: relative; overflow: hidden; height: 170px; }
-        .project-img-wrap img {
-            width: 100%; height: 100%; object-fit: cover;
-            transition: transform 0.55s ease;
+        .project-header { display: flex; align-items: center; gap: 16px; margin-bottom: 16px; }
+        .project-icon {
+            width: 48px; height: 48px; background: var(--c-bg);
+            border-radius: 10px; display: flex; align-items: center; justify-content: center;
+            font-size: 1.5rem; color: var(--c-teal); border: 1px solid var(--c-border);
         }
-        .project-card:hover .project-img-wrap img { transform: scale(1.06); }
-
-        .project-img-icon {
-            width: 100%; height: 100%;
-            display: flex; align-items: center; justify-content: center;
-            background: linear-gradient(135deg, var(--c-dark) 0%, var(--c-dark-2) 100%);
-            font-size: 2.6rem; color: var(--c-blue-l);
-            transition: transform 0.55s ease;
-        }
-        .project-card:hover .project-img-icon { transform: scale(1.06); }
-
-        .project-body {
-            padding: 16px; flex-grow: 1; display: flex; flex-direction: column;
-        }
-        .project-body h3 { font-size: 0.98rem; font-weight: 700; color: var(--c-dark); margin-bottom: 8px; }
-        .project-body p  { font-size: 0.87rem; color: var(--c-muted); line-height: 1.72; flex-grow: 1; }
-        .project-tags { margin-top: 16px; display: flex; flex-wrap: wrap; gap: 6px; }
-
+        .project-header h3 { font-size: 1.1rem; font-weight: 800; color: var(--c-heading); }
+        .project-body p { font-size: 0.95rem; color: var(--c-text); line-height: 1.7; flex-grow: 1; margin-bottom: 20px;}
+        
         /* ─── Contact ─── */
-        .contact-section { background: var(--c-dark); color: white; }
-        .contact-section .section-title { color: white; }
-        .contact-section .section-eyebrow { color: var(--c-blue-l); }
-
-        .contact-methods {
-            display: flex; justify-content: center;
-            gap: 14px; margin-bottom: 44px; flex-wrap: wrap;
+        .contact-wrapper {
+            background: #1e293b;
+            border: 1px solid var(--c-border);
+            border-radius: 24px;
+            padding: 0;
+            display: flex; overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.5);
         }
+        .contact-info {
+            padding: 60px; color: white; flex: 1;
+            background: radial-gradient(circle at top left, #334155, #0f172a);
+        }
+        .contact-info h2 { font-size: 2rem; font-weight: 800; margin-bottom: 30px; }
+        .contact-methods { display: flex; flex-direction: column; gap: 20px; }
         .contact-item {
-            background: rgba(255,255,255,0.055);
-            border: 1px solid rgba(255,255,255,0.1);
-            padding: 16px 28px; border-radius: 12px;
-            display: flex; align-items: center; gap: 12px;
-            font-weight: 600; font-size: 1rem;
-            transition: all var(--trans);
+            display: flex; align-items: center; gap: 16px;
+            font-size: 1.1rem; font-weight: 600;
         }
-        .contact-item:hover {
-            background: rgba(59,130,246,0.14);
-            border-color: rgba(59,130,246,0.28);
-        }
-        .contact-item a { color: var(--c-blue-l); text-decoration: none; direction: ltr; display: inline-block; }
+        .contact-item i { font-size: 1.5rem; color: var(--c-teal); }
+        .contact-item a { color: white; text-decoration: none; transition: color var(--trans); direction: ltr; display: inline-block; }
+        .contact-item a:hover { color: var(--c-teal); }
 
         .calendly-wrap {
-            background: white; border-radius: 14px;
-            overflow: hidden; max-width: 680px; margin: 0 auto;
-        }
-        .calendly-note {
-            text-align: center; color: #4a5c7a;
-            font-size: 0.84rem; margin-top: 14px;
+            flex: 1.2; background: var(--c-bg); 
+            min-height: 500px;
         }
 
         /* ─── Footer ─── */
         .footer {
-            background: #030912; color: #475569;
-            text-align: center; padding: 32px 20px;
-            border-top: 1px solid rgba(255,255,255,0.04);
+            background: var(--c-dark); color: var(--c-muted);
+            text-align: center; padding: 40px 20px;
+            border-top: 1px solid var(--c-border);
+            font-weight: 600;
         }
-        .footer-socials { display: flex; justify-content: center; gap: 10px; margin-bottom: 14px; }
+        .footer-socials { display: flex; justify-content: center; gap: 12px; margin-bottom: 16px; }
         .footer-socials a {
-            color: #475569; font-size: 1.25rem;
+            color: var(--c-text); font-size: 1.25rem;
             width: 44px; height: 44px;
-            border: 1px solid rgba(255,255,255,0.07); border-radius: 11px;
+            border: 1px solid var(--c-border); border-radius: 10px; background: var(--c-white);
             display: flex; align-items: center; justify-content: center;
             transition: all var(--trans);
         }
         .footer-socials a:hover {
-            color: var(--c-blue-l);
-            border-color: rgba(59,130,246,0.28);
-            background: rgba(59,130,246,0.1);
+            color: var(--c-teal);
+            border-color: var(--c-teal);
+            background: var(--c-teal-light);
         }
-        .footer p { font-size: 0.84rem; }
 
         /* ─── Scroll-to-top ─── */
         #scroll-top {
-            position: fixed; bottom: 28px; inset-inline-end: 28px;
-            width: 42px; height: 42px;
-            background: var(--c-blue); color: white;
-            border: none; border-radius: 12px;
-            cursor: pointer; font-size: 1.05rem;
+            position: fixed; bottom: 30px; inset-inline-end: 30px;
+            width: 45px; height: 45px;
+            background: var(--c-white); color: var(--c-teal);
+            border: 1px solid var(--c-border); border-radius: 12px;
+            cursor: pointer; font-size: 1.1rem;
             display: flex; align-items: center; justify-content: center;
             opacity: 0; transform: translateY(10px);
             transition: all var(--trans); z-index: 999;
-            box-shadow: 0 4px 20px rgba(59,130,246,0.45);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.5);
         }
         #scroll-top.visible { opacity: 1; transform: translateY(0); }
-        #scroll-top:hover   { background: #2563eb; }
-
-        /* ─── Reveal animations ─── */
-        .reveal {
-            opacity: 0; transform: translateY(22px);
-            transition: opacity 0.62s ease, transform 0.62s ease;
-        }
-        .reveal.visible { opacity: 1; transform: translateY(0); }
-        .reveal-d1 { transition-delay: 0.08s; }
-        .reveal-d2 { transition-delay: 0.16s; }
-        .reveal-d3 { transition-delay: 0.24s; }
-        .reveal-d4 { transition-delay: 0.32s; }
-        .reveal-d5 { transition-delay: 0.40s; }
-        .reveal-d6 { transition-delay: 0.48s; }
+        #scroll-top:hover   { background: var(--c-teal); color: #020617; }
 
         /* ─── Responsive ─── */
-        @media (max-width: 820px) {
+        @media (max-width: 980px) {
+            .hero-inner { flex-direction: column; text-align: center; }
+            .hero-content { text-align: center; margin-bottom: 20px; }
+            .availability-badge { justify-content: center; }
+            .hero-actions { justify-content: center; }
+            .hero-proof-row { justify-content: center; }
+            .workflow-grid { grid-template-columns: 1fr; }
+            .cta-band { flex-direction: column; text-align: center; }
+            .stats-grid { grid-template-columns: repeat(2, 1fr); }
+            .focus-card { flex-direction: column; text-align: center; }
+            .contact-wrapper { flex-direction: column; }
+            .section-header { text-align: center; }
+        }
+        @media (max-width: 768px) {
             .hamburger { display: flex; }
             .nav-links {
                 display: none;
-                position: absolute; top: 72px; left: 0; right: 0;
-                background: white; border-bottom: 1px solid var(--c-border);
-                flex-direction: column; padding: 12px; gap: 2px;
+                position: absolute; top: 76px; left: 0; right: 0;
+                background: var(--c-white); border-bottom: 1px solid var(--c-border);
+                flex-direction: column; padding: 20px; gap: 10px;
+                box-shadow: 0 10px 20px rgba(0,0,0,0.5);
             }
-            [dir="rtl"] .nav-links { right: 0; left: 0; }
             .nav-links.open { display: flex; }
-            .nav-links a { padding: 11px 16px; }
-            .social-icons { display: none; }
+            .nav-controls .btn-primary, .social-icons { display: none; }
+            .contact-info { padding: 40px 20px; }
+            .svg-container { max-width: 100%; border-radius: 22px; }
+            .cta-actions { width: 100%; }
+            .workflow-card { padding: 24px; }
         }
-        @media (max-width: 600px) {
-            .hero { padding: 80px 20px 68px; }
-            .stats-grid { grid-template-columns: repeat(2,1fr); gap: 20px; }
-            .section { padding: 64px 0; }
-            .hero-actions { flex-direction: column; align-items: center; }
-            .contact-methods { flex-direction: column; align-items: stretch; }
-            .focus-card { padding: 36px 22px; }
-        }
-
-        /* Reduce motion */
-        @media (prefers-reduced-motion: reduce) {
-            .hero::before, .focus-ring, .hero-badge-dot,
-            .hero-visual, .svg-orbit-outer, .svg-orbit-mid,
-            .svg-dash-outer, .svg-dash-mid, .svg-core-pulse, .svg-glow-bg { animation: none; }
-            .reveal { opacity: 1; transform: none; }
-        }
-
-        /* ─── Hero Visual (Animated Chip SVG) ─── */
-        .hero-visual {
-            width: 300px; height: 240px;
-            margin: 0 auto 20px;
-            animation: heroVisualFloat 6s ease-in-out infinite;
-        }
-        .hero-svg { width: 100%; height: 100%; overflow: visible; }
-        @keyframes heroVisualFloat {
-            0%, 100% { transform: translateY(0); }
-            50%       { transform: translateY(-10px); }
-        }
-        @keyframes svgOrbitOuter { to { transform: rotate(360deg); } }
-        @keyframes svgOrbitMid   { to { transform: rotate(-360deg); } }
-        @keyframes svgDashOut    { to { stroke-dashoffset: -52; } }
-        @keyframes svgDashMid    { to { stroke-dashoffset: -32; } }
-        @keyframes svgCorePulse  {
-            0%, 100% { transform: scale(1);    opacity: 0.85; }
-            50%       { transform: scale(1.7); opacity: 1; }
-        }
-        @keyframes svgGlowBg {
-            0%, 100% { opacity: 0.45; }
-            50%       { opacity: 0.82; }
-        }
-        .svg-orbit-outer { transform-origin: 150px 120px; animation: svgOrbitOuter 22s linear infinite; }
-        .svg-orbit-mid   { transform-origin: 150px 120px; animation: svgOrbitMid 14s linear infinite; }
-        .svg-dash-outer  { animation: svgDashOut 10s linear infinite; }
-        .svg-dash-mid    { animation: svgDashMid  7s linear infinite; }
-        .svg-core-pulse  { transform-box: fill-box; transform-origin: center; animation: svgCorePulse 2.4s ease-in-out infinite; }
-        .svg-glow-bg     { transform-box: fill-box; transform-origin: center; animation: svgGlowBg 3.5s ease-in-out infinite; }
-
-        /* ─── Education Card ─── */
-        .edu-card {
-            max-width: 560px; margin: 0 auto;
-            background: var(--c-white);
-            border: 1px solid var(--c-border);
-            border-radius: var(--radius);
-            padding: 28px 36px;
-            display: flex; align-items: center; gap: 22px;
-            transition: all var(--trans);
-        }
-        .edu-card:hover {
-            border-color: rgba(59,130,246,0.28);
-            box-shadow: 0 8px 28px rgba(59,130,246,0.08);
-            transform: translateY(-3px);
-        }
-        .edu-icon-wrap {
-            width: 70px; height: 70px; border-radius: 17px; flex-shrink: 0;
-            background: linear-gradient(135deg,rgba(59,130,246,0.1),rgba(139,92,246,0.1));
-            border: 1px solid rgba(59,130,246,0.18);
-            display: flex; align-items: center; justify-content: center;
-            font-size: 2.3rem;
-        }
-        .edu-degree { font-size: 1.08rem; font-weight: 800; color: var(--c-dark); margin-bottom: 6px; }
-        .edu-school { font-size: 0.9rem; color: var(--c-muted); font-weight: 500; }
-
-        .hero-status {
-            color: #4ade80;
-            margin-bottom: 15px;
-            font-size: 0.85rem;
-            font-weight: 600;
-        }
-
-        .hero-status i {
-            font-size: 8px;
-            margin-right: 6px;
-        }
-
-        .project-card:hover,
-        .service-card:hover {
-            transform: translateY(-6px) scale(1.02);
-        }
-
-        .service-card,
-        .project-card,
-        .edu-card {
-            backdrop-filter: blur(10px);
-        }
-
-    
-.hero::before{
-    content:'';
-    position:absolute;
-    inset:0;
-    background:
-        radial-gradient(circle at 20% 20%,rgba(59,130,246,.08),transparent 35%),
-        radial-gradient(circle at 80% 30%,rgba(16,185,129,.08),transparent 35%);
-    pointer-events:none;
-}
-
-.tags-row{
-    display:flex;
-    flex-wrap:wrap;
-    gap:12px;
-    justify-content:center;
-}
-
-.tag{
-    padding:8px 14px;
-    border-radius:999px;
-    background:rgba(59,130,246,.08);
-    border:1px solid rgba(59,130,246,.15);
-    font-size:.9rem;
-    font-weight:600;
-    display:inline-flex;
-    align-items:center;
-    gap:6px;
-}
-
-.project-card,
-.service-card{
-    border:1px solid rgba(0,0,0,.05);
-}
-
-.project-card:hover,
-.service-card:hover{
-    box-shadow:0 20px 40px rgba(0,0,0,.08);
-}
-
-</style>
+    </style>
 </head>
 <body>
 
 <div id="scroll-progress"></div>
 
 <header class="navbar">
-    <div class="logo" data-i18n="logo">م. <span>محمود</span> مارديني</div>
+    <div class="logo" data-i18n="logo"><span>Eng.</span> Mahmoud Mardini</div>
 
     <button class="hamburger" id="hamburger" aria-label="Toggle menu">
         <span></span><span></span><span></span>
@@ -712,155 +701,333 @@
         <ul class="nav-links" id="navLinks">
             <li><a href="#services"  data-i18n="nav_services">الخدمات</a></li>
             <li><a href="#focus"     data-i18n="nav_focus">التركيز الحالي</a></li>
+            <li><a href="#workflow"  data-i18n="nav_workflow">منهجيتي</a></li>
             <li><a href="#projects"  data-i18n="nav_projects">الخبرات</a></li>
         </ul>
         <div class="social-icons">
             <a href="https://www.linkedin.com/in/mahmoud-mardini-de/" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
             <a href="https://github.com/mahmoudmardini-sw" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
         </div>
-        <select class="lang-switcher" id="langSelect" onchange="changeLanguage(this.value)">
-            <option value="ar">🌍 العربية</option>
-            <option value="en" selected>🌍 English</option>
-            <option value="de">🌍 Deutsch</option>
-        </select>
-        <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode"><i class="fas fa-moon"></i></button>
         <a href="#contact" class="btn-primary" data-i18n="nav_contact">احجز استشارة</a>
+        <div class="language-control" aria-label="Language selector">
+            <i class="fas fa-globe"></i>
+            <select class="lang-switcher" id="langSelect" onchange="changeLanguage(this.value)">
+                <option value="ar">AR</option>
+                <option value="en" selected>EN</option>
+                <option value="de">DE</option>
+            </select>
+        </div>
     </div>
 </header>
 
 <section id="about" class="hero">
-    <div class="hero-content">
-        <div class="hero-badge">
-            <span class="hero-badge-dot"></span>
-            <span data-i18n="hero_badge">مهندس سحابي · شتوتغارت، ألمانيا</span>
+    <div class="hero-inner">
+        <div class="hero-content">
+            <h1 data-i18n="hero_title">أهلاً بك، أنا محمود مارديني</h1>
+            <h2 data-i18n="hero_subtitle">مهندس بحث وتطوير ومهندس سحابي | Cloud & R&D Engineer</h2>
+            <div class="availability-badge" data-i18n="availability_status">متاح لمشاريع جديدة</div>
+            <p class="hero-desc" data-i18n="hero_desc">أجمع بين الخلفية القوية في تطوير الأنظمة المدمجة المتقدمة، وخبرتي في البنية التحتية السحابية وأتمتة العمليات. أهدف لبناء حلول برمجية متكاملة وقابلة للتوسع.</p>
+            <div class="hero-proof-row" aria-label="Professional highlights">
+                <span class="hero-proof-chip"><i class="fas fa-location-dot"></i><span data-i18n="hero_chip_1">شتوتغارت، ألمانيا</span></span>
+                <span class="hero-proof-chip"><i class="fas fa-layer-group"></i><span data-i18n="hero_chip_2">Cloud + AI + Embedded</span></span>
+                <span class="hero-proof-chip"><i class="fas fa-shield-halved"></i><span data-i18n="hero_chip_3">بناء آمن من البداية</span></span>
+                <span class="hero-proof-chip"><i class="fas fa-rocket"></i><span data-i18n="hero_chip_4">Prototype → Production</span></span>
+            </div>
+            <div class="hero-actions">
+                <a href="#contact" class="btn-primary">
+                    <span data-i18n="nav_contact">احجز استشارة</span>
+                </a>
+                <a href="#projects" class="btn-secondary">
+                    <span data-i18n="hero_btn_projects">شاهد المشاريع</span>
+                </a>
+            </div>
         </div>
+        
+        <!-- ─── Premium Futuristic Tech Command Center ─── -->
         <div class="hero-visual" aria-hidden="true">
-          <svg class="hero-svg" viewBox="0 0 300 240" xmlns="http://www.w3.org/2000/svg">
-            <defs>
-              <radialGradient id="hgCore" cx="50%" cy="50%" r="50%">
-                <stop offset="0%"   stop-color="#3b82f6" stop-opacity="0.35"/>
-                <stop offset="100%" stop-color="#6366f1" stop-opacity="0"/>
-              </radialGradient>
-              <filter id="hgGlow" x="-80%" y="-80%" width="260%" height="260%">
-                <feGaussianBlur in="SourceGraphic" stdDeviation="5" result="blur"/>
-                <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
-              </filter>
-            </defs>
-            <circle cx="150" cy="120" r="92" fill="url(#hgCore)" class="svg-glow-bg"/>
-            <circle cx="150" cy="120" r="107" fill="none" stroke="rgba(59,130,246,0.14)" stroke-width="1" stroke-dasharray="4 9" class="svg-dash-outer"/>
-            <circle cx="150" cy="120" r="76"  fill="none" stroke="rgba(99,102,241,0.2)"  stroke-width="1" stroke-dasharray="2 6" class="svg-dash-mid"/>
-            <circle cx="150" cy="120" r="48"  fill="none" stroke="rgba(59,130,246,0.28)" stroke-width="1"/>
-            <g class="svg-orbit-outer">
-              <circle cx="150" cy="13"  r="7" fill="#3b82f6" opacity="0.9" filter="url(#hgGlow)"/>
-              <circle cx="257" cy="120" r="5" fill="#8b5cf6" opacity="0.72"/>
-              <circle cx="150" cy="227" r="7" fill="#60a5fa" opacity="0.85" filter="url(#hgGlow)"/>
-              <circle cx="43"  cy="120" r="5" fill="#6366f1" opacity="0.72"/>
-            </g>
-            <g class="svg-orbit-mid">
-              <circle cx="204" cy="66"  r="4.5" fill="#a78bfa" opacity="0.8"/>
-              <circle cx="96"  cy="174" r="4.5" fill="#60a5fa" opacity="0.8"/>
-            </g>
-            <rect x="117" y="87" width="66" height="66" rx="10" fill="rgba(6,14,32,0.97)" stroke="#3b82f6" stroke-width="1.5"/>
-            <rect x="103" y="99"  width="14" height="3" rx="1.5" fill="#3b82f6" opacity="0.62"/>
-            <rect x="103" y="109" width="14" height="3" rx="1.5" fill="#3b82f6" opacity="0.62"/>
-            <rect x="103" y="119" width="14" height="3" rx="1.5" fill="#3b82f6" opacity="0.62"/>
-            <rect x="103" y="129" width="14" height="3" rx="1.5" fill="#3b82f6" opacity="0.62"/>
-            <rect x="103" y="139" width="14" height="3" rx="1.5" fill="#3b82f6" opacity="0.62"/>
-            <rect x="183" y="99"  width="14" height="3" rx="1.5" fill="#3b82f6" opacity="0.62"/>
-            <rect x="183" y="109" width="14" height="3" rx="1.5" fill="#3b82f6" opacity="0.62"/>
-            <rect x="183" y="119" width="14" height="3" rx="1.5" fill="#3b82f6" opacity="0.62"/>
-            <rect x="183" y="129" width="14" height="3" rx="1.5" fill="#3b82f6" opacity="0.62"/>
-            <rect x="183" y="139" width="14" height="3" rx="1.5" fill="#3b82f6" opacity="0.62"/>
-            <rect x="128" y="73"  width="3" height="14" rx="1.5" fill="#3b82f6" opacity="0.62"/>
-            <rect x="140" y="73"  width="3" height="14" rx="1.5" fill="#3b82f6" opacity="0.62"/>
-            <rect x="152" y="73"  width="3" height="14" rx="1.5" fill="#3b82f6" opacity="0.62"/>
-            <rect x="164" y="73"  width="3" height="14" rx="1.5" fill="#3b82f6" opacity="0.62"/>
-            <rect x="128" y="153" width="3" height="14" rx="1.5" fill="#3b82f6" opacity="0.62"/>
-            <rect x="140" y="153" width="3" height="14" rx="1.5" fill="#3b82f6" opacity="0.62"/>
-            <rect x="152" y="153" width="3" height="14" rx="1.5" fill="#3b82f6" opacity="0.62"/>
-            <rect x="164" y="153" width="3" height="14" rx="1.5" fill="#3b82f6" opacity="0.62"/>
-            <rect x="127" y="97" width="46" height="46" rx="5" fill="rgba(59,130,246,0.04)" stroke="rgba(59,130,246,0.22)" stroke-width="0.75"/>
-            <line x1="150" y1="97"  x2="150" y2="143" stroke="rgba(59,130,246,0.15)" stroke-width="0.75"/>
-            <line x1="127" y1="120" x2="173" y2="120" stroke="rgba(59,130,246,0.15)" stroke-width="0.75"/>
-            <circle cx="139" cy="109" r="3.5" fill="rgba(59,130,246,0.32)" stroke="#3b82f6" stroke-width="0.75"/>
-            <circle cx="161" cy="109" r="3.5" fill="rgba(99,102,241,0.32)" stroke="#6366f1" stroke-width="0.75"/>
-            <circle cx="139" cy="131" r="3.5" fill="rgba(99,102,241,0.32)" stroke="#6366f1" stroke-width="0.75"/>
-            <circle cx="161" cy="131" r="3.5" fill="rgba(59,130,246,0.32)" stroke="#3b82f6" stroke-width="0.75"/>
-            <circle cx="150" cy="120" r="5" fill="#3b82f6" class="svg-core-pulse" filter="url(#hgGlow)"/>
-          </svg>
+            <div class="svg-container">
+                <svg viewBox="0 0 960 660" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Futuristic tech ecosystem with a human brain in the center, connected to cloud, drone, embedded systems, security, robotics, and renewable energy">
+                    <defs>
+                        <filter id="glow" x="-80%" y="-80%" width="260%" height="260%">
+                            <feGaussianBlur stdDeviation="8" result="blur"/>
+                            <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+                        </filter>
+                        <filter id="softGlow" x="-80%" y="-80%" width="260%" height="260%">
+                            <feGaussianBlur stdDeviation="18" result="blur"/>
+                            <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+                        </filter>
+                        <linearGradient id="traceGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                            <stop offset="0%" stop-color="#2dd4bf"/>
+                            <stop offset="50%" stop-color="#38bdf8"/>
+                            <stop offset="100%" stop-color="#818cf8"/>
+                        </linearGradient>
+                        <linearGradient id="nodeBorder" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" stop-color="#2dd4bf" stop-opacity="0.9"/>
+                            <stop offset="100%" stop-color="#818cf8" stop-opacity="0.9"/>
+                        </linearGradient>
+                        <radialGradient id="centerGlow" cx="50%" cy="50%" r="58%">
+                            <stop offset="0%" stop-color="#ecfeff"/>
+                            <stop offset="22%" stop-color="#67e8f9"/>
+                            <stop offset="50%" stop-color="#2dd4bf"/>
+                            <stop offset="82%" stop-color="#0f766e"/>
+                            <stop offset="100%" stop-color="#020617"/>
+                        </radialGradient>
+                        <linearGradient id="panelBg" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" stop-color="#0f172a" stop-opacity="0.92"/>
+                            <stop offset="100%" stop-color="#020617" stop-opacity="0.96"/>
+                        </linearGradient>
+                        <pattern id="miniGrid" width="26" height="26" patternUnits="userSpaceOnUse">
+                            <path d="M 26 0 H0 V26" fill="none" stroke="#14263b" stroke-width="1" opacity="0.46"/>
+                        </pattern>
+
+                        <path id="pCloud" d="M480 330 C400 300 338 256 250 192"/>
+                        <path id="pDrone" d="M480 330 C560 300 622 256 710 192"/>
+                        <path id="pMcu" d="M480 330 C388 332 312 334 230 334"/>
+                        <path id="pSecurity" d="M480 330 C572 332 648 334 730 334"/>
+                        <path id="pRobot" d="M480 330 C398 388 332 444 250 500"/>
+                        <path id="pRenew" d="M480 330 C562 388 628 444 710 500"/>
+                    </defs>
+
+                    <rect x="34" y="34" width="892" height="592" rx="34" fill="#020617" opacity="0.56" stroke="#1e293b"/>
+                    <rect x="56" y="56" width="848" height="548" rx="28" fill="url(#miniGrid)" opacity="0.78"/>
+
+                    <g fill="none" opacity="0.76">
+                        <ellipse cx="480" cy="330" rx="330" ry="172" stroke="#172033"/>
+                        <ellipse cx="480" cy="330" rx="250" ry="252" stroke="#172033"/>
+                        <ellipse cx="480" cy="330" rx="150" ry="150" stroke="#1e293b"/>
+                        <path d="M144 330 C260 208 700 208 816 330" stroke="#101828"/>
+                        <path d="M144 330 C260 452 700 452 816 330" stroke="#101828"/>
+                    </g>
+
+                    <g fill="none" stroke-linecap="round">
+                        <g stroke="#0b1220" stroke-width="18">
+                            <use href="#pCloud"/><use href="#pDrone"/><use href="#pMcu"/><use href="#pSecurity"/><use href="#pRobot"/><use href="#pRenew"/>
+                        </g>
+                        <g stroke="url(#traceGrad)" stroke-width="4" stroke-dasharray="14 18" filter="url(#glow)">
+                            <use href="#pCloud"><animate attributeName="stroke-dashoffset" from="130" to="0" dur="3.0s" repeatCount="indefinite"/></use>
+                            <use href="#pDrone"><animate attributeName="stroke-dashoffset" from="0" to="130" dur="2.9s" repeatCount="indefinite"/></use>
+                            <use href="#pMcu"><animate attributeName="stroke-dashoffset" from="130" to="0" dur="3.3s" repeatCount="indefinite"/></use>
+                            <use href="#pSecurity"><animate attributeName="stroke-dashoffset" from="0" to="130" dur="3.1s" repeatCount="indefinite"/></use>
+                            <use href="#pRobot"><animate attributeName="stroke-dashoffset" from="130" to="0" dur="3.6s" repeatCount="indefinite"/></use>
+                            <use href="#pRenew"><animate attributeName="stroke-dashoffset" from="0" to="130" dur="3.8s" repeatCount="indefinite"/></use>
+                        </g>
+                    </g>
+
+                    <g filter="url(#softGlow)">
+                        <circle r="5" fill="#ecfeff"><animateMotion dur="2.8s" repeatCount="indefinite"><mpath href="#pCloud"/></animateMotion></circle>
+                        <circle r="5" fill="#2dd4bf"><animateMotion dur="2.9s" repeatCount="indefinite"><mpath href="#pDrone"/></animateMotion></circle>
+                        <circle r="5" fill="#818cf8"><animateMotion dur="3.0s" repeatCount="indefinite"><mpath href="#pMcu"/></animateMotion></circle>
+                        <circle r="5" fill="#67e8f9"><animateMotion dur="3.2s" repeatCount="indefinite"><mpath href="#pSecurity"/></animateMotion></circle>
+                        <circle r="5" fill="#2dd4bf"><animateMotion dur="3.4s" repeatCount="indefinite"><mpath href="#pRobot"/></animateMotion></circle>
+                        <circle r="5" fill="#818cf8"><animateMotion dur="3.6s" repeatCount="indefinite"><mpath href="#pRenew"/></animateMotion></circle>
+                    </g>
+
+                    <!-- Center brain -->
+                    <g transform="translate(480 330)">
+                        <circle r="136" fill="#020617" opacity="0.92" stroke="#1e293b" stroke-width="2"/>
+                        <circle r="112" fill="none" stroke="#2dd4bf" stroke-width="3.5" stroke-dasharray="88 54" filter="url(#glow)">
+                            <animateTransform attributeName="transform" type="rotate" from="0" to="360" dur="18s" repeatCount="indefinite"/>
+                        </circle>
+                        <circle r="88" fill="none" stroke="#818cf8" stroke-width="2" stroke-dasharray="18 22" opacity="0.82">
+                            <animateTransform attributeName="transform" type="rotate" from="360" to="0" dur="24s" repeatCount="indefinite"/>
+                        </circle>
+                        <circle r="54" fill="url(#centerGlow)" filter="url(#softGlow)">
+                            <animate attributeName="r" values="50;56;50" dur="3.2s" repeatCount="indefinite"/>
+                        </circle>
+                        <g fill="none" stroke="#020617" stroke-width="4.4" stroke-linecap="round" stroke-linejoin="round" opacity="0.84">
+                            <path d="M-10 -30 C-26 -36 -42 -28 -44 -12 C-50 -8 -52 6 -44 16 C-38 24 -28 28 -16 28"/>
+                            <path d="M10 -30 C26 -36 42 -28 44 -12 C50 -8 52 6 44 16 C38 24 28 28 16 28"/>
+                            <path d="M0 -34 V32"/>
+                            <path d="M-24 -18 C-10 -14 -10 -2 -22 2"/>
+                            <path d="M24 -18 C10 -14 10 -2 22 2"/>
+                            <path d="M-22 10 C-10 12 -8 20 -16 26"/>
+                            <path d="M22 10 C10 12 8 20 16 26"/>
+                        </g>
+                        <g fill="#2dd4bf" filter="url(#glow)">
+                            <circle cx="0" cy="-112" r="5"/><circle cx="112" cy="0" r="5"/><circle cx="0" cy="112" r="5"/><circle cx="-112" cy="0" r="5"/>
+                            <circle cx="80" cy="-80" r="4.5"/><circle cx="80" cy="80" r="4.5"/><circle cx="-80" cy="80" r="4.5"/><circle cx="-80" cy="-80" r="4.5"/>
+                        </g>
+                    </g>
+
+                    <!-- Common node card size = same size -->
+                    <g transform="translate(250 192)">
+                        <animateTransform attributeName="transform" type="translate" values="250 184;250 200;250 184" dur="6.3s" repeatCount="indefinite"/>
+                        <rect x="-88" y="-66" width="176" height="132" rx="24" fill="url(#panelBg)" stroke="url(#nodeBorder)" stroke-opacity="0.5"/>
+                        <path d="M-34 -2 C-48 -1 -58 9 -58 21 C-58 36 -46 46 -30 46 H38 C54 46 66 34 66 19 C66 3 52 -8 36 -8 C30 -28 3 -38 -16 -24 C-24 -16 -28 -7 -34 -2 Z" fill="none" stroke="#818cf8" stroke-width="4" stroke-linejoin="round"/>
+                        <rect x="-28" y="18" width="56" height="10" rx="3" fill="#020617" stroke="#2dd4bf"/>
+                        <rect x="-28" y="34" width="56" height="10" rx="3" fill="#020617" stroke="#38bdf8"/>
+                    </g>
+
+                    <g transform="translate(710 192)">
+                        <animateTransform attributeName="transform" type="translate" values="710 200;710 184;710 200" dur="6.0s" repeatCount="indefinite"/>
+                        <rect x="-88" y="-66" width="176" height="132" rx="24" fill="url(#panelBg)" stroke="url(#nodeBorder)" stroke-opacity="0.5"/>
+                        <g stroke="#94a3b8" stroke-width="5" stroke-linecap="round">
+                            <line x1="-14" y1="-14" x2="-46" y2="-38"/><line x1="14" y1="-14" x2="46" y2="-38"/>
+                            <line x1="-14" y1="14" x2="-46" y2="38"/><line x1="14" y1="14" x2="46" y2="38"/>
+                        </g>
+                        <rect x="-24" y="-20" width="48" height="40" rx="11" fill="#1e293b" stroke="#2dd4bf" stroke-width="3"/>
+                        <circle cx="0" cy="0" r="8" fill="#818cf8" filter="url(#glow)"/>
+                        <g fill="#2dd4bf" opacity="0.92">
+                            <g transform="translate(-46 -38)"><ellipse rx="20" ry="3.5"><animateTransform attributeName="transform" type="rotate" from="0" to="360" dur="0.4s" repeatCount="indefinite"/></ellipse></g>
+                            <g transform="translate(46 -38)"><ellipse rx="20" ry="3.5"><animateTransform attributeName="transform" type="rotate" from="0" to="360" dur="0.4s" repeatCount="indefinite"/></ellipse></g>
+                            <g transform="translate(-46 38)"><ellipse rx="20" ry="3.5"><animateTransform attributeName="transform" type="rotate" from="0" to="360" dur="0.4s" repeatCount="indefinite"/></ellipse></g>
+                            <g transform="translate(46 38)"><ellipse rx="20" ry="3.5"><animateTransform attributeName="transform" type="rotate" from="0" to="360" dur="0.4s" repeatCount="indefinite"/></ellipse></g>
+                        </g>
+                    </g>
+
+                    <g transform="translate(230 334)">
+                        <animateTransform attributeName="transform" type="translate" values="230 342;230 326;230 342" dur="6.8s" repeatCount="indefinite"/>
+                        <rect x="-88" y="-66" width="176" height="132" rx="24" fill="url(#panelBg)" stroke="url(#nodeBorder)" stroke-opacity="0.5"/>
+                        <g stroke="#2dd4bf" stroke-width="4" stroke-linecap="round">
+                            <path d="M-44 -18 H-12 M-44 0 H-12 M-44 18 H-12 M12 -18 H44 M12 0 H44 M12 18 H44"/>
+                            <path d="M-18 -42 V-12 M0 -42 V-12 M18 -42 V-12 M-18 42 V12 M0 42 V12 M18 42 V12"/>
+                        </g>
+                        <rect x="-24" y="-24" width="48" height="48" rx="10" fill="#020617" stroke="#94a3b8" stroke-width="2.4"/>
+                        <rect x="-11" y="-11" width="22" height="22" rx="4" fill="#818cf8" opacity="0.85" filter="url(#glow)"/>
+                    </g>
+
+                    <g transform="translate(730 334)">
+                        <animateTransform attributeName="transform" type="translate" values="730 326;730 342;730 326" dur="6.8s" repeatCount="indefinite"/>
+                        <rect x="-88" y="-66" width="176" height="132" rx="24" fill="url(#panelBg)" stroke="url(#nodeBorder)" stroke-opacity="0.5"/>
+                        <path d="M0 -30 C18 -20 32 -18 32 -2 V18 C32 34 18 48 0 60 C-18 48 -32 34 -32 18 V-2 C-32 -18 -18 -20 0 -30 Z" fill="none" stroke="#818cf8" stroke-width="4" stroke-linejoin="round"/>
+                        <rect x="-12" y="8" width="24" height="18" rx="4.5" fill="#020617" stroke="#2dd4bf" stroke-width="2.6"/>
+                        <path d="M-5 8 V1 C-5 -6 5 -6 5 1 V8" fill="none" stroke="#2dd4bf" stroke-width="2.6" stroke-linecap="round"/>
+                        <circle cx="0" cy="17" r="2.8" fill="#2dd4bf"/>
+                    </g>
+
+                    <g transform="translate(250 500)">
+                        <animateTransform attributeName="transform" type="translate" values="250 508;250 492;250 508" dur="6.5s" repeatCount="indefinite"/>
+                        <rect x="-88" y="-66" width="176" height="132" rx="24" fill="url(#panelBg)" stroke="url(#nodeBorder)" stroke-opacity="0.5"/>
+                        <rect x="-72" y="-50" width="144" height="100" rx="18" fill="#0b1220" fill-opacity="0.32" stroke="#1f3147"/>
+
+                        <!-- Humanoid robot -->
+                        <g transform="translate(0 -2)">
+                            <!-- glow base -->
+                            <ellipse cx="0" cy="45" rx="44" ry="7" fill="#2dd4bf" opacity="0.16" filter="url(#glow)"/>
+
+                            <!-- head -->
+                            <g filter="url(#glow)">
+                                <rect x="-24" y="-46" width="48" height="34" rx="12" fill="#0f172a" stroke="#2dd4bf" stroke-width="3"/>
+                                <rect x="-13" y="-35" width="8" height="6" rx="2" fill="#ecfeff"/>
+                                <rect x="5" y="-35" width="8" height="6" rx="2" fill="#ecfeff"/>
+                                <path d="M-8 -22 Q0 -17 8 -22" fill="none" stroke="#818cf8" stroke-width="2.6" stroke-linecap="round"/>
+                                <path d="M0 -46 V-55" stroke="#94a3b8" stroke-width="2.4" stroke-linecap="round"/>
+                                <circle cx="0" cy="-58" r="3.4" fill="#818cf8"/>
+                            </g>
+
+                            <!-- neck / torso -->
+                            <rect x="-7" y="-13" width="14" height="8" rx="3" fill="#2dd4bf" opacity="0.9"/>
+                            <path d="M-25 -4 Q0 -20 25 -4 L20 30 Q0 42 -20 30 Z" fill="#0f172a" stroke="#2dd4bf" stroke-width="3" filter="url(#glow)"/>
+                            <circle cx="0" cy="10" r="9" fill="#818cf8" opacity="0.75" filter="url(#glow)"/>
+                            <path d="M-10 8 H10 M0 -2 V22" stroke="#020617" stroke-width="2.4" stroke-linecap="round" opacity="0.7"/>
+
+                            <!-- arms -->
+                            <g fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M-25 2 C-38 8 -43 20 -40 34" stroke="#111827" stroke-width="8"/>
+                                <path d="M25 2 C38 8 43 20 40 34" stroke="#111827" stroke-width="8"/>
+                                <path d="M-25 2 C-38 8 -43 20 -40 34" stroke="#94a3b8" stroke-width="2.6"/>
+                                <path d="M25 2 C38 8 43 20 40 34" stroke="#94a3b8" stroke-width="2.6"/>
+                            </g>
+                            <circle cx="-25" cy="2" r="4.8" fill="#2dd4bf"/>
+                            <circle cx="25" cy="2" r="4.8" fill="#2dd4bf"/>
+                            <circle cx="-40" cy="34" r="4.6" fill="#818cf8"/>
+                            <circle cx="40" cy="34" r="4.6" fill="#818cf8"/>
+                            <path d="M-46 39 H-35 M35 39 H46" stroke="#ecfeff" stroke-width="2.6" stroke-linecap="round"/>
+
+                            <!-- legs -->
+                            <g fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M-10 32 C-18 42 -20 51 -21 62" stroke="#111827" stroke-width="8"/>
+                                <path d="M10 32 C18 42 20 51 21 62" stroke="#111827" stroke-width="8"/>
+                                <path d="M-10 32 C-18 42 -20 51 -21 62" stroke="#94a3b8" stroke-width="2.6"/>
+                                <path d="M10 32 C18 42 20 51 21 62" stroke="#94a3b8" stroke-width="2.6"/>
+                            </g>
+                            <circle cx="-10" cy="32" r="4.6" fill="#2dd4bf"/>
+                            <circle cx="10" cy="32" r="4.6" fill="#2dd4bf"/>
+                            <ellipse cx="-21" cy="62" rx="9" ry="4" fill="#111827" stroke="#94a3b8" stroke-width="1.5"/>
+                            <ellipse cx="21" cy="62" rx="9" ry="4" fill="#111827" stroke="#94a3b8" stroke-width="1.5"/>
+                        </g>
+                    </g>
+
+                    <g transform="translate(710 500)">
+                        <animateTransform attributeName="transform" type="translate" values="710 492;710 508;710 492" dur="6.5s" repeatCount="indefinite"/>
+                        <rect x="-88" y="-66" width="176" height="132" rx="24" fill="url(#panelBg)" stroke="url(#nodeBorder)" stroke-opacity="0.5"/>
+                        <g transform="translate(-10 -4)">
+                            <polygon points="-42 20 -28 -4 28 -4 14 20" fill="#020617" stroke="#2dd4bf" stroke-width="2.8" stroke-linejoin="round"/>
+                            <line x1="-34" y1="8" x2="20" y2="8" stroke="#2dd4bf" opacity="0.85"/>
+                            <line x1="-18" y1="-4" x2="-24" y2="20" stroke="#2dd4bf" opacity="0.85"/>
+                            <line x1="0" y1="-4" x2="-6" y2="20" stroke="#2dd4bf" opacity="0.85"/>
+                            <line x1="18" y1="-4" x2="12" y2="20" stroke="#2dd4bf" opacity="0.85"/>
+                            <path d="M-8 20 V34" stroke="#94a3b8" stroke-width="3.2" stroke-linecap="round"/>
+                            <path d="M-26 34 H10" stroke="#94a3b8" stroke-width="3.2" stroke-linecap="round"/>
+                        </g>
+                        <g transform="translate(40 -18)" fill="none" stroke="#818cf8" stroke-width="3" stroke-linecap="round">
+                            <circle cx="0" cy="0" r="9" stroke="#2dd4bf"/>
+                            <path d="M0 -14 V-20 M0 14 V20 M-14 0 H-20 M14 0 H20 M-10 -10 L-15 -15 M10 -10 L15 -15 M-10 10 L-15 15 M10 10 L15 15" opacity="0.9"/>
+                        </g>
+                    </g>
+                </svg>
+            </div>
         </div>
-        <h1 data-i18n="hero_title">أهلاً بك، أنا محمود مارديني</h1>
-        <h2 data-i18n="hero_subtitle">مهندس بحث وتطوير ومهندس سحابي | Cloud & R&D Engineer</h2>
-        <div class="hero-status"><i class="fas fa-circle"></i> Available for Projects</div><div style='margin-top:10px;font-size:.9rem;color:#64748b;'>Cloud • DevOps • AI • Embedded</div>
-        <p class="hero-desc" data-i18n="hero_desc">أجمع بين الخلفية القوية في تطوير الأنظمة المدمجة المتقدمة، وخبرتي في البنية التحتية السحابية وأتمتة العمليات. أهدف لبناء حلول برمجية متكاملة وقابلة للتوسع.</p>
-        <div class="hero-actions">
-            <a href="#contact" class="btn-primary">
-                <i class="fas fa-calendar-check"></i>
-                <span data-i18n="nav_contact">احجز استشارة</span>
-            </a>
-            <a href="#projects" class="btn-secondary">
-                <i class="fas fa-diagram-project"></i>
-                <span data-i18n="hero_btn_projects">شاهد المشاريع</span>
-            </a>
-        </div>
+
+
     </div>
 </section>
 
-<div class="stats-strip">
+<div class="stats-wrapper">
     <div class="stats-grid">
-        <div class="stat-item reveal">
-            <div class="stat-number">5<em>+</em></div>
+        <div class="stat-item">
+            <div class="stat-number"><span class="count-val" data-target="5">0</span><em>+</em></div>
             <div class="stat-label" data-i18n="stat1">سنوات خبرة</div>
         </div>
-        <div class="stat-item reveal reveal-d1">
-            <div class="stat-number">3</div>
+        <div class="stat-item">
+            <div class="stat-number"><span class="count-val" data-target="3">0</span></div>
             <div class="stat-label" data-i18n="stat2">قطاعات صناعية</div>
         </div>
-        <div class="stat-item reveal reveal-d2">
-            <div class="stat-number">10<em>+</em></div>
+        <div class="stat-item">
+            <div class="stat-number"><span class="count-val" data-target="10">0</span><em>+</em></div>
             <div class="stat-label" data-i18n="stat3">مشاريع منجزة</div>
         </div>
-        <div class="stat-item reveal reveal-d3">
-            <div class="stat-number">3</div>
+        <div class="stat-item">
+            <div class="stat-number"><span class="count-val" data-target="3">0</span></div>
             <div class="stat-label" data-i18n="stat4">لغات عمل</div>
         </div>
     </div>
 </div>
 
-<section id="services" class="section">
+<section id="services" class="section section-alt">
     <div class="container">
-        <div class="section-header reveal">
-            <div class="section-eyebrow" data-i18n="srv_eyebrow">Services</div>
+        <div class="section-header">
+            <div class="section-eyebrow" data-i18n="srv_eyebrow">Services Grid</div>
             <h2 class="section-title" data-i18n="services_title">خدمات هندسية متكاملة</h2>
         </div>
         <div class="grid-4">
-            <article class="service-card reveal reveal-d1">
-                <div class="service-icon-wrap">☁️</div>
+            <article class="service-card">
+                <div class="service-icon-wrap"><i class="fas fa-cloud-arrow-up"></i></div>
                 <h3 data-i18n="srv1_title">الرقمنة والترحيل السحابي</h3>
                 <p data-i18n="srv1_desc">نقل البنية التحتية التقليدية لشركتك إلى سحابة AWS مع تصميم معمارية آمنة ومؤتمتة (DevOps/IaC) لتقليل التكاليف.</p>
             </article>
-            <article class="service-card reveal reveal-d2">
-                <div class="service-icon-wrap">🤖</div>
+            <article class="service-card">
+                <div class="service-icon-wrap"><i class="fas fa-robot"></i></div>
                 <h3 data-i18n="srv2_title">استضافة وإدارة الذكاء الاصطناعي</h3>
                 <p data-i18n="srv2_desc">تجهيز بيئات سحابية لنشر نماذج الذكاء الاصطناعي ووكلاء الأتمتة (AI Agents). إدارة الحاويات وقواعد البيانات بكفاءة.</p>
             </article>
-            <article class="service-card reveal reveal-d3">
-                <div class="service-icon-wrap">⚙️</div>
+            <article class="service-card">
+                <div class="service-icon-wrap"><i class="fas fa-microchip"></i></div>
                 <h3 data-i18n="srv3_title">حلول إنترنت الأشياء والأنظمة المدمجة</h3>
                 <p data-i18n="srv3_desc">تطوير أولي للوحات الإلكترونية (Prototyping) والأنظمة المدمجة، وربطها ببروتوكولات آمنة لنقل البيانات إلى السحابة.</p>
             </article>
-            <article class="service-card reveal reveal-d4">
-                <div class="service-icon-wrap">🌱</div>
+            <article class="service-card">
+                <div class="service-icon-wrap"><i class="fas fa-solar-panel"></i></div>
                 <h3 data-i18n="srv4_title">حلول IoT للطاقة الذكية</h3>
                 <p data-i18n="srv4_desc">دمج الأنظمة المدمجة مع السحابة لتطبيقات الطاقة المتجددة والشبكات الذكية، بالاستفادة من خلفيتي الأكاديمية المتخصصة.</p>
             </article>
-            <article class="service-card reveal reveal-d5">
-                <div class="service-icon-wrap">🧠</div>
+            <article class="service-card">
+                <div class="service-icon-wrap"><i class="fas fa-brain"></i></div>
                 <h3 data-i18n="srv5_title">دمج الذكاء الاصطناعي (Digitalisierung)</h3>
                 <p data-i18n="srv5_desc">مساعدة الشركات على دمج تقنيات الذكاء الاصطناعي والأتمتة في عملياتها اليومية، وتحديث بنيتها التقنية لتحسين الإنتاجية وتقليل التكاليف.</p>
             </article>
-            <article class="service-card reveal reveal-d6">
-                <div class="service-icon-wrap">🔒</div>
+            <article class="service-card">
+                <div class="service-icon-wrap"><i class="fas fa-shield-halved"></i></div>
                 <h3 data-i18n="srv6_title">أمن السحابة وإدارة الهويات</h3>
                 <p data-i18n="srv6_desc">تأمين البنية التحتية وإدارة صلاحيات الوصول (IAM). حماية البيانات الحساسة والأسرار باستخدام أفضل الممارسات المعتمدة.</p>
             </article>
@@ -868,154 +1035,126 @@
     </div>
 </section>
 
-<section id="focus" class="section section-alt">
+<section id="workflow" class="section">
     <div class="container">
-        <div class="section-header reveal">
+        <div class="section-header">
+            <div class="section-eyebrow" data-i18n="workflow_eyebrow">Delivery Method</div>
+            <h2 class="section-title" data-i18n="workflow_title">طريقة العمل: من الفكرة إلى نظام يعمل</h2>
+        </div>
+        <div class="workflow-grid">
+            <article class="workflow-card">
+                <div class="workflow-step">01</div>
+                <h3 data-i18n="workflow1_title">تشخيص سريع وواضح</h3>
+                <p data-i18n="workflow1_desc">نحدد المشكلة، البيانات، القيود، ومؤشرات النجاح قبل كتابة أي كود حتى لا يتحول المشروع لتجارب عشوائية.</p>
+            </article>
+            <article class="workflow-card">
+                <div class="workflow-step">02</div>
+                <h3 data-i18n="workflow2_title">Prototype هندسي قابل للتطوير</h3>
+                <p data-i18n="workflow2_desc">أبني نسخة أولى نظيفة تربط السحابة، الذكاء الاصطناعي، أو الأنظمة المدمجة بطريقة قابلة للتوسيع لاحقاً.</p>
+            </article>
+            <article class="workflow-card">
+                <div class="workflow-step">03</div>
+                <h3 data-i18n="workflow3_title">نشر، أمان، ومراقبة</h3>
+                <p data-i18n="workflow3_desc">نرفع الحل على بنية مستقرة مع مراقبة، صلاحيات وصول، نسخ احتياطي، وتوثيق واضح للتشغيل والصيانة.</p>
+            </article>
+        </div>
+    </div>
+</section>
+
+<section id="focus" class="section">
+    <div class="container">
+        <div class="section-header">
             <div class="section-eyebrow" data-i18n="focus_eyebrow">Current Focus</div>
             <h2 class="section-title" data-i18n="focus_title">مجال التركيز الحالي</h2>
         </div>
-        <div class="focus-card reveal">
-            <div class="focus-icon-wrap">
-                <span class="focus-ring focus-ring-1"></span>
-                <span class="focus-ring focus-ring-2"></span>
-                <div class="focus-icon-inner">
-                    <i class="fas fa-network-wired"></i>
-                </div>
+        <div class="focus-card">
+            <div class="focus-icon-area">
+                <i class="fas fa-network-wired"></i>
             </div>
-            <h3 data-i18n="focus_ai_title">تطوير ونشر وكلاء الذكاء الاصطناعي (AI Agents)</h3>
-            <p data-i18n="focus_ai_desc">أركز حالياً بشكل مكثف على تصميم وتطوير وكلاء الذكاء الاصطناعي المستقلة (Autonomous AI Agents) لأتمتة العمليات المعقدة والمهام الإنتاجية، ونشرها على بنية تحتية سحابية متقدمة ومحسنة التكلفة لضمان أعلى أداء واستقرار.</p>
-            <div class="tags-row">
-                <span class="tag">AI Agents</span>
-                <span class="tag">LLMs Automation</span>
-                <span class="tag">Cloud Deployment</span>
-                <span class="tag">C++</span>
-                <span class="tag">Embedded</span>
+            <div class="focus-content">
+                <h3 data-i18n="focus_ai_title">تطوير ونشر وكلاء الذكاء الاصطناعي (AI Agents)</h3>
+                <p data-i18n="focus_ai_desc">أركز حالياً بشكل مكثف على تصميم وتطوير وكلاء الذكاء الاصطناعي المستقلة (Autonomous AI Agents) لأتمتة العمليات المعقدة والمهام الإنتاجية، ونشرها على بنية تحتية سحابية متقدمة ومحسنة التكلفة لضمان أعلى أداء واستقرار.</p>
+                <div class="tags-row">
+                    <span class="tag">AI Agents</span>
+                    <span class="tag">LLMs Automation</span>
+                    <span class="tag">Cloud Deployment</span>
+                    <span class="tag">C++</span>
+                    <span class="tag">Embedded</span>
+                </div>
             </div>
         </div>
     </div>
 </section>
 
-<section id="projects" class="section">
-    <div class="container">
-        <div class="section-header reveal">
-            <div class="section-eyebrow" data-i18n="proj_eyebrow">Experience</div>
-            <h2 class="section-title" data-i18n="projects_title">أبرز المشاريع والخبرات</h2>
-        </div>
-        <div class="project-grid">
-            <article class="project-card reveal reveal-d1">
-                <div class="project-img-wrap">
-                    <div class="project-img-icon"><i class="fas fa-cloud-arrow-up"></i></div>
-                </div>
-                <div class="project-body">
-                    <h3 data-i18n="p1_title">هندسة السحابة والأتمتة</h3>
-                    <p data-i18n="p1_desc">تصميم البنية التحتية باستخدام AWS (EC2, S3, RDS) وأتمتتها عبر Terraform. إعداد CI/CD وإدارة Docker و K8s. نشر وكلاء Openclaw وقواعد بيانات DBeaver.</p>
-                    <div class="project-tags">
-                        <span class="tag">AWS / Terraform</span>
-                        <span class="tag">Docker / K8s</span>
-                        <span class="tag">Python</span>
-                        <span class="tag">SQL</span>
-                    </div>
-                </div>
-            </article>
-            <article class="project-card reveal reveal-d2">
-                <div class="project-img-wrap">
-                    <div class="project-img-icon"><i class="fab fa-linux"></i></div>
-                </div>
-                <div class="project-body">
-                    <h3 data-i18n="p2_title">أنظمة Embedded Linux</h3>
-                    <p data-i18n="p2_desc">بناء أنظمة لينكس المدمجة باستخدام Yocto Project. تكوين النواة (Kernel)، بناء الصور، تعريف المشغلات، وتفليش البرامج الثابتة.</p>
-                    <div class="project-tags">
-                        <span class="tag">Yocto Project</span>
-                        <span class="tag">Linux Kernel</span>
-                    </div>
-                </div>
-            </article>
-            <article class="project-card reveal reveal-d3">
-                <div class="project-img-wrap">
-                    <div class="project-img-icon"><i class="fas fa-car-side"></i></div>
-                </div>
-                <div class="project-body">
-                    <h3 data-i18n="p3_title">مطور ومشرف Embedded · قطاع السيارات</h3>
-                    <p data-i18n="p3_desc">عملت كمطور أنظمة مدمجة ومشرف على تطوير Embedded في شتوتغارت. برمجة بـ C++ وتصميم اللوحات بـ Altium, Eagle, و KiCad لشركات كمرسيدس وفولفو.</p>
-                    <div class="project-tags">
-                        <span class="tag">C++</span>
-                        <span class="tag">Altium / KiCad</span>
-                        <span class="tag">A-SPICE / EMC</span>
-                    </div>
-                </div>
-            </article>
-            <article class="project-card reveal reveal-d4">
-                <div class="project-img-wrap">
-                    <div class="project-img-icon"><i class="fas fa-microchip"></i></div>
-                </div>
-                <div class="project-body">
-                    <h3 data-i18n="p4_title">برمجة المتحكمات (ARM Cortex)</h3>
-                    <p data-i18n="p4_desc">برمجة ARM Cortex M4 ببيئة STM32Cube ومكتبات HAL. تطوير Arduino وتطوير واجهات (CAN, SPI, I2C) مع فك تشفير الإشارات.</p>
-                    <div class="project-tags">
-                        <span class="tag">C++</span>
-                        <span class="tag">STM32Cube</span>
-                        <span class="tag">CAN / SPI / I2C</span>
-                    </div>
-                </div>
-            </article>
-            <article class="project-card reveal reveal-d5">
-                <div class="project-img-wrap">
-                    <div class="project-img-icon"><i class="fas fa-shield-halved"></i></div>
-                </div>
-                <div class="project-body">
-                    <h3 data-i18n="p5_title">شبكة آمنة · OpenWrt & AdGuard DNS</h3>
-                    <p data-i18n="p5_desc">ضبط الراوترات عبر OpenWrt ودمج AdGuard DNS (DNS-over-HTTPS/TLS) لحجب الإعلانات وحماية الخصوصية وفلترة البرمجيات الخبيثة على مستوى الشبكة كاملاً.</p>
-                    <div class="project-tags">
-                        <span class="tag">OpenWrt</span>
-                        <span class="tag">AdGuard DNS</span>
-                        <span class="tag">DoH / DoT</span>
-                        <span class="tag">Network Security</span>
-                    </div>
-                </div>
-            </article>
-            <article class="project-card reveal reveal-d6">
-                <div class="project-img-wrap">
-                    <div class="project-img-icon"><i class="fas fa-key"></i></div>
-                </div>
-                <div class="project-body">
-                    <h3 data-i18n="p6_title">إدارة الهويات والأسرار (Security)</h3>
-                    <p data-i18n="p6_desc">بناء وتطبيق سياسات الوصول الآمن (IAM) للبيئات السحابية. إدارة كلمات المرور عبر منصات مثل Bitwarden وحماية بيانات التطبيقات عبر AWS Secrets Manager.</p>
-                    <div class="project-tags">
-                        <span class="tag">IAM</span>
-                        <span class="tag">AWS Secrets Manager</span>
-                        <span class="tag">Bitwarden</span>
-                        <span class="tag">Security</span>
-                    </div>
-                </div>
-            </article>
-        </div>
-    </div>
-</section>
-
-<section id="education" class="section section-alt">
-    <div class="container">
-        <div class="section-header reveal">
-            <div class="section-eyebrow" data-i18n="edu_eyebrow">التعليم</div>
-            <h2 class="section-title" data-i18n="edu_title">المؤهلات الأكاديمية</h2>
-        </div>
-        <div class="edu-card reveal">
-            <div class="edu-icon-wrap">🎓</div>
-            <div>
-                <div class="edu-degree" data-i18n="edu_degree">بكالوريوس هندسة الطاقات المتجددة</div>
-                <div class="edu-school" data-i18n="edu_school">جامعة شتوتغارت · Stuttgart, DE</div>
-            </div>
-        </div>
-    </div>
-</section>
-
-
-<section class="section section-alt">
+<section id="projects" class="section section-alt">
     <div class="container">
         <div class="section-header">
-            <div class="section-eyebrow">TECH STACK</div>
-            <h2 class="section-title">Technologies</h2>
+            <div class="section-eyebrow" data-i18n="proj_eyebrow">Experience Grid</div>
+            <h2 class="section-title" data-i18n="projects_title">أبرز المشاريع والخبرات</h2>
         </div>
-        <div class="tags-row">
+        <div class="grid-4">
+            <article class="project-card">
+                <div class="project-header">
+                    <div class="project-icon"><i class="fab fa-aws"></i></div>
+                    <h3 data-i18n="p1_title">هندسة السحابة والأتمتة</h3>
+                </div>
+                <div class="project-body">
+                    <p data-i18n="p1_desc">تصميم البنية التحتية باستخدام AWS (EC2, S3, RDS) وأتمتتها عبر Terraform. إعداد CI/CD وإدارة Docker و K8s. نشر وكلاء Openclaw وقواعد بيانات DBeaver.</p>
+                </div>
+                <div class="tags-row">
+                    <span class="tag">AWS</span>
+                    <span class="tag">Terraform</span>
+                </div>
+            </article>
+            <article class="project-card">
+                <div class="project-header">
+                    <div class="project-icon"><i class="fab fa-linux"></i></div>
+                    <h3 data-i18n="p2_title">أنظمة Embedded Linux</h3>
+                </div>
+                <div class="project-body">
+                    <p data-i18n="p2_desc">بناء أنظمة لينكس المدمجة باستخدام Yocto Project. تكوين النواة (Kernel)، بناء الصور، تعريف المشغلات، وتفليش البرامج الثابتة.</p>
+                </div>
+                <div class="tags-row">
+                    <span class="tag">Yocto</span>
+                    <span class="tag">Linux</span>
+                </div>
+            </article>
+            <article class="project-card">
+                <div class="project-header">
+                    <div class="project-icon"><i class="fas fa-car"></i></div>
+                    <h3 data-i18n="p3_title">مطور Embedded للسيارات</h3>
+                </div>
+                <div class="project-body">
+                    <p data-i18n="p3_desc">عملت كمطور أنظمة مدمجة ومشرف على تطوير Embedded في شتوتغارت. برمجة بـ C++ وتصميم اللوحات بـ Altium لشركات كمرسيدس وفولفو.</p>
+                </div>
+                <div class="tags-row">
+                    <span class="tag">Automotive</span>
+                    <span class="tag">C++</span>
+                </div>
+            </article>
+            <article class="project-card">
+                <div class="project-header">
+                    <div class="project-icon"><i class="fas fa-microchip"></i></div>
+                    <h3 data-i18n="p4_title">برمجة المتحكمات (ARM Cortex)</h3>
+                </div>
+                <div class="project-body">
+                    <p data-i18n="p4_desc">برمجة ARM Cortex M4 ببيئة STM32Cube ومكتبات HAL. تطوير Arduino وتطوير واجهات (CAN, SPI, I2C) مع فك تشفير الإشارات.</p>
+                </div>
+                <div class="tags-row">
+                    <span class="tag">ARM</span>
+                    <span class="tag">STM32</span>
+                </div>
+            </article>
+        </div>
+    </div>
+</section>
+
+<section class="section">
+    <div class="container">
+        <div class="section-header text-center" style="text-align: center;">
+            <div class="section-eyebrow">TECH STACK</div>
+        </div>
+        <div class="tags-row" style="justify-content: center; gap: 16px;">
             <span class="tag"><i class="fab fa-aws"></i> AWS</span>
             <span class="tag"><i class="fas fa-cubes"></i> Terraform</span>
             <span class="tag"><i class="fab fa-docker"></i> Docker</span>
@@ -1025,28 +1164,52 @@
             <span class="tag"><i class="fas fa-code"></i> C++</span>
             <span class="tag"><i class="fas fa-robot"></i> AI Agents</span>
             <span class="tag"><i class="fas fa-microchip"></i> Embedded</span>
-            <span class="tag"><i class="fas fa-infinity"></i> DevOps</span>
         </div>
     </div>
 </section>
 
-<section id="contact" class="section contact-section">
+<section class="section section-alt">
     <div class="container">
-        <div class="section-header reveal">
-            <div class="section-eyebrow" data-i18n="contact_eyebrow">Contact</div>
-            <h2 class="section-title" data-i18n="contact_title">تواصل معي أو احجز استشارة</h2>
+        <div class="cta-band">
+            <div class="cta-copy">
+                <h2 data-i18n="cta_title">عندك فكرة Cloud أو AI أو IoT؟ خلينا نختبرها بذكاء.</h2>
+                <p data-i18n="cta_desc">أقدر أساعدك تحوّل الفكرة إلى خطة تقنية واضحة، نموذج أولي، أو نشر فعلي على بنية آمنة وقابلة للتوسع.</p>
+            </div>
+            <div class="cta-actions">
+                <a href="#contact" class="btn-primary"><i class="fas fa-calendar-check"></i><span data-i18n="cta_primary">احجز مكالمة</span></a>
+                <a href="https://wa.me/4915779899849" target="_blank" rel="noopener" class="btn-secondary"><i class="fab fa-whatsapp"></i><span data-i18n="cta_secondary">راسلني واتساب</span></a>
+                <span class="cta-note" data-i18n="cta_note">مكالمة أولى قصيرة وواضحة</span>
+            </div>
         </div>
-        <div class="contact-methods reveal">
-            <div class="contact-item">📧 <a href="mailto:mahmoud.mardini@outlook.com">mahmoud.mardini@outlook.com</a></div>
-            <div class="contact-item">📱 <a href="tel:+4915779899849" dir="ltr">+49 157 79899849</a></div>
-            <div class="contact-item">💬 <a href="https://wa.me/4915779899849" target="_blank" rel="noopener">WhatsApp</a></div>
+    </div>
+</section>
+
+<section id="contact" class="section section-alt">
+    <div class="container">
+        <div class="contact-wrapper">
+            <div class="contact-info">
+                <h2 data-i18n="contact_title">تواصل معي أو احجز استشارة</h2>
+                <div class="contact-methods">
+                    <div class="contact-item">
+                        <i class="far fa-envelope"></i>
+                        <a href="mailto:mahmoud.mardini@outlook.com">mahmoud.mardini@outlook.com</a>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-phone-alt"></i>
+                        <a href="tel:+4915779899849" dir="ltr">+49 157 79899849</a>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fab fa-whatsapp"></i>
+                        <a href="https://wa.me/4915779899849" target="_blank" rel="noopener">WhatsApp</a>
+                    </div>
+                </div>
+            </div>
+            <div class="calendly-wrap">
+                <div class="calendly-inline-widget"
+         data-url="https://calendly.com/mahmoud-mardini?hide_gdpr_banner=1&hide_event_type_details=1"
+         style="min-width:320px;height:100%; min-height: 500px;"></div>
+            </div>
         </div>
-        <div class="calendly-wrap reveal">
-            <div class="calendly-inline-widget"
-     data-url="https://calendly.com/mahmoud-mardini?hide_gdpr_banner=1&hide_event_type_details=1"
-     style="min-width:320px;height:560px;"></div>
-        </div>
-        <p class="calendly-note" data-i18n="calendly_note">* قم باختيار اليوم والوقت المناسبين لك من التقويم أعلاه.</p>
     </div>
 </section>
 
@@ -1064,15 +1227,16 @@
     /* ── Translations ── */
     const translations = {
         ar: {
-            logo: "م. محمود مارديني",
-            nav_services: "الخدمات", nav_focus: "التركيز الحالي", nav_projects: "الخبرات",
+            logo: "Eng. Mahmoud Mardini",
+            nav_services: "الخدمات", nav_focus: "التركيز الحالي", nav_workflow: "منهجيتي", nav_projects: "الخبرات",
             nav_contact: "احجز استشارة", hero_btn_projects: "شاهد المشاريع",
-            hero_badge: "مهندس سحابي · شتوتغارت، ألمانيا",
             hero_title: "أهلاً بك، أنا محمود مارديني",
             hero_subtitle: "مهندس بحث وتطوير ومهندس سحابي | Cloud & R&D Engineer",
+            availability_status: "متاح لمشاريع جديدة",
+            hero_chip_1: "شتوتغارت، ألمانيا", hero_chip_2: "Cloud + AI + Embedded", hero_chip_3: "بناء آمن من البداية", hero_chip_4: "Prototype → Production",
             hero_desc: "أجمع بين الخلفية القوية في تطوير الأنظمة المدمجة المتقدمة، وخبرتي في البنية التحتية السحابية وأتمتة العمليات. أهدف لبناء حلول برمجية متكاملة وقابلة للتوسع.",
             stat1: "سنوات خبرة", stat2: "قطاعات صناعية", stat3: "مشاريع منجزة", stat4: "لغات عمل",
-            srv_eyebrow: "الخدمات", services_title: "خدمات هندسية متكاملة",
+            srv_eyebrow: "Services Grid", services_title: "خدمات هندسية متكاملة",
             srv1_title: "الرقمنة والترحيل السحابي",
             srv1_desc: "نقل البنية التحتية التقليدية لشركتك إلى سحابة AWS مع تصميم معمارية آمنة ومؤتمتة لتقليل التكاليف.",
             srv2_title: "استضافة وإدارة الذكاء الاصطناعي",
@@ -1085,118 +1249,117 @@
             srv5_desc: "مساعدة الشركات على دمج تقنيات الذكاء الاصطناعي والأتمتة في عملياتها اليومية، وتحديث بنيتها التقنية لتحسين الإنتاجية وتقليل التكاليف.",
             srv6_title: "أمن السحابة وإدارة الهويات",
             srv6_desc: "تأمين البنية التحتية وإدارة صلاحيات الوصول (IAM). حماية البيانات الحساسة والأسرار باستخدام أفضل الممارسات المعتمدة.",
-            focus_eyebrow: "التركيز الحالي", focus_title: "مجال التركيز الحالي",
+            workflow_eyebrow: "Delivery Method", workflow_title: "طريقة العمل: من الفكرة إلى نظام يعمل",
+            workflow1_title: "تشخيص سريع وواضح", workflow1_desc: "نحدد المشكلة، البيانات، القيود، ومؤشرات النجاح قبل كتابة أي كود حتى لا يتحول المشروع لتجارب عشوائية.",
+            workflow2_title: "Prototype هندسي قابل للتطوير", workflow2_desc: "أبني نسخة أولى نظيفة تربط السحابة، الذكاء الاصطناعي، أو الأنظمة المدمجة بطريقة قابلة للتوسيع لاحقاً.",
+            workflow3_title: "نشر، أمان، ومراقبة", workflow3_desc: "نرفع الحل على بنية مستقرة مع مراقبة، صلاحيات وصول، نسخ احتياطي، وتوثيق واضح للتشغيل والصيانة.",
+            focus_eyebrow: "Current Focus", focus_title: "مجال التركيز الحالي",
             focus_ai_title: "تطوير ونشر وكلاء الذكاء الاصطناعي (AI Agents)",
             focus_ai_desc: "أركز حالياً بشكل مكثف على تصميم وتطوير وكلاء الذكاء الاصطناعي المستقلة (Autonomous AI Agents) لأتمتة العمليات المعقدة والمهام الإنتاجية، ونشرها على بنية تحتية سحابية متقدمة ومحسنة التكلفة لضمان أعلى أداء واستقرار.",
-            proj_eyebrow: "الخبرات", projects_title: "أبرز المشاريع والخبرات",
-            edu_eyebrow: "التعليم", edu_title: "المؤهلات الأكاديمية",
-            edu_degree: "بكالوريوس هندسة الطاقات المتجددة",
-            edu_school: "جامعة شتوتغارت · Stuttgart, DE",
+            proj_eyebrow: "Experience Grid", projects_title: "أبرز المشاريع والخبرات",
             p1_title: "هندسة السحابة والأتمتة",
-            p1_desc: "تصميم البنية التحتية باستخدام AWS (EC2, S3, RDS) وأتمتتها عبر Terraform. إعداد CI/CD وإدارة Docker و K8s. نشر وكلاء Openclaw وقواعد بيانات DBeaver.",
+            p1_desc: "تصميم البنية التحتية باستخدام AWS (EC2, S3, RDS) وأتمتتها عبر Terraform. إعداد CI/CD وإدارة Docker و K8s.",
             p2_title: "أنظمة Embedded Linux",
-            p2_desc: "بناء أنظمة لينكس المدمجة باستخدام Yocto Project. تكوين النواة (Kernel)، بناء الصور، تعريف المشغلات، وتفليش البرامج الثابتة.",
-            p3_title: "مطور ومشرف Embedded · قطاع السيارات",
-            p3_desc: "عملت كمطور أنظمة مدمجة ومشرف على تطوير Embedded في شتوتغارت. برمجة بـ C++ وتصميم اللوحات بـ Altium, Eagle, و KiCad لشركات كمرسيدس وفولفو.",
+            p2_desc: "بناء أنظمة لينكس المدمجة باستخدام Yocto Project. تكوين النواة (Kernel)، بناء الصور وتفليش البرامج الثابتة.",
+            p3_title: "مطور Embedded للسيارات",
+            p3_desc: "عملت كمطور أنظمة مدمجة ومشرف على تطوير Embedded في شتوتغارت. برمجة بـ C++ وتصميم اللوحات بـ Altium.",
             p4_title: "برمجة المتحكمات (ARM Cortex)",
-            p4_desc: "برمجة ARM Cortex M4 ببيئة STM32Cube ومكتبات HAL. تطوير Arduino وتطوير واجهات (CAN, SPI, I2C) مع فك تشفير الإشارات.",
-            p5_title: "شبكة آمنة · OpenWrt & AdGuard DNS",
-            p5_desc: "ضبط الراوترات عبر OpenWrt ودمج AdGuard DNS (DNS-over-HTTPS/TLS) لحجب الإعلانات وحماية الخصوصية وفلترة البرمجيات الخبيثة على مستوى الشبكة كاملاً.",
-            p6_title: "إدارة الهويات والأسرار (Security)",
-            p6_desc: "بناء وتطبيق سياسات الوصول الآمن (IAM) للبيئات السحابية. إدارة كلمات المرور عبر منصات مثل Bitwarden وحماية بيانات التطبيقات عبر AWS Secrets Manager.",
-            contact_eyebrow: "التواصل", contact_title: "تواصل معي أو احجز استشارة",
-            calendly_note: "* قم باختيار اليوم والوقت المناسبين لك من التقويم أعلاه.",
-            footer: "© {YEAR} محمود مارديني. جميع الحقوق محفوظة."
+            p4_desc: "برمجة ARM Cortex M4 ببيئة STM32Cube ومكتبات HAL. تطوير واجهات (CAN, SPI, I2C).",
+            cta_title: "عندك فكرة Cloud أو AI أو IoT؟ خلينا نختبرها بذكاء.",
+            cta_desc: "أقدر أساعدك تحوّل الفكرة إلى خطة تقنية واضحة، نموذج أولي، أو نشر فعلي على بنية آمنة وقابلة للتوسع.",
+            cta_primary: "احجز مكالمة", cta_secondary: "راسلني واتساب", cta_note: "مكالمة أولى قصيرة وواضحة",
+            contact_title: "تواصل معي",
+            footer: "Copyright {YEAR} Mahmoud Mardini"
         },
         en: {
-            logo: "Mahmoud Mardini",
-            nav_services: "Services", nav_focus: "Current Focus", nav_projects: "Experience",
+            logo: "Eng. Mahmoud Mardini",
+            nav_services: "Services", nav_focus: "Focus", nav_workflow: "Workflow", nav_projects: "Experience",
             nav_contact: "Book a Call", hero_btn_projects: "View Projects",
-            hero_badge: "Cloud & R&D Engineer · Stuttgart, DE",
             hero_title: "Welcome, I'm Mahmoud Mardini",
             hero_subtitle: "Cloud & R&D Engineer",
+            availability_status: "Available for new projects",
+            hero_chip_1: "Stuttgart, Germany", hero_chip_2: "Cloud + AI + Embedded", hero_chip_3: "Security-first builds", hero_chip_4: "Prototype → Production",
             hero_desc: "I combine a strong background in advanced Embedded Systems with expertise in Cloud Infrastructure and DevOps to build integrated, scalable software solutions.",
-            stat1: "Years Experience", stat2: "Industry Sectors", stat3: "Projects Delivered", stat4: "Working Languages",
-            srv_eyebrow: "SERVICES", services_title: "Engineering Services",
+            stat1: "Years Experience", stat2: "Industry Sectors", stat3: "Projects Delivered", stat4: "Languages",
+            srv_eyebrow: "Services Grid", services_title: "Engineering Services",
             srv1_title: "Digitalization & Cloud Migration",
             srv1_desc: "Migrating your IT infrastructure to AWS. Designing secure and automated architectures (IaC) to reduce costs.",
             srv2_title: "AI Hosting & Management",
-            srv2_desc: "Setting up tailored cloud environments to deploy AI models and agents. Efficiently managing containers and databases.",
+            srv2_desc: "Setting up tailored cloud environments to deploy AI models and agents. Efficiently managing containers.",
             srv3_title: "IoT & Embedded Solutions",
             srv3_desc: "Prototyping electronic boards and embedded systems, connecting them via secure protocols to the cloud.",
-            srv4_title: "Smart Energy IoT Solutions",
+            srv4_title: "Smart Energy IoT",
             srv4_desc: "Integrating embedded systems with the cloud for renewable energy and smart grid applications.",
-            srv5_title: "AI Integration & Digitalisierung",
-            srv5_desc: "Helping businesses integrate AI technology and automation into their daily workflows, modernizing their tech stack to boost productivity and reduce operational costs.",
+            srv5_title: "AI Integration",
+            srv5_desc: "Helping businesses integrate AI technology and automation into their daily workflows.",
             srv6_title: "Cloud Security & IAM",
-            srv6_desc: "Securing infrastructure and managing Identity and Access Management (IAM). Protecting sensitive data and secrets using best practices.",
-            focus_eyebrow: "CURRENT FOCUS", focus_title: "Current Focus Area",
+            srv6_desc: "Securing infrastructure and managing Identity and Access Management (IAM). Protecting sensitive data.",
+            workflow_eyebrow: "Delivery Method", workflow_title: "How I build: from idea to working system",
+            workflow1_title: "Clear technical diagnosis", workflow1_desc: "I define the problem, data, constraints, and success metrics before writing code, so the project does not become random experiments.",
+            workflow2_title: "Scalable engineering prototype", workflow2_desc: "I build a clean first version that connects cloud, AI, or embedded systems in a way that can grow later.",
+            workflow3_title: "Deploy, secure, monitor", workflow3_desc: "I ship on stable infrastructure with monitoring, access control, backups, and clear operating documentation.",
+            focus_eyebrow: "Current Focus", focus_title: "Current Focus Area",
             focus_ai_title: "AI Agents Development & Deployment",
-            focus_ai_desc: "Currently focusing heavily on designing and developing autonomous AI Agents to automate complex workflows, deploying them on advanced, cost-optimized cloud infrastructure for top performance and stability.",
-            proj_eyebrow: "EXPERIENCE", projects_title: "Featured Projects & Experience",
-            edu_eyebrow: "EDUCATION", edu_title: "Academic Background",
-            edu_degree: "B.Sc. Renewable Energy Engineering",
-            edu_school: "University of Stuttgart · Stuttgart, DE",
-            p1_title: "Cloud Engineering & Automation",
-            p1_desc: "AWS infrastructure automated via Terraform. CI/CD setup, managing Docker & K8s. Deploying Openclaw agents and databases with DBeaver.",
-            p2_title: "Embedded Linux Systems",
-            p2_desc: "Building advanced Linux systems via Yocto Project. Kernel configuration, image creation, driver setup, and firmware flashing.",
-            p3_title: "Embedded Developer & Development Lead (Automotive)",
-            p3_desc: "Embedded Developer and Embedded Development Lead in Stuttgart's automotive sector. C++ programming, PCB design with Altium, Eagle, and KiCad for Mercedes and Volvo.",
-            p4_title: "Microcontroller Programming (ARM)",
-            p4_desc: "ARM Cortex M4 programming using STM32Cube & HAL libraries. Arduino development, interfaces (CAN, SPI, I2C) and signal decoding.",
-            p5_title: "Secure Network · OpenWrt & AdGuard DNS",
-            p5_desc: "Router configuration with OpenWrt OS and AdGuard DNS (DNS-over-HTTPS/TLS) for network-wide ad blocking, privacy protection, and malware filtering — no per-device setup needed.",
-            p6_title: "Identity & Secrets Management",
-            p6_desc: "Implementing secure access policies (IAM) for cloud environments. Enterprise password management via Bitwarden and application data protection via AWS Secrets Manager.",
-            contact_eyebrow: "CONTACT", contact_title: "Contact Me or Book a Consultation",
-            calendly_note: "* Please select a suitable day and time from the calendar above.",
-            footer: "© {YEAR} Mahmoud Mardini. All rights reserved."
+            focus_ai_desc: "Currently focusing heavily on designing and developing autonomous AI Agents to automate complex workflows, deploying them on advanced, cost-optimized cloud infrastructure.",
+            proj_eyebrow: "Experience Grid", projects_title: "Featured Experience",
+            p1_title: "Cloud Engineering",
+            p1_desc: "AWS infrastructure automated via Terraform. CI/CD setup, managing Docker & K8s.",
+            p2_title: "Embedded Linux",
+            p2_desc: "Building advanced Linux systems via Yocto Project. Kernel configuration and image creation.",
+            p3_title: "Automotive Embedded",
+            p3_desc: "Embedded Developer in Stuttgart's automotive sector. C++ programming, PCB design with Altium.",
+            p4_title: "Microcontroller (ARM)",
+            p4_desc: "ARM Cortex M4 programming using STM32Cube. Interfaces (CAN, SPI, I2C) and signal decoding.",
+            cta_title: "Have a Cloud, AI, or IoT idea? Let’s validate it properly.",
+            cta_desc: "I can help turn your idea into a clear technical plan, a prototype, or a production deployment on secure, scalable infrastructure.",
+            cta_primary: "Book a Call", cta_secondary: "WhatsApp Me", cta_note: "Short, practical first call",
+            contact_title: "Contact Me",
+            footer: "Copyright {YEAR} Mahmoud Mardini"
         },
         de: {
-            logo: "Mahmoud Mardini",
-            nav_services: "Leistungen", nav_focus: "Aktueller Fokus", nav_projects: "Erfahrung",
-            nav_contact: "Termin buchen", hero_btn_projects: "Projekte ansehen",
-            hero_badge: "Cloud & R&D Engineer · Stuttgart, DE",
-            hero_title: "Willkommen, ich bin Mahmoud Mardini",
+            logo: "Eng. Mahmoud Mardini",
+            nav_services: "Leistungen", nav_focus: "Fokus", nav_workflow: "Ablauf", nav_projects: "Erfahrung",
+            nav_contact: "Termin buchen", hero_btn_projects: "Projekte",
+            hero_title: "Willkommen, ich bin Mahmoud",
             hero_subtitle: "Cloud & R&D Engineer",
-            hero_desc: "Ich kombiniere fundierte Erfahrung in Embedded Systems mit Expertise in Cloud-Infrastruktur und DevOps, um skalierbare und robuste Lösungen zu entwickeln.",
-            stat1: "Jahre Erfahrung", stat2: "Branchen", stat3: "Abgeschlossene Projekte", stat4: "Arbeitssprachen",
-            srv_eyebrow: "LEISTUNGEN", services_title: "Meine Dienstleistungen",
-            srv1_title: "Digitalisierung & Cloud-Migration",
-            srv1_desc: "Migration Ihrer IT-Infrastruktur zu AWS. Entwurf sicherer und automatisierter Architekturen (IaC) zur Kostensenkung.",
-            srv2_title: "KI-Hosting & Management",
-            srv2_desc: "Aufbau von Cloud-Umgebungen für KI-Modelle und -Agenten. Effizientes Container-Management und Datenbankanbindung.",
-            srv3_title: "IoT & Embedded-Lösungen",
-            srv3_desc: "Prototyping für elektronische Baugruppen und Embedded Systems inklusive sicherer Cloud-Anbindung.",
-            srv4_title: "Smart Energy IoT-Lösungen",
-            srv4_desc: "Integration von Embedded Systems mit der Cloud für Smart-Grid-Anwendungen, basierend auf meinem akademischen Hintergrund.",
-            srv5_title: "KI-Integration & Digitalisierung",
-            srv5_desc: "Unterstützung von Unternehmen bei der Integration von KI-Technologie und Automatisierung in ihre Geschäftsprozesse – zur Steigerung der Produktivität und Senkung der Betriebskosten.",
-            srv6_title: "Cloud-Sicherheit & IAM",
-            srv6_desc: "Absicherung der Infrastruktur und Identity and Access Management (IAM). Schutz sensibler Daten und Secrets nach bewährten Methoden.",
-            focus_eyebrow: "AKTUELLER FOKUS", focus_title: "Aktueller Schwerpunkt",
-            focus_ai_title: "Entwicklung & Bereitstellung von KI-Agenten",
-            focus_ai_desc: "Aktuell konzentriere ich mich auf das Design und die Entwicklung autonomer KI-Agenten zur Automatisierung komplexer Arbeitsabläufe und deren Bereitstellung in einer kostenoptimierten Cloud-Infrastruktur.",
-            proj_eyebrow: "ERFAHRUNG", projects_title: "Projekte & Erfahrungen",
-            edu_eyebrow: "AUSBILDUNG", edu_title: "Akademischer Hintergrund",
-            edu_degree: "B.Sc. Erneuerbare Energien (Ingenieurwesen)",
-            edu_school: "Universität Stuttgart · Stuttgart, DE",
-            p1_title: "Cloud-Engineering & Automatisierung",
-            p1_desc: "AWS-Infrastruktur, automatisiert mit Terraform. CI/CD-Setup, Docker & K8s. Openclaw-Deployment und Datenbankverwaltung mit DBeaver.",
-            p2_title: "Embedded Linux Systeme",
-            p2_desc: "Entwicklung mit Yocto Project. Kernel-Konfiguration, Image-Erstellung, Driver-Setup und Firmware-Flashing.",
-            p3_title: "Embedded Developer & Entwicklungsleiter (Automotive)",
-            p3_desc: "Tätig als Embedded Developer und Embedded Entwicklungsleiter in Stuttgart. Programmierung in C++, PCB-Design mit Altium, Eagle und KiCad für Mercedes und Volvo.",
-            p4_title: "Mikrocontroller-Programmierung",
-            p4_desc: "ARM Cortex M4 Programmierung (STM32Cube & HAL). Arduino-Entwicklung, Schnittstellen (CAN, SPI, I2C) und Signaldecodierung.",
-            p5_title: "Sicheres Netzwerk · OpenWrt & AdGuard DNS",
-            p5_desc: "Router-Konfiguration mit OpenWrt und AdGuard DNS (DNS-over-HTTPS/TLS) für netzwerkweite Werbeblockierung, Datenschutz und Schutz vor Schadsoftware – ohne Konfiguration auf jedem Gerät.",
-            p6_title: "Identitäts- & Secrets-Management",
-            p6_desc: "Implementierung sicherer Zugriffsrichtlinien (IAM) für Cloud-Umgebungen. Passwortverwaltung über Bitwarden und Schutz von Anwendungsdaten mittels AWS Secrets Manager.",
-            contact_eyebrow: "KONTAKT", contact_title: "Kontaktieren Sie mich",
-            calendly_note: "* Bitte wählen Sie einen passenden Tag und eine Uhrzeit aus dem Kalender oben.",
-            footer: "© {YEAR} Mahmoud Mardini. Alle Rechte vorbehalten."
+            availability_status: "Verfügbar für neue Projekte",
+            hero_chip_1: "Stuttgart, Deutschland", hero_chip_2: "Cloud + KI + Embedded", hero_chip_3: "Security-first Builds", hero_chip_4: "Prototype → Production",
+            hero_desc: "Ich kombiniere fundierte Erfahrung in Embedded Systems mit Expertise in Cloud-Infrastruktur und DevOps, um skalierbare Lösungen zu entwickeln.",
+            stat1: "Jahre Erfahrung", stat2: "Branchen", stat3: "Projekte", stat4: "Sprachen",
+            srv_eyebrow: "Services Grid", services_title: "Dienstleistungen",
+            srv1_title: "Cloud-Migration",
+            srv1_desc: "Migration Ihrer IT-Infrastruktur zu AWS. Entwurf sicherer Architekturen (IaC) zur Kostensenkung.",
+            srv2_title: "KI-Hosting",
+            srv2_desc: "Aufbau von Cloud-Umgebungen für KI-Modelle. Effizientes Container-Management.",
+            srv3_title: "IoT & Embedded",
+            srv3_desc: "Prototyping für elektronische Baugruppen und Embedded Systems inklusive Cloud-Anbindung.",
+            srv4_title: "Smart Energy IoT",
+            srv4_desc: "Integration von Embedded Systems mit der Cloud für Smart-Grid-Anwendungen.",
+            srv5_title: "KI-Integration",
+            srv5_desc: "Unterstützung von Unternehmen bei der Integration von KI und Automatisierung in ihre Prozesse.",
+            srv6_title: "Cloud-Sicherheit",
+            srv6_desc: "Absicherung der Infrastruktur und Identity and Access Management (IAM).",
+            workflow_eyebrow: "Delivery Method", workflow_title: "Vom Konzept zum funktionierenden System",
+            workflow1_title: "Klare technische Diagnose", workflow1_desc: "Ich definiere Problem, Daten, Grenzen und Erfolgskriterien, bevor Code geschrieben wird.",
+            workflow2_title: "Skalierbarer Prototyp", workflow2_desc: "Ich baue eine saubere erste Version, die Cloud, KI oder Embedded Systems später erweiterbar verbindet.",
+            workflow3_title: "Deploy, Security, Monitoring", workflow3_desc: "Ich liefere auf stabiler Infrastruktur mit Monitoring, Zugriffskontrolle, Backups und klarer Betriebsdokumentation.",
+            focus_eyebrow: "Current Focus", focus_title: "Aktueller Schwerpunkt",
+            focus_ai_title: "KI-Agenten Entwicklung",
+            focus_ai_desc: "Aktuell konzentriere ich mich auf das Design autonomer KI-Agenten zur Automatisierung komplexer Arbeitsabläufe in der Cloud.",
+            proj_eyebrow: "Experience Grid", projects_title: "Erfahrungen",
+            p1_title: "Cloud Engineering",
+            p1_desc: "AWS-Infrastruktur mit Terraform. CI/CD-Setup, Docker & K8s.",
+            p2_title: "Embedded Linux",
+            p2_desc: "Entwicklung mit Yocto Project. Kernel-Konfiguration und Image-Erstellung.",
+            p3_title: "Automotive Embedded",
+            p3_desc: "Embedded Developer in Stuttgart. C++, PCB-Design mit Altium.",
+            p4_title: "Mikrocontroller",
+            p4_desc: "ARM Cortex M4 Programmierung. Schnittstellen (CAN, SPI, I2C).",
+            cta_title: "Cloud-, KI- oder IoT-Idee? Lass sie uns sauber validieren.",
+            cta_desc: "Ich helfe, aus der Idee einen klaren technischen Plan, einen Prototyp oder ein produktives Deployment zu machen.",
+            cta_primary: "Termin buchen", cta_secondary: "WhatsApp", cta_note: "Kurzer, praktischer Erstcall",
+            contact_title: "Kontaktieren Sie mich",
+            footer: "Copyright {YEAR} Mahmoud Mardini"
         }
     };
 
@@ -1204,6 +1367,8 @@
     function changeLanguage(lang) {
         document.documentElement.lang = lang;
         document.documentElement.dir = (lang === 'ar') ? 'rtl' : 'ltr';
+        const selector = document.getElementById('langSelect');
+        if (selector && selector.value !== lang) selector.value = lang;
         document.querySelectorAll('[data-i18n]').forEach(el => {
             const key = el.getAttribute('data-i18n');
             if (translations[lang]?.[key]) {
@@ -1212,7 +1377,7 @@
         });
     }
 
-    /* ── Scroll progress + active nav + scroll-top ── */
+    /* ── Scroll progress & Top Button ── */
     const progressBar  = document.getElementById('scroll-progress');
     const scrollTopBtn = document.getElementById('scroll-top');
 
@@ -1221,13 +1386,6 @@
         const dh = document.documentElement.scrollHeight - window.innerHeight;
         progressBar.style.width = (dh > 0 ? (st / dh) * 100 : 0) + '%';
         scrollTopBtn.classList.toggle('visible', st > 400);
-
-        document.querySelectorAll('section[id]').forEach(sec => {
-            const link = document.querySelector(`.nav-links a[href="#${sec.id}"]`);
-            if (!link) return;
-            const r = sec.getBoundingClientRect();
-            link.classList.toggle('active', r.top <= 100 && r.bottom > 100);
-        });
     }, { passive: true });
 
     scrollTopBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
@@ -1239,34 +1397,15 @@
         hamburger.classList.toggle('open');
         navLinks.classList.toggle('open');
     });
-    navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
-        hamburger.classList.remove('open');
-        navLinks.classList.remove('open');
-    }));
 
-    /* ── Scroll reveal ── */
-    const observer = new IntersectionObserver(entries => {
-        entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
-    }, { threshold: 0.1 });
-    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-
-    /* ── Dark mode toggle (persists for this session) ── */
-    const themeToggle = document.getElementById('themeToggle');
-    const themeIcon   = themeToggle.querySelector('i');
-    function applyTheme(theme) {
-        document.documentElement.setAttribute('data-theme', theme);
-        themeIcon.className = theme === 'dark' ? 'fas fa-sun' : 'fas fa-moon';
-        try { sessionStorage.setItem('theme', theme); } catch (e) {}
-    }
-    let savedTheme = 'light';
-    try { savedTheme = sessionStorage.getItem('theme') || 'light'; } catch (e) {}
-    applyTheme(savedTheme);
-    themeToggle.addEventListener('click', () => {
-        const next = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
-        applyTheme(next);
+    navLinks.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+            hamburger.classList.remove('open');
+            navLinks.classList.remove('open');
+        });
     });
 
-    /* ── Lazy-load Calendly widget only when the contact section is near view ── */
+    /* ── Calendly ── */
     const contactSection = document.getElementById('contact');
     if (contactSection) {
         const calendlyObserver = new IntersectionObserver(entries => {
@@ -1283,7 +1422,31 @@
         calendlyObserver.observe(contactSection);
     }
 
-    /* ── Default language: English ── */
+    /* ── Stats Animation ── */
+    const countEls = document.querySelectorAll('.count-val');
+    if (countEls.length) {
+        const statsObserver = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    countEls.forEach(el => {
+                        const target = parseInt(el.dataset.target, 10) || 0;
+                        const duration = 1500;
+                        const start = performance.now();
+                        function tick(now) {
+                            const progress = Math.min((now - start) / duration, 1);
+                            const eased = 1 - Math.pow(1 - progress, 3);
+                            el.textContent = Math.round(eased * target);
+                            if (progress < 1) requestAnimationFrame(tick);
+                        }
+                        requestAnimationFrame(tick);
+                    });
+                    statsObserver.disconnect();
+                }
+            });
+        });
+        statsObserver.observe(document.querySelector('.stats-wrapper'));
+    }
+
     changeLanguage('en');
 </script>
 </body>
