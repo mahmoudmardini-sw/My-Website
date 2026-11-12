@@ -1,1453 +1,962 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>محمود مارديني | Cloud & R&D Engineer</title>
-    <meta name="description" content="Mahmoud Mardini — Cloud & R&D Engineer based in Stuttgart. AWS, AI Agents, Embedded Systems, IoT.">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title data-i18n="page_title">Mahmoud Mardini — Embedded Hardwareentwicklungsingenieur and AI Cloud Engineer</title>
+  <meta name="description" data-i18n-content="page_desc" content="Mahmoud Mardini — Embedded Hardwareentwicklungsingenieur and AI Cloud Engineer based in Stuttgart. 5+ years across automotive electronics, embedded Linux, AWS cloud and autonomous AI agents.">
+  <meta name="theme-color" content="#05080f">
+  <meta name="color-scheme" content="dark light">
+  <link rel="canonical" href="https://cv.mardini-ing.workers.dev/">
 
-    <!-- Favicon -->
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%232dd4bf'/%3E%3Ctext x='32' y='42' font-family='Arial, sans-serif' font-weight='800' font-size='30' fill='%230b1120' text-anchor='middle'%3EM%3C/text%3E%3C/svg%3E">
+  <!-- Open Graph / social -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://cv.mardini-ing.workers.dev/">
+  <meta property="og:title" content="Mahmoud Mardini — Embedded Hardwareentwicklungsingenieur and AI Cloud Engineer">
+  <meta property="og:description" content="Embedded Hardwareentwicklungsingenieur and AI Cloud Engineer in Stuttgart. 5+ years across automotive electronics, embedded Linux, AWS cloud and autonomous AI agents.">
+  <meta property="og:image" content="https://cv.mardini-ing.workers.dev/assets/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Mahmoud Mardini — Embedded Hardwareentwicklungsingenieur and AI Cloud Engineer. Hexagonal engineering core emblem surrounded by cloud, embedded, edge and AI nodes.">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Mahmoud Mardini — Embedded Hardwareentwicklungsingenieur and AI Cloud Engineer">
+  <meta name="twitter:description" content="Embedded Hardwareentwicklungsingenieur and AI Cloud Engineer in Stuttgart. Automotive electronics, embedded Linux, AWS cloud and AI agents.">
+  <meta name="twitter:image" content="https://cv.mardini-ing.workers.dev/assets/og-image.png">
+  <meta name="twitter:image:alt" content="Mahmoud Mardini — Embedded Hardwareentwicklungsingenieur and AI Cloud Engineer. Hexagonal engineering core emblem surrounded by cloud, embedded, edge and AI nodes.">
 
-    <!-- Canonical -->
-    <link rel="canonical" href="https://mahmoudmardini.dev/">
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&family=Fira+Code:wght@400;500;600&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-    <style>
-        :root {
-            --c-bg:        #070b14; 
-            --c-white:     #111827; 
-            --c-dark:      #030712;
-            --c-teal:      #2dd4bf; 
-            --c-teal-dark: #0f766e;
-            --c-teal-light:rgba(45, 212, 191, 0.1);
-            --c-indigo:    #818cf8;
-            --c-text:      #94a3b8; 
-            --c-heading:   #f8fafc; 
-            --c-muted:     #64748b;
-            --c-border:    #1e293b;
-            --shadow-sm:   0 4px 6px -1px rgba(0,0,0,0.5);
-            --shadow-md:   0 10px 25px -3px rgba(45, 212, 191, 0.15);
-            --radius:      16px;
-            --trans:       0.3s cubic-bezier(0.4,0,0.2,1);
-        }
+  <script>
+    (function () {
+      var root = document.documentElement;
+      root.classList.add("js");
 
-        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-        html { scroll-behavior: smooth; }
+      var theme = "dark";
+      try {
+        var queryTheme = new URLSearchParams(window.location.search).get("theme");
+        var savedTheme = localStorage.getItem("mm-theme");
+        if (queryTheme === "light" || queryTheme === "dark") {
+          theme = queryTheme;
+        } else if (savedTheme === "light" || savedTheme === "dark") {
+          theme = savedTheme;
+        }
+      } catch (error) { /* ignore */ }
+      root.dataset.theme = theme;
+      root.style.colorScheme = theme;
 
-        body {
-            font-family: 'Cairo', 'Segoe UI', sans-serif;
-            background: var(--c-bg);
-            color: var(--c-text);
-            line-height: 1.7;
-            overflow-x: hidden;
-            transition: background var(--trans), color var(--trans);
+      var lang = "en";
+      try {
+        var queryLang = new URLSearchParams(window.location.search).get("lang");
+        var saved = localStorage.getItem("mm-lang");
+        if (queryLang && /^(ar|en|de)$/.test(queryLang)) {
+          lang = queryLang;
+        } else if (saved && /^(ar|en|de)$/.test(saved)) {
+          lang = saved;
+        } else {
+          var browser = (navigator.language || "en").slice(0, 2).toLowerCase();
+          if (browser === "ar" || browser === "de") lang = browser;
         }
+      } catch (error) { /* ignore */ }
+      root.lang = lang;
+      root.dir = lang === "ar" ? "rtl" : "ltr";
+    })();
+  </script>
 
-        #scroll-progress {
-            position: fixed; top: 0; left: 0;
-            height: 3px;
-            background: linear-gradient(90deg, var(--c-teal), var(--c-indigo));
-            width: 0%;
-            z-index: 9999;
-            transition: width 0.1s linear;
-        }
+  <link rel="stylesheet" href="assets/css/styles.css">
 
-        /* ─── Navbar ─── */
-        .navbar {
-            position: sticky; top: 0; z-index: 1000;
-            background: rgba(7, 11, 20, 0.85);
-            backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
-            border-bottom: 1px solid var(--c-border);
-            padding: 0 5%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            height: 76px;
-        }
-
-        .logo {
-            font-size: 1.4rem; font-weight: 800;
-            color: var(--c-heading); letter-spacing: -0.02em;
-            white-space: nowrap;
-        }
-        .logo span { color: var(--c-teal); }
-
-        .nav-controls {
-            display: flex; align-items: center; gap: 16px;
-        }
-
-        .nav-links {
-            list-style: none;
-            display: flex; gap: 8px; align-items: center;
-        }
-        .nav-links a {
-            text-decoration: none;
-            color: var(--c-text); font-weight: 600;
-            font-size: 0.95rem;
-            padding: 8px 16px; border-radius: 8px;
-            transition: all var(--trans);
-        }
-        .nav-links a:hover,
-        .nav-links a.active {
-            color: var(--c-teal);
-            background: var(--c-teal-light);
-        }
-
-        .social-icons a {
-            color: var(--c-text); font-size: 1.25rem;
-            width: 40px; height: 40px;
-            display: inline-flex; align-items: center; justify-content: center;
-            border-radius: 8px;
-            transition: all var(--trans);
-        }
-        .social-icons a:hover {
-            color: var(--c-teal);
-            background: var(--c-teal-light);
-        }
-
-        .language-control {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            padding: 0 4px 0 10px;
-            border: 1px solid var(--c-border);
-            border-radius: 10px;
-            background: var(--c-white);
-            color: var(--c-teal);
-        }
-        .language-control i { font-size: 0.95rem; }
-        .lang-switcher {
-            padding: 8px 10px;
-            border: none; border-radius: 8px;
-            background: transparent; color: var(--c-heading);
-            font-family: inherit; font-weight: 700; font-size: 0.85rem;
-            cursor: pointer; outline: none;
-            transition: all var(--trans);
-        }
-        .language-control:hover { border-color: var(--c-teal); }
-        .lang-switcher:hover { color: var(--c-teal); }
-
-        .hamburger {
-            display: none; flex-direction: column; gap: 5px;
-            cursor: pointer; padding: 8px;
-            border: none; background: none; border-radius: 8px;
-        }
-        .hamburger span {
-            display: block; width: 24px; height: 2px;
-            background: var(--c-heading); border-radius: 2px;
-            transition: all 0.3s;
-        }
-        .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
-        .hamburger.open span:nth-child(2) { opacity: 0; }
-        .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
-
-        /* ─── Buttons ─── */
-        .btn-primary {
-            background: var(--c-teal); color: #020617 !important;
-            padding: 12px 24px; border-radius: 10px;
-            font-weight: 800; font-size: 0.95rem;
-            text-decoration: none;
-            display: inline-flex; align-items: center; gap: 8px;
-            transition: all var(--trans);
-            border: 2px solid var(--c-teal);
-            font-family: inherit; white-space: nowrap;
-            cursor: pointer;
-            box-shadow: 0 4px 14px rgba(45, 212, 191, 0.15);
-        }
-        .btn-primary:hover {
-            background: var(--c-teal-dark); border-color: var(--c-teal-dark);
-            transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(45, 212, 191, 0.3);
-        }
-        .btn-secondary {
-            background: rgba(30, 41, 59, 0.5); color: var(--c-heading) !important;
-            border: 1px solid var(--c-border);
-            padding: 12px 24px; border-radius: 10px;
-            font-weight: 700; font-size: 0.95rem;
-            text-decoration: none;
-            display: inline-flex; align-items: center; gap: 8px;
-            transition: all var(--trans);
-            font-family: inherit;
-        }
-        .btn-secondary:hover {
-            border-color: var(--c-teal); color: var(--c-teal) !important;
-            transform: translateY(-2px);
-            background: var(--c-teal-light);
-        }
-
-        /* ─── Hero ─── */
-        .hero {
-            position: relative;
-            padding: 100px 5% 120px;
-            background: radial-gradient(circle at 80% 50%, rgba(45, 212, 191, 0.05) 0%, var(--c-bg) 60%);
-            overflow: hidden;
-            border-bottom: 1px solid var(--c-border);
-        }
-
-        .hero::before {
-            content: '';
-            position: absolute; inset: 0;
-            background-image: 
-                linear-gradient(rgba(129, 140, 248, 0.03) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(129, 140, 248, 0.03) 1px, transparent 1px);
-            background-size: 40px 40px;
-            pointer-events: none;
-        }
-
-        .hero-inner {
-            max-width: 1300px; margin: 0 auto;
-            display: flex; align-items: center; justify-content: space-between;
-            gap: 40px; position: relative; z-index: 2;
-        }
-
-        .hero-content {
-            flex: 1; max-width: 600px;
-            text-align: start;
-        }
-
-        .hero h1 {
-            font-size: clamp(2.4rem, 4vw, 3.8rem);
-            font-weight: 800; line-height: 1.2;
-            color: var(--c-heading);
-            letter-spacing: -0.02em; margin-bottom: 16px;
-        }
-        .hero h2 {
-            font-size: clamp(1rem, 2vw, 1.25rem);
-            color: var(--c-teal); font-weight: 600;
-            margin-bottom: 16px; letter-spacing: 0.02em;
-        }
-        .availability-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            padding: 8px 14px;
-            margin-bottom: 24px;
-            border-radius: 999px;
-            border: 1px solid rgba(34, 197, 94, 0.34);
-            background: rgba(34, 197, 94, 0.09);
-            color: #bbf7d0;
-            font-family: 'Fira Code', monospace;
-            font-size: 0.82rem;
-            font-weight: 700;
-            letter-spacing: 0.02em;
-            box-shadow: 0 0 24px rgba(34, 197, 94, 0.08);
-        }
-        .availability-badge::before {
-            content: '';
-            width: 9px;
-            height: 9px;
-            border-radius: 50%;
-            background: #22c55e;
-            box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.55), 0 0 16px rgba(34, 197, 94, 0.9);
-            animation: availabilityPulse 1.8s ease-out infinite;
-            flex-shrink: 0;
-        }
-        @keyframes availabilityPulse {
-            0% { box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.55), 0 0 16px rgba(34, 197, 94, 0.9); }
-            70% { box-shadow: 0 0 0 9px rgba(34, 197, 94, 0), 0 0 16px rgba(34, 197, 94, 0.9); }
-            100% { box-shadow: 0 0 0 0 rgba(34, 197, 94, 0), 0 0 16px rgba(34, 197, 94, 0.9); }
-        }
-        .hero-desc {
-            font-size: 1.1rem; color: var(--c-text); 
-            line-height: 1.8; margin-bottom: 40px;
-        }
-        .hero-actions { 
-            display: flex; gap: 16px; flex-wrap: wrap; 
-        }
-
-        .hero-proof-row {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-            margin: -20px 0 32px;
-        }
-        .hero-proof-chip {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            padding: 8px 12px;
-            border-radius: 999px;
-            border: 1px solid rgba(45, 212, 191, 0.18);
-            background: rgba(15, 23, 42, 0.72);
-            color: #cbd5e1;
-            font-size: 0.84rem;
-            font-weight: 700;
-            box-shadow: inset 0 1px 0 rgba(255,255,255,0.04);
-        }
-        .hero-proof-chip i { color: var(--c-teal); }
-
-        .workflow-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 22px;
-            position: relative;
-        }
-        .workflow-card {
-            position: relative;
-            overflow: hidden;
-            background: linear-gradient(145deg, rgba(17, 24, 39, 0.98), rgba(2, 6, 23, 0.96));
-            border: 1px solid var(--c-border);
-            border-radius: var(--radius);
-            padding: 28px;
-            box-shadow: var(--shadow-sm);
-            transition: all var(--trans);
-        }
-        .workflow-card::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: radial-gradient(circle at top right, rgba(45, 212, 191, 0.12), transparent 42%);
-            opacity: 0;
-            transition: opacity var(--trans);
-        }
-        .workflow-card:hover {
-            transform: translateY(-5px);
-            border-color: rgba(45, 212, 191, 0.42);
-            box-shadow: var(--shadow-md);
-        }
-        .workflow-card:hover::before { opacity: 1; }
-        .workflow-step {
-            position: relative;
-            width: 42px;
-            height: 42px;
-            border-radius: 12px;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            background: var(--c-teal-light);
-            color: var(--c-teal);
-            border: 1px solid rgba(45, 212, 191, 0.25);
-            font-family: 'Fira Code', monospace;
-            font-weight: 800;
-            margin-bottom: 18px;
-        }
-        .workflow-card h3 {
-            position: relative;
-            color: var(--c-heading);
-            font-size: 1.15rem;
-            font-weight: 800;
-            margin-bottom: 10px;
-        }
-        .workflow-card p {
-            position: relative;
-            color: var(--c-text);
-            font-size: 0.96rem;
-            line-height: 1.75;
-        }
-
-        .cta-band {
-            position: relative;
-            overflow: hidden;
-            border: 1px solid rgba(45, 212, 191, 0.22);
-            border-radius: 24px;
-            padding: 34px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 28px;
-            background:
-                radial-gradient(circle at 12% 18%, rgba(45, 212, 191, 0.16), transparent 34%),
-                radial-gradient(circle at 84% 80%, rgba(129, 140, 248, 0.14), transparent 35%),
-                linear-gradient(145deg, rgba(15, 23, 42, 0.98), rgba(2, 6, 23, 0.98));
-            box-shadow: 0 22px 50px rgba(0,0,0,0.45);
-        }
-        .cta-band::after {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background-image: linear-gradient(rgba(45, 212, 191, 0.045) 1px, transparent 1px), linear-gradient(90deg, rgba(129, 140, 248, 0.04) 1px, transparent 1px);
-            background-size: 28px 28px;
-            opacity: 0.7;
-            pointer-events: none;
-        }
-        .cta-copy, .cta-actions { position: relative; z-index: 1; }
-        .cta-copy h2 {
-            color: var(--c-heading);
-            font-size: clamp(1.55rem, 2.4vw, 2.1rem);
-            line-height: 1.2;
-            margin-bottom: 10px;
-            font-weight: 800;
-        }
-        .cta-copy p { color: var(--c-text); font-size: 1rem; max-width: 640px; }
-        .cta-actions {
-            display: flex;
-            flex-direction: column;
-            align-items: stretch;
-            gap: 12px;
-            min-width: 220px;
-        }
-        .cta-note {
-            color: var(--c-muted);
-            font-size: 0.82rem;
-            font-weight: 700;
-            text-align: center;
-        }
-
-
-        /* ─── Premium Hero Visual ─── */
-        .hero-visual {
-            flex: 1.15;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            position: relative;
-            min-width: 0;
-        }
-        .svg-container {
-            width: 100%;
-            max-width: 780px;
-            aspect-ratio: 16 / 11;
-            position: relative;
-            overflow: hidden;
-            border-radius: 30px;
-            border: 1px solid rgba(45, 212, 191, 0.18);
-            background:
-                radial-gradient(circle at 18% 18%, rgba(129, 140, 248, 0.20), transparent 34%),
-                radial-gradient(circle at 78% 62%, rgba(45, 212, 191, 0.16), transparent 36%),
-                linear-gradient(145deg, rgba(15, 23, 42, 0.96), rgba(2, 6, 23, 0.98));
-            box-shadow:
-                0 30px 90px rgba(0, 0, 0, 0.58),
-                inset 0 1px 0 rgba(255, 255, 255, 0.06),
-                inset 0 -1px 0 rgba(45, 212, 191, 0.08),
-                0 0 48px rgba(45, 212, 191, 0.10);
-        }
-        .svg-container::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background-image:
-                linear-gradient(rgba(45, 212, 191, 0.05) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(129, 140, 248, 0.045) 1px, transparent 1px);
-            background-size: 32px 32px;
-            mask-image: radial-gradient(circle at 50% 54%, black 0 48%, transparent 82%);
-            -webkit-mask-image: radial-gradient(circle at 50% 54%, black 0 48%, transparent 82%);
-            pointer-events: none;
-        }
-        .svg-container::after {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(120deg, transparent 0 35%, rgba(255,255,255,0.04) 50%, transparent 64%);
-            transform: translateX(-70%);
-            animation: shineSweep 7s ease-in-out infinite;
-            pointer-events: none;
-        }
-        .svg-container svg {
-            position: relative;
-            z-index: 1;
-            display: block;
-            width: 100%;
-            height: 100%;
-        }
-        .tech-label {
-            font-family: 'Fira Code', monospace;
-            font-size: 12px;
-            font-weight: 700;
-            letter-spacing: 0.11em;
-            fill: #dbeafe;
-            text-anchor: middle;
-        }
-        .tech-caption {
-            font-family: 'Cairo', sans-serif;
-            font-size: 10px;
-            font-weight: 700;
-            fill: #7dd3fc;
-            opacity: 0.72;
-            text-anchor: middle;
-        }
-        @keyframes shineSweep {
-            0%, 52% { transform: translateX(-78%); opacity: 0; }
-            62% { opacity: 0.6; }
-            100% { transform: translateX(78%); opacity: 0; }
-        }
-
-        /* ─── Stats Strip ─── */
-        .stats-wrapper {
-            max-width: 1100px; margin: -50px auto 50px;
-            position: relative; z-index: 10;
-            padding: 0 20px;
-        }
-        .stats-grid {
-            background: rgba(17, 24, 39, 0.8);
-            border: 1px solid var(--c-border);
-            border-radius: var(--radius);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.6);
-            display: grid; grid-template-columns: repeat(4, 1fr);
-            padding: 30px; text-align: center; gap: 20px;
-            backdrop-filter: blur(12px);
-        }
-        .stat-number {
-            font-size: 2.5rem; font-weight: 800;
-            color: var(--c-heading); line-height: 1;
-        }
-        .stat-number em { color: var(--c-teal); font-style: normal; }
-        .stat-label {
-            font-size: 0.85rem; color: var(--c-muted);
-            margin-top: 8px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em;
-        }
-
-        /* ─── Layout ─── */
-        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
-        .section { padding: 80px 0; }
-        .section-alt { background: #0b1120; }
-
-        .section-header { margin-bottom: 50px; text-align: start; }
-        .section-eyebrow {
-            display: inline-block;
-            color: var(--c-teal); font-size: 0.85rem; font-weight: 800;
-            letter-spacing: 0.1em; text-transform: uppercase;
-            margin-bottom: 12px;
-            background: var(--c-teal-light);
-            padding: 6px 14px; border-radius: 6px;
-        }
-        .section-title {
-            font-size: clamp(1.8rem, 3vw, 2.4rem);
-            font-weight: 800; color: var(--c-heading);
-            letter-spacing: -0.02em; line-height: 1.2;
-        }
-
-        /* ─── Service Cards ─── */
-        .grid-4 { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 24px; }
-
-        .service-card {
-            background: var(--c-white);
-            border: 1px solid var(--c-border);
-            border-radius: var(--radius);
-            padding: 32px 24px;
-            transition: all var(--trans);
-            box-shadow: var(--shadow-sm);
-        }
-        .service-card:hover {
-            transform: translateY(-5px);
-            border-color: rgba(45, 212, 191, 0.4);
-            box-shadow: var(--shadow-md);
-            background: #1e293b;
-        }
-        .service-icon-wrap {
-            width: 54px; height: 54px; border-radius: 14px;
-            background: var(--c-teal-light);
-            display: flex; align-items: center; justify-content: center;
-            font-size: 1.5rem; margin-bottom: 20px;
-            color: var(--c-teal);
-            border: 1px solid rgba(45, 212, 191, 0.2);
-        }
-        .service-card h3 { font-size: 1.1rem; font-weight: 800; color: var(--c-heading); margin-bottom: 12px; }
-        .service-card p  { font-size: 0.95rem; color: var(--c-text); line-height: 1.7; }
-
-        /* ─── Focus Card ─── */
-        .focus-card {
-            background: var(--c-white);
-            border: 1px solid var(--c-border);
-            border-radius: var(--radius);
-            padding: 40px; 
-            display: flex; gap: 40px; align-items: center;
-            box-shadow: var(--shadow-sm);
-        }
-        .focus-icon-area {
-            flex-shrink: 0; width: 120px; height: 120px;
-            background: var(--c-bg); border-radius: 20px;
-            display: flex; align-items: center; justify-content: center;
-            font-size: 3rem; color: var(--c-teal);
-            border: 1px solid rgba(45, 212, 191, 0.3);
-            box-shadow: inset 0 0 20px rgba(45, 212, 191, 0.05);
-        }
-        .focus-content h3 { font-size: 1.5rem; font-weight: 800; color: var(--c-heading); margin-bottom: 16px; }
-        .focus-content p  { font-size: 1rem; color: var(--c-text); line-height: 1.8; margin-bottom: 24px; }
-
-        .tags-row { display: flex; gap: 10px; flex-wrap: wrap; }
-        .tag {
-            background: var(--c-bg); color: var(--c-teal);
-            border: 1px solid var(--c-border);
-            padding: 6px 14px; border-radius: 8px;
-            font-size: 0.85rem; font-weight: 700;
-        }
-
-        /* ─── Project Cards ─── */
-        .project-card {
-            background: var(--c-white);
-            border: 1px solid var(--c-border); border-radius: var(--radius);
-            padding: 24px; display: flex; flex-direction: column;
-            transition: all var(--trans); box-shadow: var(--shadow-sm);
-        }
-        .project-card:hover {
-            transform: translateY(-5px);
-            border-color: rgba(45, 212, 191, 0.4);
-            box-shadow: var(--shadow-md);
-            background: #1e293b;
-        }
-        .project-header { display: flex; align-items: center; gap: 16px; margin-bottom: 16px; }
-        .project-icon {
-            width: 48px; height: 48px; background: var(--c-bg);
-            border-radius: 10px; display: flex; align-items: center; justify-content: center;
-            font-size: 1.5rem; color: var(--c-teal); border: 1px solid var(--c-border);
-        }
-        .project-header h3 { font-size: 1.1rem; font-weight: 800; color: var(--c-heading); }
-        .project-body p { font-size: 0.95rem; color: var(--c-text); line-height: 1.7; flex-grow: 1; margin-bottom: 20px;}
-        
-        /* ─── Contact ─── */
-        .contact-wrapper {
-            background: #1e293b;
-            border: 1px solid var(--c-border);
-            border-radius: 24px;
-            padding: 0;
-            display: flex; overflow: hidden;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.5);
-        }
-        .contact-info {
-            padding: 60px; color: white; flex: 1;
-            background: radial-gradient(circle at top left, #334155, #0f172a);
-        }
-        .contact-info h2 { font-size: 2rem; font-weight: 800; margin-bottom: 30px; }
-        .contact-methods { display: flex; flex-direction: column; gap: 20px; }
-        .contact-item {
-            display: flex; align-items: center; gap: 16px;
-            font-size: 1.1rem; font-weight: 600;
-        }
-        .contact-item i { font-size: 1.5rem; color: var(--c-teal); }
-        .contact-item a { color: white; text-decoration: none; transition: color var(--trans); direction: ltr; display: inline-block; }
-        .contact-item a:hover { color: var(--c-teal); }
-
-        .calendly-wrap {
-            flex: 1.2; background: var(--c-bg); 
-            min-height: 500px;
-        }
-
-        /* ─── Footer ─── */
-        .footer {
-            background: var(--c-dark); color: var(--c-muted);
-            text-align: center; padding: 40px 20px;
-            border-top: 1px solid var(--c-border);
-            font-weight: 600;
-        }
-        .footer-socials { display: flex; justify-content: center; gap: 12px; margin-bottom: 16px; }
-        .footer-socials a {
-            color: var(--c-text); font-size: 1.25rem;
-            width: 44px; height: 44px;
-            border: 1px solid var(--c-border); border-radius: 10px; background: var(--c-white);
-            display: flex; align-items: center; justify-content: center;
-            transition: all var(--trans);
-        }
-        .footer-socials a:hover {
-            color: var(--c-teal);
-            border-color: var(--c-teal);
-            background: var(--c-teal-light);
-        }
-
-        /* ─── Scroll-to-top ─── */
-        #scroll-top {
-            position: fixed; bottom: 30px; inset-inline-end: 30px;
-            width: 45px; height: 45px;
-            background: var(--c-white); color: var(--c-teal);
-            border: 1px solid var(--c-border); border-radius: 12px;
-            cursor: pointer; font-size: 1.1rem;
-            display: flex; align-items: center; justify-content: center;
-            opacity: 0; transform: translateY(10px);
-            transition: all var(--trans); z-index: 999;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.5);
-        }
-        #scroll-top.visible { opacity: 1; transform: translateY(0); }
-        #scroll-top:hover   { background: var(--c-teal); color: #020617; }
-
-        /* ─── Responsive ─── */
-        @media (max-width: 980px) {
-            .hero-inner { flex-direction: column; text-align: center; }
-            .hero-content { text-align: center; margin-bottom: 20px; }
-            .availability-badge { justify-content: center; }
-            .hero-actions { justify-content: center; }
-            .hero-proof-row { justify-content: center; }
-            .workflow-grid { grid-template-columns: 1fr; }
-            .cta-band { flex-direction: column; text-align: center; }
-            .stats-grid { grid-template-columns: repeat(2, 1fr); }
-            .focus-card { flex-direction: column; text-align: center; }
-            .contact-wrapper { flex-direction: column; }
-            .section-header { text-align: center; }
-        }
-        @media (max-width: 768px) {
-            .hamburger { display: flex; }
-            .nav-links {
-                display: none;
-                position: absolute; top: 76px; left: 0; right: 0;
-                background: var(--c-white); border-bottom: 1px solid var(--c-border);
-                flex-direction: column; padding: 20px; gap: 10px;
-                box-shadow: 0 10px 20px rgba(0,0,0,0.5);
-            }
-            .nav-links.open { display: flex; }
-            .nav-controls .btn-primary, .social-icons { display: none; }
-            .contact-info { padding: 40px 20px; }
-            .svg-container { max-width: 100%; border-radius: 22px; }
-            .cta-actions { width: 100%; }
-            .workflow-card { padding: 24px; }
-        }
-    </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Mahmoud Mardini",
+    "jobTitle": "Embedded Hardwareentwicklungsingenieur and AI Cloud Engineer",
+    "url": "https://cv.mardini-ing.workers.dev/",
+    "email": "mailto:mahmoud.mardini@outlook.com",
+    "telephone": "+4915151506677",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Stuttgart",
+      "addressRegion": "Baden-Württemberg",
+      "addressCountry": "DE"
+    },
+    "sameAs": [
+      "https://www.linkedin.com/in/mahmoud-mardini-de/",
+      "https://github.com/mahmoudmardini-sw"
+    ],
+    "knowsAbout": [
+      "Embedded Systems",
+      "Embedded Linux",
+      "Yocto",
+      "STM32",
+      "Automotive Electronics",
+      "AWS",
+      "Terraform",
+      "Kubernetes",
+      "AI Agents",
+      "Edge Computing"
+    ]
+  }
+  </script>
 </head>
 <body>
+  <a class="skip-link" href="#main" data-i18n="skip_link">Skip to content</a>
+  <div id="scroll-progress" aria-hidden="true"></div>
 
-<div id="scroll-progress"></div>
+  <header class="site-header" id="top">
+    <div class="container nav-shell">
+      <a class="brand" href="#top" aria-label="Mahmoud Mardini — home">
+        <svg class="brand-mark" viewBox="0 0 24 24" aria-hidden="true"><use href="assets/icons.svg#i-core"></use></svg>
+        <span class="brand-copy">
+          <span class="brand-name">Mahmoud Mardini</span>
+          <span class="brand-role" data-i18n="brand_role">Embedded Hardware &amp; AI Cloud Engineer</span>
+        </span>
+      </a>
 
-<header class="navbar">
-    <div class="logo" data-i18n="logo"><span>Eng.</span> Mahmoud Mardini</div>
+      <nav class="nav-links" id="navLinks" aria-label="Primary">
+        <a class="nav-link" href="#services" data-i18n="nav_services">Services</a>
+        <a class="nav-link" href="#workflow" data-i18n="nav_workflow">Workflow</a>
+        <a class="nav-link" href="#focus" data-i18n="nav_focus">Focus</a>
+        <a class="nav-link" href="#projects" data-i18n="nav_projects">Experience</a>
+        <a class="btn btn--primary nav-mobile-cta" href="#contact">
+          <svg class="icon" aria-hidden="true"><use href="assets/icons.svg#i-calendar"></use></svg>
+          <span data-i18n="nav_contact">Book a Call</span>
+        </a>
+      </nav>
 
-    <button class="hamburger" id="hamburger" aria-label="Toggle menu">
-        <span></span><span></span><span></span>
-    </button>
+      <div class="nav-actions">
+        <a class="nav-social" href="https://www.linkedin.com/in/mahmoud-mardini-de/" target="_blank" rel="noopener" aria-label="LinkedIn">
+          <svg class="icon" aria-hidden="true"><use href="assets/icons.svg#i-linkedin"></use></svg>
+        </a>
+        <a class="nav-social" href="https://github.com/mahmoudmardini-sw" target="_blank" rel="noopener" aria-label="GitHub">
+          <svg class="icon" aria-hidden="true"><use href="assets/icons.svg#i-github"></use></svg>
+        </a>
 
-    <div class="nav-controls">
-        <ul class="nav-links" id="navLinks">
-            <li><a href="#services"  data-i18n="nav_services">الخدمات</a></li>
-            <li><a href="#focus"     data-i18n="nav_focus">التركيز الحالي</a></li>
-            <li><a href="#workflow"  data-i18n="nav_workflow">منهجيتي</a></li>
-            <li><a href="#projects"  data-i18n="nav_projects">الخبرات</a></li>
-        </ul>
-        <div class="social-icons">
-            <a href="https://www.linkedin.com/in/mahmoud-mardini-de/" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
-            <a href="https://github.com/mahmoudmardini-sw" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
-        </div>
-        <a href="#contact" class="btn-primary" data-i18n="nav_contact">احجز استشارة</a>
-        <div class="language-control" aria-label="Language selector">
-            <i class="fas fa-globe"></i>
-            <select class="lang-switcher" id="langSelect" onchange="changeLanguage(this.value)">
-                <option value="ar">AR</option>
-                <option value="en" selected>EN</option>
-                <option value="de">DE</option>
-            </select>
-        </div>
+        <button class="theme-toggle" id="themeToggle" type="button" aria-label="Switch to light theme">
+          <svg class="icon icon-sun" aria-hidden="true"><use href="assets/icons.svg#i-sun"></use></svg>
+          <svg class="icon icon-moon" aria-hidden="true"><use href="assets/icons.svg#i-moon"></use></svg>
+        </button>
+
+        <span class="lang-wrap">
+          <svg class="icon" aria-hidden="true"><use href="assets/icons.svg#i-globe"></use></svg>
+          <select class="lang-select" id="langSelect" aria-label="Language" data-i18n-aria="lang_label">
+            <option value="en">EN</option>
+            <option value="de">DE</option>
+            <option value="ar">AR</option>
+          </select>
+        </span>
+
+        <a class="btn btn--primary nav-cta" href="#contact">
+          <svg class="icon" aria-hidden="true"><use href="assets/icons.svg#i-calendar"></use></svg>
+          <span data-i18n="nav_contact">Book a Call</span>
+        </a>
+
+        <button class="nav-toggle" id="navToggle" type="button" aria-expanded="false" aria-controls="navLinks" aria-label="Open menu" data-i18n-aria="menu_open">
+          <svg class="icon icon-menu" aria-hidden="true"><use href="assets/icons.svg#i-menu"></use></svg>
+          <svg class="icon icon-close" aria-hidden="true"><use href="assets/icons.svg#i-close"></use></svg>
+        </button>
+      </div>
     </div>
-</header>
+  </header>
 
-<section id="about" class="hero">
-    <div class="hero-inner">
+  <main id="main">
+    <section class="hero" id="about" aria-labelledby="hero-title">
+      <div class="container hero-inner">
         <div class="hero-content">
-            <h1 data-i18n="hero_title">أهلاً بك، أنا محمود مارديني</h1>
-            <h2 data-i18n="hero_subtitle">مهندس بحث وتطوير ومهندس سحابي | Cloud & R&D Engineer</h2>
-            <div class="availability-badge" data-i18n="availability_status">متاح لمشاريع جديدة</div>
-            <p class="hero-desc" data-i18n="hero_desc">أجمع بين الخلفية القوية في تطوير الأنظمة المدمجة المتقدمة، وخبرتي في البنية التحتية السحابية وأتمتة العمليات. أهدف لبناء حلول برمجية متكاملة وقابلة للتوسع.</p>
-            <div class="hero-proof-row" aria-label="Professional highlights">
-                <span class="hero-proof-chip"><i class="fas fa-location-dot"></i><span data-i18n="hero_chip_1">شتوتغارت، ألمانيا</span></span>
-                <span class="hero-proof-chip"><i class="fas fa-layer-group"></i><span data-i18n="hero_chip_2">Cloud + AI + Embedded</span></span>
-                <span class="hero-proof-chip"><i class="fas fa-shield-halved"></i><span data-i18n="hero_chip_3">بناء آمن من البداية</span></span>
-                <span class="hero-proof-chip"><i class="fas fa-rocket"></i><span data-i18n="hero_chip_4">Prototype → Production</span></span>
+          <span class="status-pill">
+            <span class="status-pill__dot" aria-hidden="true"></span>
+            <span data-i18n="hero_available">Available for new projects</span>
+          </span>
+
+          <h1 class="hero-title" id="hero-title">
+            <span class="hero-title__greeting" data-i18n="hero_greeting">Hi, I'm</span>
+            <span class="hero-title__name grad-text" data-i18n="hero_name">Mahmoud Mardini</span>
+          </h1>
+
+          <h2 class="hero-role">
+            <span data-i18n="hero_role">Embedded Hardwareentwicklungsingenieur and AI Cloud Engineer</span>
+          </h2>
+
+          <p class="hero-desc" data-i18n="hero_desc">Embedded hardware and AI cloud engineer with 5+ years of experience — from bare-metal microcontrollers and automotive electronics to AWS infrastructure and autonomous AI agents. I connect reliable hardware with modern cloud architectures.</p>
+
+          <ul class="hero-proof" aria-label="Professional highlights">
+            <li class="proof-chip">
+              <svg class="icon" aria-hidden="true"><use href="assets/icons.svg#i-map-pin"></use></svg>
+              <span data-i18n="chip_location">Stuttgart, Germany</span>
+            </li>
+            <li class="proof-chip">
+              <svg class="icon" aria-hidden="true"><use href="assets/icons.svg#i-layers"></use></svg>
+              <span data-i18n="chip_stack">5+ years · Embedded → Cloud</span>
+            </li>
+            <li class="proof-chip">
+              <svg class="icon" aria-hidden="true"><use href="assets/icons.svg#i-shield-check"></use></svg>
+              <span data-i18n="chip_certified">AWS Certified Developer</span>
+            </li>
+            <li class="proof-chip">
+              <svg class="icon" aria-hidden="true"><use href="assets/icons.svg#i-zap"></use></svg>
+              <span data-i18n="chip_prototype">Prototype → Production</span>
+            </li>
+          </ul>
+
+          <div class="hero-actions">
+            <a class="btn btn--primary btn--lg" href="#contact">
+              <svg class="icon" aria-hidden="true"><use href="assets/icons.svg#i-calendar"></use></svg>
+              <span data-i18n="hero_cta_book">Book a Call</span>
+            </a>
+            <a class="btn btn--ghost btn--lg" href="#projects">
+              <svg class="icon" aria-hidden="true"><use href="assets/icons.svg#i-arrow-right"></use></svg>
+              <span data-i18n="hero_cta_projects">View Experience</span>
+            </a>
+          </div>
+        </div>
+
+        <div class="hero-visual" aria-label="Technology ecosystem">
+          <div class="core-visual">
+            <div class="visual-hud">
+              <span class="hud-label" data-i18n="hud_core">Engineering core</span>
+              <span class="hud-status">
+                <span class="hud-dot" aria-hidden="true"></span>
+                <span data-i18n="hud_online">Online</span>
+                <span class="hud-sep" aria-hidden="true">/</span>
+                <span class="hud-location" data-i18n="hud_location">Stuttgart · DE</span>
+              </span>
             </div>
-            <div class="hero-actions">
-                <a href="#contact" class="btn-primary">
-                    <span data-i18n="nav_contact">احجز استشارة</span>
+
+            <div class="visual-stage">
+              <svg class="stage-svg" viewBox="0 0 1000 740" preserveAspectRatio="xMidYMid meet" aria-hidden="true" focusable="false">
+                <defs>
+                  <linearGradient id="wireGrad" x1="0" y1="0" x2="1" y2="0">
+                    <stop offset="0" stop-color="#2dd4bf" stop-opacity="0.85"/>
+                    <stop offset="0.55" stop-color="#38bdf8" stop-opacity="0.7"/>
+                    <stop offset="1" stop-color="#818cf8" stop-opacity="0.35"/>
+                  </linearGradient>
+                  <linearGradient id="ringGrad" x1="0" y1="0" x2="1" y2="1">
+                    <stop offset="0" stop-color="#2dd4bf"/>
+                    <stop offset="0.5" stop-color="#38bdf8"/>
+                    <stop offset="1" stop-color="#818cf8"/>
+                  </linearGradient>
+                  <linearGradient id="markGrad" x1="0" y1="0" x2="1" y2="1">
+                    <stop offset="0" stop-color="#5eead4"/>
+                    <stop offset="1" stop-color="#818cf8"/>
+                  </linearGradient>
+                  <radialGradient id="coreBg" cx="42%" cy="36%" r="68%">
+                    <stop offset="0" stop-color="#10303c"/>
+                    <stop offset="0.52" stop-color="#081827"/>
+                    <stop offset="1" stop-color="#040a13"/>
+                  </radialGradient>
+                  <radialGradient id="haloGrad">
+                    <stop offset="0" stop-color="#2dd4bf" stop-opacity="0.2"/>
+                    <stop offset="0.46" stop-color="#2dd4bf" stop-opacity="0.06"/>
+                    <stop offset="1" stop-color="#2dd4bf" stop-opacity="0"/>
+                  </radialGradient>
+                </defs>
+
+                <!-- ambient orbits -->
+                <g class="stage-orbits" fill="none">
+                  <ellipse cx="500" cy="370" rx="442" ry="306" stroke="#1a2941" stroke-opacity="0.42"/>
+                  <ellipse cx="500" cy="370" rx="356" ry="244" stroke="#162338" stroke-opacity="0.55"/>
+                </g>
+
+                <g class="stage-stars" fill="#7dd3fc" opacity="0.3">
+                  <circle cx="122" cy="96" r="1.4"/>
+                  <circle cx="884" cy="120" r="1.2"/>
+                  <circle cx="205" cy="660" r="1.3"/>
+                  <circle cx="806" cy="640" r="1.5"/>
+                  <circle cx="58" cy="406" r="1"/>
+                  <circle cx="942" cy="386" r="1"/>
+                </g>
+
+                <!-- connection wires -->
+                <g fill="none" stroke-linecap="round">
+                  <g class="wire-base" stroke="#14253d" stroke-width="1.4">
+                    <path d="M398 300C352 272 300 224 165 158"/>
+                    <path d="M360 370H150"/>
+                    <path d="M398 440C352 468 300 516 165 582"/>
+                    <path d="M602 300C648 272 700 224 835 158"/>
+                    <path d="M640 370H850"/>
+                    <path d="M602 440C648 468 700 516 835 582"/>
+                  </g>
+                  <g stroke="url(#wireGrad)" stroke-width="1.9">
+                    <path class="wire-pulse" pathLength="300" d="M398 300C352 272 300 224 165 158"/>
+                    <path class="wire-pulse" pathLength="300" d="M360 370H150"/>
+                    <path class="wire-pulse" pathLength="300" d="M398 440C352 468 300 516 165 582"/>
+                    <path class="wire-pulse" pathLength="300" d="M602 300C648 272 700 224 835 158"/>
+                    <path class="wire-pulse" pathLength="300" d="M640 370H850"/>
+                    <path class="wire-pulse" pathLength="300" d="M602 440C648 468 700 516 835 582"/>
+                  </g>
+                </g>
+
+                <!-- core -->
+                <g transform="translate(500 370)">
+                  <circle class="core-halo" r="204" fill="url(#haloGrad)"/>
+                  <circle class="core-ring" r="150" fill="none" stroke="#1b3049" stroke-opacity="0.8"/>
+                  <circle class="core-disc" r="140" fill="url(#coreBg)" stroke="url(#ringGrad)" stroke-width="1.4" stroke-opacity="0.65"/>
+                  <g class="orbit orbit--a">
+                    <circle class="orbit-path" r="126" fill="none" stroke="#2dd4bf" stroke-opacity="0.26" stroke-width="1.1" stroke-dasharray="2 9"/>
+                    <circle class="orbit-dot" cx="0" cy="-126" r="2.6" fill="#5eead4"/>
+                  </g>
+                  <g class="orbit orbit--b">
+                    <circle class="orbit-path" r="103" fill="none" stroke="#818cf8" stroke-opacity="0.28" stroke-width="1" stroke-dasharray="16 13"/>
+                    <circle class="orbit-dot" cx="103" cy="0" r="2.4" fill="#818cf8"/>
+                  </g>
+                  <g class="core-ticks" stroke="#2dd4bf" stroke-opacity="0.45" stroke-linecap="round">
+                    <path d="M0-157v-7M0 157v7M-157 0h-7M157 0h7"/>
+                  </g>
+                  <circle class="core-plate" r="82" fill="#04121a" fill-opacity="0.7" stroke="#2dd4bf" stroke-opacity="0.12"/>
+
+                  <!-- geometric core emblem -->
+                  <g class="core-mark" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                    <path class="core-mark__outer" d="M0 -50 L43.3 -25 L43.3 25 L0 50 L-43.3 25 L-43.3 -25 Z" stroke="url(#markGrad)" stroke-width="4"/>
+                    <path class="core-mark__inner" d="M0 -28 L24.25 -14 L24.25 14 L0 28 L-24.25 14 L-24.25 -14 Z" stroke="#2dd4bf" stroke-opacity="0.32" stroke-width="1.3" stroke-dasharray="3 6"/>
+                    <path class="core-mark__traces" d="M0 -50 V-28 M43.3 -25 L24.25 -14 M43.3 25 L24.25 14 M0 50 V28 M-43.3 25 L-24.25 14 M-43.3 -25 L-24.25 -14" stroke="#2dd4bf" stroke-opacity="0.45" stroke-width="1.3"/>
+                    <circle class="core-mark__ring" r="16" stroke="#2dd4bf" stroke-opacity="0.25"/>
+                    <circle class="core-mark__dot" r="8.5" fill="url(#markGrad)" stroke="none"/>
+                  </g>
+
+                  <g class="core-mark-nodes" fill="#5eead4">
+                    <circle class="core-node" cx="0" cy="-50" r="3"/>
+                    <circle class="core-node" cx="43.3" cy="-25" r="2.6"/>
+                    <circle class="core-node" cx="43.3" cy="25" r="2.6"/>
+                    <circle class="core-node" cx="0" cy="50" r="3"/>
+                    <circle class="core-node" cx="-43.3" cy="25" r="2.6"/>
+                    <circle class="core-node" cx="-43.3" cy="-25" r="2.6"/>
+                  </g>
+
+                  <g class="core-stars" fill="#e2e8f0" opacity="0.55">
+                    <circle cx="-59" cy="-63" r="1.5"/>
+                    <circle cx="60" cy="-57" r="1.3"/>
+                    <circle cx="-58" cy="66" r="1.2"/>
+                    <circle cx="62" cy="63" r="1.4"/>
+                    <circle cx="0" cy="-74" r="1.2"/>
+                  </g>
+                </g>
+              </svg>
+
+              <div class="node-slot" style="--x:16.5%;--y:21.4%;--delay:.12s">
+                <a class="tech-node" href="#services">
+                  <span class="tech-node__icon"><svg class="icon" aria-hidden="true"><use href="assets/icons.svg#i-cloud"></use></svg></span>
+                  <span class="tech-node__copy"><strong data-i18n="node_cloud">Cloud</strong><small>AWS · Terraform</small></span>
                 </a>
-                <a href="#projects" class="btn-secondary">
-                    <span data-i18n="hero_btn_projects">شاهد المشاريع</span>
+              </div>
+              <div class="node-slot" style="--x:83.5%;--y:21.4%;--delay:.24s">
+                <a class="tech-node" href="#focus">
+                  <span class="tech-node__icon"><svg class="icon" aria-hidden="true"><use href="assets/icons.svg#i-bot"></use></svg></span>
+                  <span class="tech-node__copy"><strong data-i18n="node_ai">AI Agents</strong><small>Hermes · OpenClaw</small></span>
                 </a>
+              </div>
+              <div class="node-slot" style="--x:16.5%;--y:50%;--delay:.36s">
+                <a class="tech-node" href="#projects">
+                  <span class="tech-node__icon"><svg class="icon" aria-hidden="true"><use href="assets/icons.svg#i-chip"></use></svg></span>
+                  <span class="tech-node__copy"><strong data-i18n="node_embedded">Embedded</strong><small>Yocto · STM32</small></span>
+                </a>
+              </div>
+              <div class="node-slot" style="--x:83.5%;--y:50%;--delay:.48s">
+                <a class="tech-node" href="#services">
+                  <span class="tech-node__icon"><svg class="icon" aria-hidden="true"><use href="assets/icons.svg#i-server"></use></svg></span>
+                  <span class="tech-node__copy"><strong data-i18n="node_edge">Edge &amp; IoT</strong><small>OpenWrt · BPI-R3</small></span>
+                </a>
+              </div>
+              <div class="node-slot" style="--x:16.5%;--y:78.6%;--delay:.6s">
+                <a class="tech-node" href="#services">
+                  <span class="tech-node__icon"><svg class="icon" aria-hidden="true"><use href="assets/icons.svg#i-shield-check"></use></svg></span>
+                  <span class="tech-node__copy"><strong data-i18n="node_security">Security</strong><small>Vaultwarden · WPA3</small></span>
+                </a>
+              </div>
+              <div class="node-slot" style="--x:83.5%;--y:78.6%;--delay:.72s">
+                <a class="tech-node" href="#projects">
+                  <span class="tech-node__icon"><svg class="icon" aria-hidden="true"><use href="assets/icons.svg#i-car"></use></svg></span>
+                  <span class="tech-node__copy"><strong data-i18n="node_automotive">Automotive</strong><small>CAN · A-SPICE</small></span>
+                </a>
+              </div>
             </div>
-        </div>
-        
-        <!-- ─── Premium Futuristic Tech Command Center ─── -->
-        <div class="hero-visual" aria-hidden="true">
-            <div class="svg-container">
-                <svg viewBox="0 0 960 660" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Futuristic tech ecosystem with a human brain in the center, connected to cloud, drone, embedded systems, security, robotics, and renewable energy">
-                    <defs>
-                        <filter id="glow" x="-80%" y="-80%" width="260%" height="260%">
-                            <feGaussianBlur stdDeviation="8" result="blur"/>
-                            <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
-                        </filter>
-                        <filter id="softGlow" x="-80%" y="-80%" width="260%" height="260%">
-                            <feGaussianBlur stdDeviation="18" result="blur"/>
-                            <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
-                        </filter>
-                        <linearGradient id="traceGrad" x1="0%" y1="0%" x2="100%" y2="0%">
-                            <stop offset="0%" stop-color="#2dd4bf"/>
-                            <stop offset="50%" stop-color="#38bdf8"/>
-                            <stop offset="100%" stop-color="#818cf8"/>
-                        </linearGradient>
-                        <linearGradient id="nodeBorder" x1="0%" y1="0%" x2="100%" y2="100%">
-                            <stop offset="0%" stop-color="#2dd4bf" stop-opacity="0.9"/>
-                            <stop offset="100%" stop-color="#818cf8" stop-opacity="0.9"/>
-                        </linearGradient>
-                        <radialGradient id="centerGlow" cx="50%" cy="50%" r="58%">
-                            <stop offset="0%" stop-color="#ecfeff"/>
-                            <stop offset="22%" stop-color="#67e8f9"/>
-                            <stop offset="50%" stop-color="#2dd4bf"/>
-                            <stop offset="82%" stop-color="#0f766e"/>
-                            <stop offset="100%" stop-color="#020617"/>
-                        </radialGradient>
-                        <linearGradient id="panelBg" x1="0%" y1="0%" x2="100%" y2="100%">
-                            <stop offset="0%" stop-color="#0f172a" stop-opacity="0.92"/>
-                            <stop offset="100%" stop-color="#020617" stop-opacity="0.96"/>
-                        </linearGradient>
-                        <pattern id="miniGrid" width="26" height="26" patternUnits="userSpaceOnUse">
-                            <path d="M 26 0 H0 V26" fill="none" stroke="#14263b" stroke-width="1" opacity="0.46"/>
-                        </pattern>
 
-                        <path id="pCloud" d="M480 330 C400 300 338 256 250 192"/>
-                        <path id="pDrone" d="M480 330 C560 300 622 256 710 192"/>
-                        <path id="pMcu" d="M480 330 C388 332 312 334 230 334"/>
-                        <path id="pSecurity" d="M480 330 C572 332 648 334 730 334"/>
-                        <path id="pRobot" d="M480 330 C398 388 332 444 250 500"/>
-                        <path id="pRenew" d="M480 330 C562 388 628 444 710 500"/>
-                    </defs>
-
-                    <rect x="34" y="34" width="892" height="592" rx="34" fill="#020617" opacity="0.56" stroke="#1e293b"/>
-                    <rect x="56" y="56" width="848" height="548" rx="28" fill="url(#miniGrid)" opacity="0.78"/>
-
-                    <g fill="none" opacity="0.76">
-                        <ellipse cx="480" cy="330" rx="330" ry="172" stroke="#172033"/>
-                        <ellipse cx="480" cy="330" rx="250" ry="252" stroke="#172033"/>
-                        <ellipse cx="480" cy="330" rx="150" ry="150" stroke="#1e293b"/>
-                        <path d="M144 330 C260 208 700 208 816 330" stroke="#101828"/>
-                        <path d="M144 330 C260 452 700 452 816 330" stroke="#101828"/>
-                    </g>
-
-                    <g fill="none" stroke-linecap="round">
-                        <g stroke="#0b1220" stroke-width="18">
-                            <use href="#pCloud"/><use href="#pDrone"/><use href="#pMcu"/><use href="#pSecurity"/><use href="#pRobot"/><use href="#pRenew"/>
-                        </g>
-                        <g stroke="url(#traceGrad)" stroke-width="4" stroke-dasharray="14 18" filter="url(#glow)">
-                            <use href="#pCloud"><animate attributeName="stroke-dashoffset" from="130" to="0" dur="3.0s" repeatCount="indefinite"/></use>
-                            <use href="#pDrone"><animate attributeName="stroke-dashoffset" from="0" to="130" dur="2.9s" repeatCount="indefinite"/></use>
-                            <use href="#pMcu"><animate attributeName="stroke-dashoffset" from="130" to="0" dur="3.3s" repeatCount="indefinite"/></use>
-                            <use href="#pSecurity"><animate attributeName="stroke-dashoffset" from="0" to="130" dur="3.1s" repeatCount="indefinite"/></use>
-                            <use href="#pRobot"><animate attributeName="stroke-dashoffset" from="130" to="0" dur="3.6s" repeatCount="indefinite"/></use>
-                            <use href="#pRenew"><animate attributeName="stroke-dashoffset" from="0" to="130" dur="3.8s" repeatCount="indefinite"/></use>
-                        </g>
-                    </g>
-
-                    <g filter="url(#softGlow)">
-                        <circle r="5" fill="#ecfeff"><animateMotion dur="2.8s" repeatCount="indefinite"><mpath href="#pCloud"/></animateMotion></circle>
-                        <circle r="5" fill="#2dd4bf"><animateMotion dur="2.9s" repeatCount="indefinite"><mpath href="#pDrone"/></animateMotion></circle>
-                        <circle r="5" fill="#818cf8"><animateMotion dur="3.0s" repeatCount="indefinite"><mpath href="#pMcu"/></animateMotion></circle>
-                        <circle r="5" fill="#67e8f9"><animateMotion dur="3.2s" repeatCount="indefinite"><mpath href="#pSecurity"/></animateMotion></circle>
-                        <circle r="5" fill="#2dd4bf"><animateMotion dur="3.4s" repeatCount="indefinite"><mpath href="#pRobot"/></animateMotion></circle>
-                        <circle r="5" fill="#818cf8"><animateMotion dur="3.6s" repeatCount="indefinite"><mpath href="#pRenew"/></animateMotion></circle>
-                    </g>
-
-                    <!-- Center brain -->
-                    <g transform="translate(480 330)">
-                        <circle r="136" fill="#020617" opacity="0.92" stroke="#1e293b" stroke-width="2"/>
-                        <circle r="112" fill="none" stroke="#2dd4bf" stroke-width="3.5" stroke-dasharray="88 54" filter="url(#glow)">
-                            <animateTransform attributeName="transform" type="rotate" from="0" to="360" dur="18s" repeatCount="indefinite"/>
-                        </circle>
-                        <circle r="88" fill="none" stroke="#818cf8" stroke-width="2" stroke-dasharray="18 22" opacity="0.82">
-                            <animateTransform attributeName="transform" type="rotate" from="360" to="0" dur="24s" repeatCount="indefinite"/>
-                        </circle>
-                        <circle r="54" fill="url(#centerGlow)" filter="url(#softGlow)">
-                            <animate attributeName="r" values="50;56;50" dur="3.2s" repeatCount="indefinite"/>
-                        </circle>
-                        <g fill="none" stroke="#020617" stroke-width="4.4" stroke-linecap="round" stroke-linejoin="round" opacity="0.84">
-                            <path d="M-10 -30 C-26 -36 -42 -28 -44 -12 C-50 -8 -52 6 -44 16 C-38 24 -28 28 -16 28"/>
-                            <path d="M10 -30 C26 -36 42 -28 44 -12 C50 -8 52 6 44 16 C38 24 28 28 16 28"/>
-                            <path d="M0 -34 V32"/>
-                            <path d="M-24 -18 C-10 -14 -10 -2 -22 2"/>
-                            <path d="M24 -18 C10 -14 10 -2 22 2"/>
-                            <path d="M-22 10 C-10 12 -8 20 -16 26"/>
-                            <path d="M22 10 C10 12 8 20 16 26"/>
-                        </g>
-                        <g fill="#2dd4bf" filter="url(#glow)">
-                            <circle cx="0" cy="-112" r="5"/><circle cx="112" cy="0" r="5"/><circle cx="0" cy="112" r="5"/><circle cx="-112" cy="0" r="5"/>
-                            <circle cx="80" cy="-80" r="4.5"/><circle cx="80" cy="80" r="4.5"/><circle cx="-80" cy="80" r="4.5"/><circle cx="-80" cy="-80" r="4.5"/>
-                        </g>
-                    </g>
-
-                    <!-- Common node card size = same size -->
-                    <g transform="translate(250 192)">
-                        <animateTransform attributeName="transform" type="translate" values="250 184;250 200;250 184" dur="6.3s" repeatCount="indefinite"/>
-                        <rect x="-88" y="-66" width="176" height="132" rx="24" fill="url(#panelBg)" stroke="url(#nodeBorder)" stroke-opacity="0.5"/>
-                        <path d="M-34 -2 C-48 -1 -58 9 -58 21 C-58 36 -46 46 -30 46 H38 C54 46 66 34 66 19 C66 3 52 -8 36 -8 C30 -28 3 -38 -16 -24 C-24 -16 -28 -7 -34 -2 Z" fill="none" stroke="#818cf8" stroke-width="4" stroke-linejoin="round"/>
-                        <rect x="-28" y="18" width="56" height="10" rx="3" fill="#020617" stroke="#2dd4bf"/>
-                        <rect x="-28" y="34" width="56" height="10" rx="3" fill="#020617" stroke="#38bdf8"/>
-                    </g>
-
-                    <g transform="translate(710 192)">
-                        <animateTransform attributeName="transform" type="translate" values="710 200;710 184;710 200" dur="6.0s" repeatCount="indefinite"/>
-                        <rect x="-88" y="-66" width="176" height="132" rx="24" fill="url(#panelBg)" stroke="url(#nodeBorder)" stroke-opacity="0.5"/>
-                        <g stroke="#94a3b8" stroke-width="5" stroke-linecap="round">
-                            <line x1="-14" y1="-14" x2="-46" y2="-38"/><line x1="14" y1="-14" x2="46" y2="-38"/>
-                            <line x1="-14" y1="14" x2="-46" y2="38"/><line x1="14" y1="14" x2="46" y2="38"/>
-                        </g>
-                        <rect x="-24" y="-20" width="48" height="40" rx="11" fill="#1e293b" stroke="#2dd4bf" stroke-width="3"/>
-                        <circle cx="0" cy="0" r="8" fill="#818cf8" filter="url(#glow)"/>
-                        <g fill="#2dd4bf" opacity="0.92">
-                            <g transform="translate(-46 -38)"><ellipse rx="20" ry="3.5"><animateTransform attributeName="transform" type="rotate" from="0" to="360" dur="0.4s" repeatCount="indefinite"/></ellipse></g>
-                            <g transform="translate(46 -38)"><ellipse rx="20" ry="3.5"><animateTransform attributeName="transform" type="rotate" from="0" to="360" dur="0.4s" repeatCount="indefinite"/></ellipse></g>
-                            <g transform="translate(-46 38)"><ellipse rx="20" ry="3.5"><animateTransform attributeName="transform" type="rotate" from="0" to="360" dur="0.4s" repeatCount="indefinite"/></ellipse></g>
-                            <g transform="translate(46 38)"><ellipse rx="20" ry="3.5"><animateTransform attributeName="transform" type="rotate" from="0" to="360" dur="0.4s" repeatCount="indefinite"/></ellipse></g>
-                        </g>
-                    </g>
-
-                    <g transform="translate(230 334)">
-                        <animateTransform attributeName="transform" type="translate" values="230 342;230 326;230 342" dur="6.8s" repeatCount="indefinite"/>
-                        <rect x="-88" y="-66" width="176" height="132" rx="24" fill="url(#panelBg)" stroke="url(#nodeBorder)" stroke-opacity="0.5"/>
-                        <g stroke="#2dd4bf" stroke-width="4" stroke-linecap="round">
-                            <path d="M-44 -18 H-12 M-44 0 H-12 M-44 18 H-12 M12 -18 H44 M12 0 H44 M12 18 H44"/>
-                            <path d="M-18 -42 V-12 M0 -42 V-12 M18 -42 V-12 M-18 42 V12 M0 42 V12 M18 42 V12"/>
-                        </g>
-                        <rect x="-24" y="-24" width="48" height="48" rx="10" fill="#020617" stroke="#94a3b8" stroke-width="2.4"/>
-                        <rect x="-11" y="-11" width="22" height="22" rx="4" fill="#818cf8" opacity="0.85" filter="url(#glow)"/>
-                    </g>
-
-                    <g transform="translate(730 334)">
-                        <animateTransform attributeName="transform" type="translate" values="730 326;730 342;730 326" dur="6.8s" repeatCount="indefinite"/>
-                        <rect x="-88" y="-66" width="176" height="132" rx="24" fill="url(#panelBg)" stroke="url(#nodeBorder)" stroke-opacity="0.5"/>
-                        <path d="M0 -30 C18 -20 32 -18 32 -2 V18 C32 34 18 48 0 60 C-18 48 -32 34 -32 18 V-2 C-32 -18 -18 -20 0 -30 Z" fill="none" stroke="#818cf8" stroke-width="4" stroke-linejoin="round"/>
-                        <rect x="-12" y="8" width="24" height="18" rx="4.5" fill="#020617" stroke="#2dd4bf" stroke-width="2.6"/>
-                        <path d="M-5 8 V1 C-5 -6 5 -6 5 1 V8" fill="none" stroke="#2dd4bf" stroke-width="2.6" stroke-linecap="round"/>
-                        <circle cx="0" cy="17" r="2.8" fill="#2dd4bf"/>
-                    </g>
-
-                    <g transform="translate(250 500)">
-                        <animateTransform attributeName="transform" type="translate" values="250 508;250 492;250 508" dur="6.5s" repeatCount="indefinite"/>
-                        <rect x="-88" y="-66" width="176" height="132" rx="24" fill="url(#panelBg)" stroke="url(#nodeBorder)" stroke-opacity="0.5"/>
-                        <rect x="-72" y="-50" width="144" height="100" rx="18" fill="#0b1220" fill-opacity="0.32" stroke="#1f3147"/>
-
-                        <!-- Humanoid robot -->
-                        <g transform="translate(0 -2)">
-                            <!-- glow base -->
-                            <ellipse cx="0" cy="45" rx="44" ry="7" fill="#2dd4bf" opacity="0.16" filter="url(#glow)"/>
-
-                            <!-- head -->
-                            <g filter="url(#glow)">
-                                <rect x="-24" y="-46" width="48" height="34" rx="12" fill="#0f172a" stroke="#2dd4bf" stroke-width="3"/>
-                                <rect x="-13" y="-35" width="8" height="6" rx="2" fill="#ecfeff"/>
-                                <rect x="5" y="-35" width="8" height="6" rx="2" fill="#ecfeff"/>
-                                <path d="M-8 -22 Q0 -17 8 -22" fill="none" stroke="#818cf8" stroke-width="2.6" stroke-linecap="round"/>
-                                <path d="M0 -46 V-55" stroke="#94a3b8" stroke-width="2.4" stroke-linecap="round"/>
-                                <circle cx="0" cy="-58" r="3.4" fill="#818cf8"/>
-                            </g>
-
-                            <!-- neck / torso -->
-                            <rect x="-7" y="-13" width="14" height="8" rx="3" fill="#2dd4bf" opacity="0.9"/>
-                            <path d="M-25 -4 Q0 -20 25 -4 L20 30 Q0 42 -20 30 Z" fill="#0f172a" stroke="#2dd4bf" stroke-width="3" filter="url(#glow)"/>
-                            <circle cx="0" cy="10" r="9" fill="#818cf8" opacity="0.75" filter="url(#glow)"/>
-                            <path d="M-10 8 H10 M0 -2 V22" stroke="#020617" stroke-width="2.4" stroke-linecap="round" opacity="0.7"/>
-
-                            <!-- arms -->
-                            <g fill="none" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M-25 2 C-38 8 -43 20 -40 34" stroke="#111827" stroke-width="8"/>
-                                <path d="M25 2 C38 8 43 20 40 34" stroke="#111827" stroke-width="8"/>
-                                <path d="M-25 2 C-38 8 -43 20 -40 34" stroke="#94a3b8" stroke-width="2.6"/>
-                                <path d="M25 2 C38 8 43 20 40 34" stroke="#94a3b8" stroke-width="2.6"/>
-                            </g>
-                            <circle cx="-25" cy="2" r="4.8" fill="#2dd4bf"/>
-                            <circle cx="25" cy="2" r="4.8" fill="#2dd4bf"/>
-                            <circle cx="-40" cy="34" r="4.6" fill="#818cf8"/>
-                            <circle cx="40" cy="34" r="4.6" fill="#818cf8"/>
-                            <path d="M-46 39 H-35 M35 39 H46" stroke="#ecfeff" stroke-width="2.6" stroke-linecap="round"/>
-
-                            <!-- legs -->
-                            <g fill="none" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M-10 32 C-18 42 -20 51 -21 62" stroke="#111827" stroke-width="8"/>
-                                <path d="M10 32 C18 42 20 51 21 62" stroke="#111827" stroke-width="8"/>
-                                <path d="M-10 32 C-18 42 -20 51 -21 62" stroke="#94a3b8" stroke-width="2.6"/>
-                                <path d="M10 32 C18 42 20 51 21 62" stroke="#94a3b8" stroke-width="2.6"/>
-                            </g>
-                            <circle cx="-10" cy="32" r="4.6" fill="#2dd4bf"/>
-                            <circle cx="10" cy="32" r="4.6" fill="#2dd4bf"/>
-                            <ellipse cx="-21" cy="62" rx="9" ry="4" fill="#111827" stroke="#94a3b8" stroke-width="1.5"/>
-                            <ellipse cx="21" cy="62" rx="9" ry="4" fill="#111827" stroke="#94a3b8" stroke-width="1.5"/>
-                        </g>
-                    </g>
-
-                    <g transform="translate(710 500)">
-                        <animateTransform attributeName="transform" type="translate" values="710 492;710 508;710 492" dur="6.5s" repeatCount="indefinite"/>
-                        <rect x="-88" y="-66" width="176" height="132" rx="24" fill="url(#panelBg)" stroke="url(#nodeBorder)" stroke-opacity="0.5"/>
-                        <g transform="translate(-10 -4)">
-                            <polygon points="-42 20 -28 -4 28 -4 14 20" fill="#020617" stroke="#2dd4bf" stroke-width="2.8" stroke-linejoin="round"/>
-                            <line x1="-34" y1="8" x2="20" y2="8" stroke="#2dd4bf" opacity="0.85"/>
-                            <line x1="-18" y1="-4" x2="-24" y2="20" stroke="#2dd4bf" opacity="0.85"/>
-                            <line x1="0" y1="-4" x2="-6" y2="20" stroke="#2dd4bf" opacity="0.85"/>
-                            <line x1="18" y1="-4" x2="12" y2="20" stroke="#2dd4bf" opacity="0.85"/>
-                            <path d="M-8 20 V34" stroke="#94a3b8" stroke-width="3.2" stroke-linecap="round"/>
-                            <path d="M-26 34 H10" stroke="#94a3b8" stroke-width="3.2" stroke-linecap="round"/>
-                        </g>
-                        <g transform="translate(40 -18)" fill="none" stroke="#818cf8" stroke-width="3" stroke-linecap="round">
-                            <circle cx="0" cy="0" r="9" stroke="#2dd4bf"/>
-                            <path d="M0 -14 V-20 M0 14 V20 M-14 0 H-20 M14 0 H20 M-10 -10 L-15 -15 M10 -10 L15 -15 M-10 10 L-15 15 M10 10 L15 15" opacity="0.9"/>
-                        </g>
-                    </g>
-                </svg>
+            <div class="visual-foot">
+              <span data-i18n="hud_stack">Embedded · Cloud · AI</span>
+              <span class="visual-foot__flow">
+                <span data-i18n="hud_flow">Prototype → Production</span>
+                <svg class="icon" aria-hidden="true"><use href="assets/icons.svg#i-arrow-right"></use></svg>
+              </span>
             </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="stats-section" aria-label="Key numbers">
+      <div class="container">
+        <div class="stats-grid">
+          <div class="stat">
+            <div class="stat-value"><span class="count-val" data-target="5">5</span><em>+</em></div>
+            <div class="stat-label" data-i18n="stat1">Years experience</div>
+          </div>
+          <div class="stat">
+            <div class="stat-value"><span class="count-val" data-target="7">7</span></div>
+            <div class="stat-label" data-i18n="stat2">Engineering roles</div>
+          </div>
+          <div class="stat">
+            <div class="stat-value"><span class="count-val" data-target="4">4</span></div>
+            <div class="stat-label" data-i18n="stat3">Industries</div>
+          </div>
+          <div class="stat">
+            <div class="stat-value"><span class="count-val" data-target="3">3</span></div>
+            <div class="stat-label" data-i18n="stat4">Working languages</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="services" class="section section--alt" aria-labelledby="services-title">
+      <div class="container">
+        <div class="section-head" data-reveal>
+          <span class="eyebrow" data-i18n="srv_eyebrow">Services</span>
+          <h2 class="section-title" id="services-title" data-i18n="srv_title">From embedded hardware to cloud systems</h2>
+          <p class="section-desc" data-i18n="srv_desc">One engineer across the stack — firmware, embedded Linux, edge devices, AWS infrastructure, automation and security.</p>
         </div>
 
+        <div class="services-grid" data-stagger>
+          <article class="service-card">
+            <div class="service-top">
+              <div class="service-icon">
+                <svg class="icon" aria-hidden="true"><use href="assets/icons.svg#i-cloud-upload"></use></svg>
+              </div>
+              <span class="service-index">01</span>
+            </div>
+            <h3 data-i18n="service1_title">Cloud &amp; Edge Infrastructure</h3>
+            <p data-i18n="service1_desc">AWS environments, Terraform automation and Docker workloads — from cloud services to OpenWrt edge devices like the Banana Pi BPI-R3.</p>
+          </article>
 
-    </div>
-</section>
+          <article class="service-card">
+            <div class="service-top">
+              <div class="service-icon">
+                <svg class="icon" aria-hidden="true"><use href="assets/icons.svg#i-bot"></use></svg>
+              </div>
+              <span class="service-index">02</span>
+            </div>
+            <h3 data-i18n="service2_title">AI Agents &amp; Automation</h3>
+            <p data-i18n="service2_desc">Deploying Hermes Agent and OpenClaw, connecting tools through the Telegram Bot API and automating workflows with n8n.</p>
+          </article>
 
-<div class="stats-wrapper">
-    <div class="stats-grid">
-        <div class="stat-item">
-            <div class="stat-number"><span class="count-val" data-target="5">0</span><em>+</em></div>
-            <div class="stat-label" data-i18n="stat1">سنوات خبرة</div>
-        </div>
-        <div class="stat-item">
-            <div class="stat-number"><span class="count-val" data-target="3">0</span></div>
-            <div class="stat-label" data-i18n="stat2">قطاعات صناعية</div>
-        </div>
-        <div class="stat-item">
-            <div class="stat-number"><span class="count-val" data-target="10">0</span><em>+</em></div>
-            <div class="stat-label" data-i18n="stat3">مشاريع منجزة</div>
-        </div>
-        <div class="stat-item">
-            <div class="stat-number"><span class="count-val" data-target="3">0</span></div>
-            <div class="stat-label" data-i18n="stat4">لغات عمل</div>
-        </div>
-    </div>
-</div>
+          <article class="service-card">
+            <div class="service-top">
+              <div class="service-icon">
+                <svg class="icon" aria-hidden="true"><use href="assets/icons.svg#i-chip"></use></svg>
+              </div>
+              <span class="service-index">03</span>
+            </div>
+            <h3 data-i18n="service3_title">Embedded Linux &amp; Firmware</h3>
+            <p data-i18n="service3_desc">Yocto-based embedded Linux, kernel configuration, drivers, image builds and STM32/Zephyr firmware development.</p>
+          </article>
 
-<section id="services" class="section section-alt">
+          <article class="service-card">
+            <div class="service-top">
+              <div class="service-icon">
+                <svg class="icon" aria-hidden="true"><use href="assets/icons.svg#i-car"></use></svg>
+              </div>
+              <span class="service-index">04</span>
+            </div>
+            <h3 data-i18n="service4_title">Automotive &amp; Hardware</h3>
+            <p data-i18n="service4_desc">A-SPICE-compliant electronics, Altium PCB design, LTSpice simulation and EMC evaluation for automotive projects.</p>
+          </article>
+
+          <article class="service-card">
+            <div class="service-top">
+              <div class="service-icon">
+                <svg class="icon" aria-hidden="true"><use href="assets/icons.svg#i-sun"></use></svg>
+              </div>
+              <span class="service-index">05</span>
+            </div>
+            <h3 data-i18n="service5_title">IoT &amp; Smart Energy</h3>
+            <p data-i18n="service5_desc">Connecting sensors and embedded devices to cloud platforms, backed by a renewable-energy engineering foundation.</p>
+          </article>
+
+          <article class="service-card">
+            <div class="service-top">
+              <div class="service-icon">
+                <svg class="icon" aria-hidden="true"><use href="assets/icons.svg#i-shield-check"></use></svg>
+              </div>
+              <span class="service-index">06</span>
+            </div>
+            <h3 data-i18n="service6_title">Security &amp; Networking</h3>
+            <p data-i18n="service6_desc">IAM, Vaultwarden, AdGuard Home, WPA3-AES and hardened network access with monitoring and audit trails.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="workflow" class="section" aria-labelledby="workflow-title">
+      <div class="container">
+        <div class="section-head" data-reveal>
+          <span class="eyebrow" data-i18n="flow_eyebrow">Workflow</span>
+          <h2 class="section-title" id="workflow-title" data-i18n="flow_title">From idea to a working system</h2>
+          <p class="section-desc" data-i18n="flow_desc">A practical process built around clarity, working prototypes and production readiness.</p>
+        </div>
+
+        <div class="workflow-grid" data-stagger>
+          <article class="workflow-card">
+            <div class="workflow-num">01</div>
+            <svg class="icon workflow-arrow" aria-hidden="true"><use href="assets/icons.svg#i-arrow-right"></use></svg>
+            <h3 data-i18n="flow1_title">Clear technical diagnosis</h3>
+            <p data-i18n="flow1_desc">We define the problem, data, constraints and success metrics before writing code, so the project stays focused.</p>
+          </article>
+
+          <article class="workflow-card">
+            <div class="workflow-num">02</div>
+            <svg class="icon workflow-arrow" aria-hidden="true"><use href="assets/icons.svg#i-arrow-right"></use></svg>
+            <h3 data-i18n="flow2_title">Scalable engineering prototype</h3>
+            <p data-i18n="flow2_desc">A clean first version that connects hardware, cloud or AI systems in a way that can grow later.</p>
+          </article>
+
+          <article class="workflow-card">
+            <div class="workflow-num">03</div>
+            <svg class="icon workflow-arrow" aria-hidden="true"><use href="assets/icons.svg#i-arrow-right"></use></svg>
+            <h3 data-i18n="flow3_title">Deploy, secure, monitor</h3>
+            <p data-i18n="flow3_desc">Shipping on stable infrastructure with monitoring, access control, backups and clear operating documentation.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="focus" class="section section--alt" aria-labelledby="focus-title">
+      <div class="container">
+        <div class="section-head" data-reveal>
+          <span class="eyebrow" data-i18n="focus_eyebrow">Current focus</span>
+          <h2 class="section-title" id="focus-title" data-i18n="focus_title">Edge cloud and autonomous agents</h2>
+          <p class="section-desc" data-i18n="focus_desc">The work I am investing in most right now.</p>
+        </div>
+
+        <div class="focus-panel" data-reveal>
+          <div class="focus-copy">
+            <span class="focus-badge">
+              <svg class="icon" aria-hidden="true"><use href="assets/icons.svg#i-sparkles"></use></svg>
+              <span data-i18n="focus_badge">Focus 2026</span>
+            </span>
+            <h3 data-i18n="focus_card_title">A self-hosted edge cloud with production AI agents</h3>
+            <p data-i18n="focus_card_desc">I am building an edge cloud on Banana Pi BPI-R3 with OpenWrt and Docker, running the Hermes AI agent through Telegram, Vaultwarden and AdGuard Home — while deepening AWS, Kubernetes and MLOps.</p>
+            <div class="tags">
+              <span class="tag">OpenWrt</span>
+              <span class="tag">Banana Pi</span>
+              <span class="tag">Docker</span>
+              <span class="tag">Hermes Agent</span>
+              <span class="tag">Vaultwarden</span>
+              <span class="tag">AWS</span>
+            </div>
+          </div>
+
+          <div class="focus-orbit" aria-hidden="true">
+            <i class="focus-orbit__ring"></i>
+            <i class="focus-orbit__ring"></i>
+            <i class="focus-orbit__ring"></i>
+            <div class="focus-orbit__core">
+              <svg class="icon" aria-hidden="true"><use href="assets/icons.svg#i-network"></use></svg>
+            </div>
+            <span class="focus-orbit__dot"></span>
+            <span class="focus-orbit__dot"></span>
+            <span class="focus-orbit__dot"></span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects" class="section" aria-labelledby="projects-title">
+      <div class="container">
+        <div class="section-head" data-reveal>
+          <span class="eyebrow" data-i18n="proj_eyebrow">Experience</span>
+          <h2 class="section-title" id="projects-title" data-i18n="proj_title">From automotive hardware to cloud engineering</h2>
+          <p class="section-desc" data-i18n="proj_desc">Seven roles across automotive, industrial electronics, embedded Linux and AWS — a practical path from bare-metal firmware to cloud-native systems.</p>
+        </div>
+
+        <div class="projects-grid" data-stagger>
+          <article class="project-card">
+            <div class="project-top">
+              <div class="project-icon">
+                <svg class="icon" aria-hidden="true"><use href="assets/icons.svg#i-server"></use></svg>
+              </div>
+              <span class="project-category" data-i18n="exp1_date">Feb 2026 – Present</span>
+            </div>
+            <h3 data-i18n="exp1_title">Independent edge cloud &amp; AI projects</h3>
+            <p class="project-company" data-i18n="exp1_company">Independent · Stuttgart</p>
+            <p data-i18n="exp1_desc">Self-hosted edge cloud on Banana Pi BPI-R3 with OpenWrt and Docker: Vaultwarden, Hermes AI agent with Telegram API, AdGuard Home and WPA3 network hardening.</p>
+            <div class="project-stack">
+              <span class="tag">OpenWrt</span>
+              <span class="tag">Docker</span>
+              <span class="tag">Hermes AI</span>
+              <span class="tag">Vaultwarden</span>
+              <span class="tag">AdGuard</span>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <div class="project-top">
+              <div class="project-icon">
+                <svg class="icon" aria-hidden="true"><use href="assets/icons.svg#i-cloud"></use></svg>
+              </div>
+              <span class="project-category" data-i18n="exp2_date">Jan 2025 – Present</span>
+            </div>
+            <h3 data-i18n="exp2_title">AWS Cloud Engineer — certification track</h3>
+            <p class="project-company" data-i18n="exp2_company">IBB Ludwigsburg</p>
+            <p data-i18n="exp2_desc">AWS certification path (Developer Associate, ML Associate in preparation) with hands-on EC2, S3, RDS, VPC, IAM, Lambda, Terraform, Kubernetes, EKS/ECS and SageMaker.</p>
+            <div class="project-stack">
+              <span class="tag">AWS</span>
+              <span class="tag">Terraform</span>
+              <span class="tag">Kubernetes</span>
+              <span class="tag">SageMaker</span>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <div class="project-top">
+              <div class="project-icon">
+                <svg class="icon" aria-hidden="true"><use href="assets/icons.svg#i-terminal"></use></svg>
+              </div>
+              <span class="project-category" data-i18n="exp3_date">Jun 2024 – Jan 2025</span>
+            </div>
+            <h3 data-i18n="exp3_title">Senior Embedded Developer</h3>
+            <p class="project-company" data-i18n="exp3_company">Davinci Engineering @ Hoerbiger Elektronik · Stuttgart</p>
+            <p data-i18n="exp3_desc">Embedded Linux with Yocto: kernel configuration, image builds, driver setup and firmware flashing on industrial hardware. LTSpice simulation and Altium PCB design.</p>
+            <div class="project-stack">
+              <span class="tag">Yocto</span>
+              <span class="tag">Kernel</span>
+              <span class="tag">Altium</span>
+              <span class="tag">LTSpice</span>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <div class="project-top">
+              <div class="project-icon">
+                <svg class="icon" aria-hidden="true"><use href="assets/icons.svg#i-network"></use></svg>
+              </div>
+              <span class="project-category" data-i18n="exp4_date">Jun 2023 – Jun 2024</span>
+            </div>
+            <h3 data-i18n="exp4_title">Hardware Development Engineer</h3>
+            <p class="project-company" data-i18n="exp4_company">Davinci Engineering @ Mercedes-Benz VAN · Stuttgart</p>
+            <p data-i18n="exp4_desc">Team coordination and interface management across testing, requirements, suppliers and production; documentation, progress tracking and reporting with Jira and Confluence.</p>
+            <div class="project-stack">
+              <span class="tag">Jira</span>
+              <span class="tag">Confluence</span>
+              <span class="tag">Requirements</span>
+              <span class="tag">QA</span>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <div class="project-top">
+              <div class="project-icon">
+                <svg class="icon" aria-hidden="true"><use href="assets/icons.svg#i-zap"></use></svg>
+              </div>
+              <span class="project-category" data-i18n="exp5_date">Sep 2022 – Jun 2023</span>
+            </div>
+            <h3 data-i18n="exp5_title">Hardware Development Engineer</h3>
+            <p class="project-company" data-i18n="exp5_company">Odelo Automotive GmbH · Stuttgart</p>
+            <p data-i18n="exp5_desc">Automotive lighting systems developed to A-SPICE standards, customer requirements integration, LTSpice/Altium design and EMC report evaluation.</p>
+            <div class="project-stack">
+              <span class="tag">A-SPICE</span>
+              <span class="tag">Altium</span>
+              <span class="tag">EMC</span>
+              <span class="tag">LTSpice</span>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <div class="project-top">
+              <div class="project-icon">
+                <svg class="icon" aria-hidden="true"><use href="assets/icons.svg#i-car"></use></svg>
+              </div>
+              <span class="project-category" data-i18n="exp6_date">Mar 2022 – Sep 2022</span>
+            </div>
+            <h3 data-i18n="exp6_title">Hardware Development Engineer</h3>
+            <p class="project-company" data-i18n="exp6_company">Flex Automotive GmbH @ Volvo XC90 · Stuttgart</p>
+            <p data-i18n="exp6_desc">Full system development of the Volvo XC90 overhead module: schematics, hardware design and integration of CO₂, rain-light, RH-T, mmWave radar and UWB sensors.</p>
+            <div class="project-stack">
+              <span class="tag">Volvo</span>
+              <span class="tag">Sensors</span>
+              <span class="tag">UWB</span>
+              <span class="tag">Hardware</span>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <div class="project-top">
+              <div class="project-icon">
+                <svg class="icon" aria-hidden="true"><use href="assets/icons.svg#i-chip"></use></svg>
+              </div>
+              <span class="project-category" data-i18n="exp7_date">Mar 2021 – Feb 2022</span>
+            </div>
+            <h3 data-i18n="exp7_title">Junior Embedded Developer</h3>
+            <p class="project-company" data-i18n="exp7_company">JDM Innovation GmbH · Stuttgart</p>
+            <p data-i18n="exp7_desc">ARM Cortex-M4 (STM32L) firmware with STM32 HAL, SPI/I2C/USB interfaces, signal decoding and debugging with oscilloscopes.</p>
+            <div class="project-stack">
+              <span class="tag">STM32</span>
+              <span class="tag">HAL</span>
+              <span class="tag">SPI / I2C</span>
+              <span class="tag">Debugging</span>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <div class="project-top">
+              <div class="project-icon">
+                <svg class="icon" aria-hidden="true"><use href="assets/icons.svg#i-sun"></use></svg>
+              </div>
+              <span class="project-category" data-i18n="exp8_date">2017 – Jan 2021</span>
+            </div>
+            <h3 data-i18n="exp8_title">BSc Renewable Energies</h3>
+            <p class="project-company" data-i18n="exp8_company">University of Stuttgart</p>
+            <p data-i18n="exp8_desc">Focus on electronics and the development of new technologies — the foundation for connecting embedded hardware with energy and cloud systems.</p>
+            <div class="project-stack">
+              <span class="tag">Electronics</span>
+              <span class="tag">Energy</span>
+              <span class="tag">Engineering</span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="stack" class="section section--alt" aria-labelledby="stack-title">
+      <div class="container">
+        <div class="section-head section-head--center" data-reveal>
+          <span class="eyebrow" data-i18n="stack_eyebrow">Toolkit</span>
+          <h2 class="section-title" id="stack-title" data-i18n="stack_title">The stack behind the work</h2>
+          <p class="section-desc" data-i18n="stack_desc">Tools I use to move from bare-metal firmware to a reliable deployed system.</p>
+        </div>
+
+        <div class="stack-grid" data-stagger>
+          <article class="stack-card">
+            <div class="stack-head">
+              <span class="stack-head__icon">
+                <svg class="icon" aria-hidden="true"><use href="assets/icons.svg#i-chip"></use></svg>
+              </span>
+              <h3 data-i18n="stack1_title">Embedded &amp; Hardware</h3>
+            </div>
+            <div class="stack-chips">
+              <span class="tag">C</span>
+              <span class="tag">C++</span>
+              <span class="tag">Python</span>
+              <span class="tag">STM32</span>
+              <span class="tag">Zephyr</span>
+              <span class="tag">Yocto</span>
+              <span class="tag">CAN / LIN</span>
+              <span class="tag">Altium</span>
+            </div>
+          </article>
+
+          <article class="stack-card">
+            <div class="stack-head">
+              <span class="stack-head__icon">
+                <svg class="icon" aria-hidden="true"><use href="assets/icons.svg#i-cloud"></use></svg>
+              </span>
+              <h3 data-i18n="stack2_title">AWS &amp; Cloud</h3>
+            </div>
+            <div class="stack-chips">
+              <span class="tag">EC2</span>
+              <span class="tag">S3</span>
+              <span class="tag">RDS</span>
+              <span class="tag">VPC</span>
+              <span class="tag">IAM</span>
+              <span class="tag">Lambda</span>
+              <span class="tag">EKS / ECS</span>
+              <span class="tag">SageMaker</span>
+            </div>
+          </article>
+
+          <article class="stack-card">
+            <div class="stack-head">
+              <span class="stack-head__icon">
+                <svg class="icon" aria-hidden="true"><use href="assets/icons.svg#i-terminal"></use></svg>
+              </span>
+              <h3 data-i18n="stack3_title">DevOps &amp; Automation</h3>
+            </div>
+            <div class="stack-chips">
+              <span class="tag">Terraform</span>
+              <span class="tag">CloudFormation</span>
+              <span class="tag">Docker</span>
+              <span class="tag">Kubernetes</span>
+              <span class="tag">GitHub Actions</span>
+              <span class="tag">GitLab CI</span>
+              <span class="tag">n8n</span>
+              <span class="tag">Prometheus</span>
+            </div>
+          </article>
+
+          <article class="stack-card">
+            <div class="stack-head">
+              <span class="stack-head__icon">
+                <svg class="icon" aria-hidden="true"><use href="assets/icons.svg#i-shield-check"></use></svg>
+              </span>
+              <h3 data-i18n="stack4_title">Edge, Security &amp; AI</h3>
+            </div>
+            <div class="stack-chips">
+              <span class="tag">OpenWrt</span>
+              <span class="tag">Banana Pi</span>
+              <span class="tag">Vaultwarden</span>
+              <span class="tag">AdGuard</span>
+              <span class="tag">WPA3-AES</span>
+              <span class="tag">Hermes Agent</span>
+              <span class="tag">Ubuntu</span>
+              <span class="tag">systemd</span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="cta-title">
+      <div class="container">
+        <div class="cta-band" data-reveal>
+          <div class="cta-copy">
+            <h2 id="cta-title" data-i18n="cta_title">Have an embedded, cloud or AI idea? Let's build it properly.</h2>
+            <p data-i18n="cta_desc">I can help turn it into a clear technical plan, a working prototype or a production deployment on secure, scalable infrastructure.</p>
+          </div>
+          <div class="cta-actions">
+            <a class="btn btn--primary btn--lg" href="#contact">
+              <svg class="icon" aria-hidden="true"><use href="assets/icons.svg#i-calendar"></use></svg>
+              <span data-i18n="cta_primary">Book a Call</span>
+            </a>
+            <a class="btn btn--ghost btn--lg" href="https://wa.me/4915151506677" target="_blank" rel="noopener">
+              <svg class="icon" aria-hidden="true"><use href="assets/icons.svg#i-whatsapp"></use></svg>
+              <span data-i18n="cta_secondary">WhatsApp Me</span>
+            </a>
+            <span class="cta-note" data-i18n="cta_note">Short, practical first call</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="section section--alt" aria-labelledby="contact-title">
+      <div class="container">
+        <div class="contact-card" data-reveal>
+          <div class="contact-info">
+            <span class="eyebrow" data-i18n="contact_eyebrow">Contact</span>
+            <h2 id="contact-title" data-i18n="contact_title">Let's build something reliable.</h2>
+            <p data-i18n="contact_desc">Tell me about the problem, the constraints and the outcome you need. We'll map the fastest path to a working system.</p>
+
+            <div class="contact-list">
+              <a class="contact-item" href="mailto:mahmoud.mardini@outlook.com">
+                <span class="contact-icon">
+                  <svg class="icon" aria-hidden="true"><use href="assets/icons.svg#i-mail"></use></svg>
+                </span>
+                <span class="contact-copy">
+                  <small data-i18n="contact_email">Email</small>
+                  <span dir="ltr">mahmoud.mardini@outlook.com</span>
+                </span>
+              </a>
+
+              <a class="contact-item" href="tel:+4915151506677">
+                <span class="contact-icon">
+                  <svg class="icon" aria-hidden="true"><use href="assets/icons.svg#i-phone"></use></svg>
+                </span>
+                <span class="contact-copy">
+                  <small data-i18n="contact_phone">Phone</small>
+                  <span dir="ltr">+49 151 51506677</span>
+                </span>
+              </a>
+
+              <a class="contact-item" href="https://wa.me/4915151506677" target="_blank" rel="noopener">
+                <span class="contact-icon">
+                  <svg class="icon" aria-hidden="true"><use href="assets/icons.svg#i-whatsapp"></use></svg>
+                </span>
+                <span class="contact-copy">
+                  <small data-i18n="contact_whatsapp">WhatsApp</small>
+                  <span>+49 151 51506677</span>
+                </span>
+              </a>
+            </div>
+
+            <div class="contact-note">
+              <svg class="icon" aria-hidden="true"><use href="assets/icons.svg#i-map-pin"></use></svg>
+              <span data-i18n="contact_note">Stuttgart, Germany · Remote-friendly</span>
+            </div>
+          </div>
+
+          <div class="calendly-panel">
+            <div class="calendly-frame">
+              <div class="calendly-frame__bar">
+                <span class="calendly-frame__title">
+                  <svg class="icon" aria-hidden="true"><use href="assets/icons.svg#i-calendar"></use></svg>
+                  <span data-i18n="contact_schedule">Schedule a call</span>
+                </span>
+                <span class="calendly-frame__brand">Calendly</span>
+              </div>
+              <div class="calendly-inline-widget" data-url="https://calendly.com/mahmoud-mardini?hide_gdpr_banner=1&amp;hide_event_type_details=1&amp;primary_color=2dd4bf"></div>
+            </div>
+            <div class="calendly-skeleton">
+              <div class="calendly-skeleton__spinner" aria-hidden="true"></div>
+              <div class="calendly-skeleton__title" data-i18n="contact_schedule">Schedule a call</div>
+              <div class="calendly-skeleton__hint" data-i18n="contact_schedule_hint">Loading the calendar…</div>
+              <a class="calendly-skeleton__link" href="https://calendly.com/mahmoud-mardini" target="_blank" rel="noopener">
+                <span data-i18n="contact_fallback">Open the scheduling page</span>
+                <svg class="icon" aria-hidden="true"><use href="assets/icons.svg#i-arrow-up-right"></use></svg>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
     <div class="container">
-        <div class="section-header">
-            <div class="section-eyebrow" data-i18n="srv_eyebrow">Services Grid</div>
-            <h2 class="section-title" data-i18n="services_title">خدمات هندسية متكاملة</h2>
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a class="brand" href="#top" aria-label="Mahmoud Mardini — home">
+            <svg class="brand-mark" viewBox="0 0 24 24" aria-hidden="true"><use href="assets/icons.svg#i-core"></use></svg>
+            <span class="brand-copy">
+              <span class="brand-name">Mahmoud Mardini</span>
+              <span class="brand-role" data-i18n="brand_role">Embedded Hardware &amp; AI Cloud Engineer</span>
+            </span>
+          </a>
+          <p class="footer-tagline" data-i18n="footer_tagline">Embedded hardware and AI cloud engineer building secure, automated systems from bare-metal firmware to AWS.</p>
         </div>
-        <div class="grid-4">
-            <article class="service-card">
-                <div class="service-icon-wrap"><i class="fas fa-cloud-arrow-up"></i></div>
-                <h3 data-i18n="srv1_title">الرقمنة والترحيل السحابي</h3>
-                <p data-i18n="srv1_desc">نقل البنية التحتية التقليدية لشركتك إلى سحابة AWS مع تصميم معمارية آمنة ومؤتمتة (DevOps/IaC) لتقليل التكاليف.</p>
-            </article>
-            <article class="service-card">
-                <div class="service-icon-wrap"><i class="fas fa-robot"></i></div>
-                <h3 data-i18n="srv2_title">استضافة وإدارة الذكاء الاصطناعي</h3>
-                <p data-i18n="srv2_desc">تجهيز بيئات سحابية لنشر نماذج الذكاء الاصطناعي ووكلاء الأتمتة (AI Agents). إدارة الحاويات وقواعد البيانات بكفاءة.</p>
-            </article>
-            <article class="service-card">
-                <div class="service-icon-wrap"><i class="fas fa-microchip"></i></div>
-                <h3 data-i18n="srv3_title">حلول إنترنت الأشياء والأنظمة المدمجة</h3>
-                <p data-i18n="srv3_desc">تطوير أولي للوحات الإلكترونية (Prototyping) والأنظمة المدمجة، وربطها ببروتوكولات آمنة لنقل البيانات إلى السحابة.</p>
-            </article>
-            <article class="service-card">
-                <div class="service-icon-wrap"><i class="fas fa-solar-panel"></i></div>
-                <h3 data-i18n="srv4_title">حلول IoT للطاقة الذكية</h3>
-                <p data-i18n="srv4_desc">دمج الأنظمة المدمجة مع السحابة لتطبيقات الطاقة المتجددة والشبكات الذكية، بالاستفادة من خلفيتي الأكاديمية المتخصصة.</p>
-            </article>
-            <article class="service-card">
-                <div class="service-icon-wrap"><i class="fas fa-brain"></i></div>
-                <h3 data-i18n="srv5_title">دمج الذكاء الاصطناعي (Digitalisierung)</h3>
-                <p data-i18n="srv5_desc">مساعدة الشركات على دمج تقنيات الذكاء الاصطناعي والأتمتة في عملياتها اليومية، وتحديث بنيتها التقنية لتحسين الإنتاجية وتقليل التكاليف.</p>
-            </article>
-            <article class="service-card">
-                <div class="service-icon-wrap"><i class="fas fa-shield-halved"></i></div>
-                <h3 data-i18n="srv6_title">أمن السحابة وإدارة الهويات</h3>
-                <p data-i18n="srv6_desc">تأمين البنية التحتية وإدارة صلاحيات الوصول (IAM). حماية البيانات الحساسة والأسرار باستخدام أفضل الممارسات المعتمدة.</p>
-            </article>
+
+        <div>
+          <h3 class="footer-title" data-i18n="footer_nav">Navigate</h3>
+          <div class="footer-links">
+            <a class="footer-link" href="#services" data-i18n="nav_services">Services</a>
+            <a class="footer-link" href="#workflow" data-i18n="nav_workflow">Workflow</a>
+            <a class="footer-link" href="#focus" data-i18n="nav_focus">Focus</a>
+            <a class="footer-link" href="#projects" data-i18n="nav_projects">Experience</a>
+            <a class="footer-link" href="#contact" data-i18n="nav_contact">Book a Call</a>
+          </div>
         </div>
+
+        <div>
+          <h3 class="footer-title" data-i18n="footer_connect">Connect</h3>
+          <div class="footer-socials">
+            <a class="social-btn" href="https://www.linkedin.com/in/mahmoud-mardini-de/" target="_blank" rel="noopener" aria-label="LinkedIn">
+              <svg class="icon" aria-hidden="true"><use href="assets/icons.svg#i-linkedin"></use></svg>
+            </a>
+            <a class="social-btn" href="https://github.com/mahmoudmardini-sw" target="_blank" rel="noopener" aria-label="GitHub">
+              <svg class="icon" aria-hidden="true"><use href="assets/icons.svg#i-github"></use></svg>
+            </a>
+            <a class="social-btn" href="https://wa.me/4915151506677" target="_blank" rel="noopener" aria-label="WhatsApp">
+              <svg class="icon" aria-hidden="true"><use href="assets/icons.svg#i-whatsapp"></use></svg>
+            </a>
+            <a class="social-btn" href="mailto:mahmoud.mardini@outlook.com" aria-label="Email">
+              <svg class="icon" aria-hidden="true"><use href="assets/icons.svg#i-mail"></use></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p data-i18n="footer_rights">© {YEAR} Mahmoud Mardini. All rights reserved.</p>
+        <div class="footer-bottom__right">
+          <span class="footer-status" aria-hidden="true"></span>
+          <span data-i18n="footer_status">Available for new projects</span>
+        </div>
+      </div>
     </div>
-</section>
+  </footer>
 
-<section id="workflow" class="section">
-    <div class="container">
-        <div class="section-header">
-            <div class="section-eyebrow" data-i18n="workflow_eyebrow">Delivery Method</div>
-            <h2 class="section-title" data-i18n="workflow_title">طريقة العمل: من الفكرة إلى نظام يعمل</h2>
-        </div>
-        <div class="workflow-grid">
-            <article class="workflow-card">
-                <div class="workflow-step">01</div>
-                <h3 data-i18n="workflow1_title">تشخيص سريع وواضح</h3>
-                <p data-i18n="workflow1_desc">نحدد المشكلة، البيانات، القيود، ومؤشرات النجاح قبل كتابة أي كود حتى لا يتحول المشروع لتجارب عشوائية.</p>
-            </article>
-            <article class="workflow-card">
-                <div class="workflow-step">02</div>
-                <h3 data-i18n="workflow2_title">Prototype هندسي قابل للتطوير</h3>
-                <p data-i18n="workflow2_desc">أبني نسخة أولى نظيفة تربط السحابة، الذكاء الاصطناعي، أو الأنظمة المدمجة بطريقة قابلة للتوسيع لاحقاً.</p>
-            </article>
-            <article class="workflow-card">
-                <div class="workflow-step">03</div>
-                <h3 data-i18n="workflow3_title">نشر، أمان، ومراقبة</h3>
-                <p data-i18n="workflow3_desc">نرفع الحل على بنية مستقرة مع مراقبة، صلاحيات وصول، نسخ احتياطي، وتوثيق واضح للتشغيل والصيانة.</p>
-            </article>
-        </div>
-    </div>
-</section>
+  <button id="scroll-top" type="button" aria-label="Back to top" data-i18n-aria="scroll_top">
+    <svg class="icon" aria-hidden="true"><use href="assets/icons.svg#i-arrow-up"></use></svg>
+  </button>
 
-<section id="focus" class="section">
-    <div class="container">
-        <div class="section-header">
-            <div class="section-eyebrow" data-i18n="focus_eyebrow">Current Focus</div>
-            <h2 class="section-title" data-i18n="focus_title">مجال التركيز الحالي</h2>
-        </div>
-        <div class="focus-card">
-            <div class="focus-icon-area">
-                <i class="fas fa-network-wired"></i>
-            </div>
-            <div class="focus-content">
-                <h3 data-i18n="focus_ai_title">تطوير ونشر وكلاء الذكاء الاصطناعي (AI Agents)</h3>
-                <p data-i18n="focus_ai_desc">أركز حالياً بشكل مكثف على تصميم وتطوير وكلاء الذكاء الاصطناعي المستقلة (Autonomous AI Agents) لأتمتة العمليات المعقدة والمهام الإنتاجية، ونشرها على بنية تحتية سحابية متقدمة ومحسنة التكلفة لضمان أعلى أداء واستقرار.</p>
-                <div class="tags-row">
-                    <span class="tag">AI Agents</span>
-                    <span class="tag">LLMs Automation</span>
-                    <span class="tag">Cloud Deployment</span>
-                    <span class="tag">C++</span>
-                    <span class="tag">Embedded</span>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<section id="projects" class="section section-alt">
-    <div class="container">
-        <div class="section-header">
-            <div class="section-eyebrow" data-i18n="proj_eyebrow">Experience Grid</div>
-            <h2 class="section-title" data-i18n="projects_title">أبرز المشاريع والخبرات</h2>
-        </div>
-        <div class="grid-4">
-            <article class="project-card">
-                <div class="project-header">
-                    <div class="project-icon"><i class="fab fa-aws"></i></div>
-                    <h3 data-i18n="p1_title">هندسة السحابة والأتمتة</h3>
-                </div>
-                <div class="project-body">
-                    <p data-i18n="p1_desc">تصميم البنية التحتية باستخدام AWS (EC2, S3, RDS) وأتمتتها عبر Terraform. إعداد CI/CD وإدارة Docker و K8s. نشر وكلاء Openclaw وقواعد بيانات DBeaver.</p>
-                </div>
-                <div class="tags-row">
-                    <span class="tag">AWS</span>
-                    <span class="tag">Terraform</span>
-                </div>
-            </article>
-            <article class="project-card">
-                <div class="project-header">
-                    <div class="project-icon"><i class="fab fa-linux"></i></div>
-                    <h3 data-i18n="p2_title">أنظمة Embedded Linux</h3>
-                </div>
-                <div class="project-body">
-                    <p data-i18n="p2_desc">بناء أنظمة لينكس المدمجة باستخدام Yocto Project. تكوين النواة (Kernel)، بناء الصور، تعريف المشغلات، وتفليش البرامج الثابتة.</p>
-                </div>
-                <div class="tags-row">
-                    <span class="tag">Yocto</span>
-                    <span class="tag">Linux</span>
-                </div>
-            </article>
-            <article class="project-card">
-                <div class="project-header">
-                    <div class="project-icon"><i class="fas fa-car"></i></div>
-                    <h3 data-i18n="p3_title">مطور Embedded للسيارات</h3>
-                </div>
-                <div class="project-body">
-                    <p data-i18n="p3_desc">عملت كمطور أنظمة مدمجة ومشرف على تطوير Embedded في شتوتغارت. برمجة بـ C++ وتصميم اللوحات بـ Altium لشركات كمرسيدس وفولفو.</p>
-                </div>
-                <div class="tags-row">
-                    <span class="tag">Automotive</span>
-                    <span class="tag">C++</span>
-                </div>
-            </article>
-            <article class="project-card">
-                <div class="project-header">
-                    <div class="project-icon"><i class="fas fa-microchip"></i></div>
-                    <h3 data-i18n="p4_title">برمجة المتحكمات (ARM Cortex)</h3>
-                </div>
-                <div class="project-body">
-                    <p data-i18n="p4_desc">برمجة ARM Cortex M4 ببيئة STM32Cube ومكتبات HAL. تطوير Arduino وتطوير واجهات (CAN, SPI, I2C) مع فك تشفير الإشارات.</p>
-                </div>
-                <div class="tags-row">
-                    <span class="tag">ARM</span>
-                    <span class="tag">STM32</span>
-                </div>
-            </article>
-        </div>
-    </div>
-</section>
-
-<section class="section">
-    <div class="container">
-        <div class="section-header text-center" style="text-align: center;">
-            <div class="section-eyebrow">TECH STACK</div>
-        </div>
-        <div class="tags-row" style="justify-content: center; gap: 16px;">
-            <span class="tag"><i class="fab fa-aws"></i> AWS</span>
-            <span class="tag"><i class="fas fa-cubes"></i> Terraform</span>
-            <span class="tag"><i class="fab fa-docker"></i> Docker</span>
-            <span class="tag"><i class="fas fa-dharmachakra"></i> Kubernetes</span>
-            <span class="tag"><i class="fab fa-linux"></i> Linux</span>
-            <span class="tag"><i class="fab fa-python"></i> Python</span>
-            <span class="tag"><i class="fas fa-code"></i> C++</span>
-            <span class="tag"><i class="fas fa-robot"></i> AI Agents</span>
-            <span class="tag"><i class="fas fa-microchip"></i> Embedded</span>
-        </div>
-    </div>
-</section>
-
-<section class="section section-alt">
-    <div class="container">
-        <div class="cta-band">
-            <div class="cta-copy">
-                <h2 data-i18n="cta_title">عندك فكرة Cloud أو AI أو IoT؟ خلينا نختبرها بذكاء.</h2>
-                <p data-i18n="cta_desc">أقدر أساعدك تحوّل الفكرة إلى خطة تقنية واضحة، نموذج أولي، أو نشر فعلي على بنية آمنة وقابلة للتوسع.</p>
-            </div>
-            <div class="cta-actions">
-                <a href="#contact" class="btn-primary"><i class="fas fa-calendar-check"></i><span data-i18n="cta_primary">احجز مكالمة</span></a>
-                <a href="https://wa.me/4915779899849" target="_blank" rel="noopener" class="btn-secondary"><i class="fab fa-whatsapp"></i><span data-i18n="cta_secondary">راسلني واتساب</span></a>
-                <span class="cta-note" data-i18n="cta_note">مكالمة أولى قصيرة وواضحة</span>
-            </div>
-        </div>
-    </div>
-</section>
-
-<section id="contact" class="section section-alt">
-    <div class="container">
-        <div class="contact-wrapper">
-            <div class="contact-info">
-                <h2 data-i18n="contact_title">تواصل معي أو احجز استشارة</h2>
-                <div class="contact-methods">
-                    <div class="contact-item">
-                        <i class="far fa-envelope"></i>
-                        <a href="mailto:mahmoud.mardini@outlook.com">mahmoud.mardini@outlook.com</a>
-                    </div>
-                    <div class="contact-item">
-                        <i class="fas fa-phone-alt"></i>
-                        <a href="tel:+4915779899849" dir="ltr">+49 157 79899849</a>
-                    </div>
-                    <div class="contact-item">
-                        <i class="fab fa-whatsapp"></i>
-                        <a href="https://wa.me/4915779899849" target="_blank" rel="noopener">WhatsApp</a>
-                    </div>
-                </div>
-            </div>
-            <div class="calendly-wrap">
-                <div class="calendly-inline-widget"
-         data-url="https://calendly.com/mahmoud-mardini?hide_gdpr_banner=1&hide_event_type_details=1"
-         style="min-width:320px;height:100%; min-height: 500px;"></div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<footer class="footer">
-    <div class="footer-socials">
-        <a href="https://www.linkedin.com/in/mahmoud-mardini-de/" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
-        <a href="https://github.com/mahmoudmardini-sw" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
-    </div>
-    <p data-i18n="footer">© {YEAR} محمود مارديني. جميع الحقوق محفوظة.</p>
-</footer>
-
-<button id="scroll-top" aria-label="Scroll to top"><i class="fas fa-arrow-up"></i></button>
-
-<script>
-    /* ── Translations ── */
-    const translations = {
-        ar: {
-            logo: "Eng. Mahmoud Mardini",
-            nav_services: "الخدمات", nav_focus: "التركيز الحالي", nav_workflow: "منهجيتي", nav_projects: "الخبرات",
-            nav_contact: "احجز استشارة", hero_btn_projects: "شاهد المشاريع",
-            hero_title: "أهلاً بك، أنا محمود مارديني",
-            hero_subtitle: "مهندس بحث وتطوير ومهندس سحابي | Cloud & R&D Engineer",
-            availability_status: "متاح لمشاريع جديدة",
-            hero_chip_1: "شتوتغارت، ألمانيا", hero_chip_2: "Cloud + AI + Embedded", hero_chip_3: "بناء آمن من البداية", hero_chip_4: "Prototype → Production",
-            hero_desc: "أجمع بين الخلفية القوية في تطوير الأنظمة المدمجة المتقدمة، وخبرتي في البنية التحتية السحابية وأتمتة العمليات. أهدف لبناء حلول برمجية متكاملة وقابلة للتوسع.",
-            stat1: "سنوات خبرة", stat2: "قطاعات صناعية", stat3: "مشاريع منجزة", stat4: "لغات عمل",
-            srv_eyebrow: "Services Grid", services_title: "خدمات هندسية متكاملة",
-            srv1_title: "الرقمنة والترحيل السحابي",
-            srv1_desc: "نقل البنية التحتية التقليدية لشركتك إلى سحابة AWS مع تصميم معمارية آمنة ومؤتمتة لتقليل التكاليف.",
-            srv2_title: "استضافة وإدارة الذكاء الاصطناعي",
-            srv2_desc: "تجهيز بيئات سحابية لنشر نماذج الذكاء الاصطناعي ووكلاء الأتمتة. إدارة الحاويات وقواعد البيانات بكفاءة.",
-            srv3_title: "حلول إنترنت الأشياء والأنظمة المدمجة",
-            srv3_desc: "تطوير أولي للوحات الإلكترونية والأنظمة المدمجة، وربطها ببروتوكولات آمنة لنقل البيانات إلى السحابة.",
-            srv4_title: "حلول IoT للطاقة الذكية",
-            srv4_desc: "دمج الأنظمة المدمجة مع السحابة لتطبيقات الطاقة المتجددة والشبكات الذكية، بالاستفادة من خلفيتي الأكاديمية.",
-            srv5_title: "دمج الذكاء الاصطناعي (Digitalisierung)",
-            srv5_desc: "مساعدة الشركات على دمج تقنيات الذكاء الاصطناعي والأتمتة في عملياتها اليومية، وتحديث بنيتها التقنية لتحسين الإنتاجية وتقليل التكاليف.",
-            srv6_title: "أمن السحابة وإدارة الهويات",
-            srv6_desc: "تأمين البنية التحتية وإدارة صلاحيات الوصول (IAM). حماية البيانات الحساسة والأسرار باستخدام أفضل الممارسات المعتمدة.",
-            workflow_eyebrow: "Delivery Method", workflow_title: "طريقة العمل: من الفكرة إلى نظام يعمل",
-            workflow1_title: "تشخيص سريع وواضح", workflow1_desc: "نحدد المشكلة، البيانات، القيود، ومؤشرات النجاح قبل كتابة أي كود حتى لا يتحول المشروع لتجارب عشوائية.",
-            workflow2_title: "Prototype هندسي قابل للتطوير", workflow2_desc: "أبني نسخة أولى نظيفة تربط السحابة، الذكاء الاصطناعي، أو الأنظمة المدمجة بطريقة قابلة للتوسيع لاحقاً.",
-            workflow3_title: "نشر، أمان، ومراقبة", workflow3_desc: "نرفع الحل على بنية مستقرة مع مراقبة، صلاحيات وصول، نسخ احتياطي، وتوثيق واضح للتشغيل والصيانة.",
-            focus_eyebrow: "Current Focus", focus_title: "مجال التركيز الحالي",
-            focus_ai_title: "تطوير ونشر وكلاء الذكاء الاصطناعي (AI Agents)",
-            focus_ai_desc: "أركز حالياً بشكل مكثف على تصميم وتطوير وكلاء الذكاء الاصطناعي المستقلة (Autonomous AI Agents) لأتمتة العمليات المعقدة والمهام الإنتاجية، ونشرها على بنية تحتية سحابية متقدمة ومحسنة التكلفة لضمان أعلى أداء واستقرار.",
-            proj_eyebrow: "Experience Grid", projects_title: "أبرز المشاريع والخبرات",
-            p1_title: "هندسة السحابة والأتمتة",
-            p1_desc: "تصميم البنية التحتية باستخدام AWS (EC2, S3, RDS) وأتمتتها عبر Terraform. إعداد CI/CD وإدارة Docker و K8s.",
-            p2_title: "أنظمة Embedded Linux",
-            p2_desc: "بناء أنظمة لينكس المدمجة باستخدام Yocto Project. تكوين النواة (Kernel)، بناء الصور وتفليش البرامج الثابتة.",
-            p3_title: "مطور Embedded للسيارات",
-            p3_desc: "عملت كمطور أنظمة مدمجة ومشرف على تطوير Embedded في شتوتغارت. برمجة بـ C++ وتصميم اللوحات بـ Altium.",
-            p4_title: "برمجة المتحكمات (ARM Cortex)",
-            p4_desc: "برمجة ARM Cortex M4 ببيئة STM32Cube ومكتبات HAL. تطوير واجهات (CAN, SPI, I2C).",
-            cta_title: "عندك فكرة Cloud أو AI أو IoT؟ خلينا نختبرها بذكاء.",
-            cta_desc: "أقدر أساعدك تحوّل الفكرة إلى خطة تقنية واضحة، نموذج أولي، أو نشر فعلي على بنية آمنة وقابلة للتوسع.",
-            cta_primary: "احجز مكالمة", cta_secondary: "راسلني واتساب", cta_note: "مكالمة أولى قصيرة وواضحة",
-            contact_title: "تواصل معي",
-            footer: "Copyright {YEAR} Mahmoud Mardini"
-        },
-        en: {
-            logo: "Eng. Mahmoud Mardini",
-            nav_services: "Services", nav_focus: "Focus", nav_workflow: "Workflow", nav_projects: "Experience",
-            nav_contact: "Book a Call", hero_btn_projects: "View Projects",
-            hero_title: "Welcome, I'm Mahmoud Mardini",
-            hero_subtitle: "Cloud & R&D Engineer",
-            availability_status: "Available for new projects",
-            hero_chip_1: "Stuttgart, Germany", hero_chip_2: "Cloud + AI + Embedded", hero_chip_3: "Security-first builds", hero_chip_4: "Prototype → Production",
-            hero_desc: "I combine a strong background in advanced Embedded Systems with expertise in Cloud Infrastructure and DevOps to build integrated, scalable software solutions.",
-            stat1: "Years Experience", stat2: "Industry Sectors", stat3: "Projects Delivered", stat4: "Languages",
-            srv_eyebrow: "Services Grid", services_title: "Engineering Services",
-            srv1_title: "Digitalization & Cloud Migration",
-            srv1_desc: "Migrating your IT infrastructure to AWS. Designing secure and automated architectures (IaC) to reduce costs.",
-            srv2_title: "AI Hosting & Management",
-            srv2_desc: "Setting up tailored cloud environments to deploy AI models and agents. Efficiently managing containers.",
-            srv3_title: "IoT & Embedded Solutions",
-            srv3_desc: "Prototyping electronic boards and embedded systems, connecting them via secure protocols to the cloud.",
-            srv4_title: "Smart Energy IoT",
-            srv4_desc: "Integrating embedded systems with the cloud for renewable energy and smart grid applications.",
-            srv5_title: "AI Integration",
-            srv5_desc: "Helping businesses integrate AI technology and automation into their daily workflows.",
-            srv6_title: "Cloud Security & IAM",
-            srv6_desc: "Securing infrastructure and managing Identity and Access Management (IAM). Protecting sensitive data.",
-            workflow_eyebrow: "Delivery Method", workflow_title: "How I build: from idea to working system",
-            workflow1_title: "Clear technical diagnosis", workflow1_desc: "I define the problem, data, constraints, and success metrics before writing code, so the project does not become random experiments.",
-            workflow2_title: "Scalable engineering prototype", workflow2_desc: "I build a clean first version that connects cloud, AI, or embedded systems in a way that can grow later.",
-            workflow3_title: "Deploy, secure, monitor", workflow3_desc: "I ship on stable infrastructure with monitoring, access control, backups, and clear operating documentation.",
-            focus_eyebrow: "Current Focus", focus_title: "Current Focus Area",
-            focus_ai_title: "AI Agents Development & Deployment",
-            focus_ai_desc: "Currently focusing heavily on designing and developing autonomous AI Agents to automate complex workflows, deploying them on advanced, cost-optimized cloud infrastructure.",
-            proj_eyebrow: "Experience Grid", projects_title: "Featured Experience",
-            p1_title: "Cloud Engineering",
-            p1_desc: "AWS infrastructure automated via Terraform. CI/CD setup, managing Docker & K8s.",
-            p2_title: "Embedded Linux",
-            p2_desc: "Building advanced Linux systems via Yocto Project. Kernel configuration and image creation.",
-            p3_title: "Automotive Embedded",
-            p3_desc: "Embedded Developer in Stuttgart's automotive sector. C++ programming, PCB design with Altium.",
-            p4_title: "Microcontroller (ARM)",
-            p4_desc: "ARM Cortex M4 programming using STM32Cube. Interfaces (CAN, SPI, I2C) and signal decoding.",
-            cta_title: "Have a Cloud, AI, or IoT idea? Let’s validate it properly.",
-            cta_desc: "I can help turn your idea into a clear technical plan, a prototype, or a production deployment on secure, scalable infrastructure.",
-            cta_primary: "Book a Call", cta_secondary: "WhatsApp Me", cta_note: "Short, practical first call",
-            contact_title: "Contact Me",
-            footer: "Copyright {YEAR} Mahmoud Mardini"
-        },
-        de: {
-            logo: "Eng. Mahmoud Mardini",
-            nav_services: "Leistungen", nav_focus: "Fokus", nav_workflow: "Ablauf", nav_projects: "Erfahrung",
-            nav_contact: "Termin buchen", hero_btn_projects: "Projekte",
-            hero_title: "Willkommen, ich bin Mahmoud",
-            hero_subtitle: "Cloud & R&D Engineer",
-            availability_status: "Verfügbar für neue Projekte",
-            hero_chip_1: "Stuttgart, Deutschland", hero_chip_2: "Cloud + KI + Embedded", hero_chip_3: "Security-first Builds", hero_chip_4: "Prototype → Production",
-            hero_desc: "Ich kombiniere fundierte Erfahrung in Embedded Systems mit Expertise in Cloud-Infrastruktur und DevOps, um skalierbare Lösungen zu entwickeln.",
-            stat1: "Jahre Erfahrung", stat2: "Branchen", stat3: "Projekte", stat4: "Sprachen",
-            srv_eyebrow: "Services Grid", services_title: "Dienstleistungen",
-            srv1_title: "Cloud-Migration",
-            srv1_desc: "Migration Ihrer IT-Infrastruktur zu AWS. Entwurf sicherer Architekturen (IaC) zur Kostensenkung.",
-            srv2_title: "KI-Hosting",
-            srv2_desc: "Aufbau von Cloud-Umgebungen für KI-Modelle. Effizientes Container-Management.",
-            srv3_title: "IoT & Embedded",
-            srv3_desc: "Prototyping für elektronische Baugruppen und Embedded Systems inklusive Cloud-Anbindung.",
-            srv4_title: "Smart Energy IoT",
-            srv4_desc: "Integration von Embedded Systems mit der Cloud für Smart-Grid-Anwendungen.",
-            srv5_title: "KI-Integration",
-            srv5_desc: "Unterstützung von Unternehmen bei der Integration von KI und Automatisierung in ihre Prozesse.",
-            srv6_title: "Cloud-Sicherheit",
-            srv6_desc: "Absicherung der Infrastruktur und Identity and Access Management (IAM).",
-            workflow_eyebrow: "Delivery Method", workflow_title: "Vom Konzept zum funktionierenden System",
-            workflow1_title: "Klare technische Diagnose", workflow1_desc: "Ich definiere Problem, Daten, Grenzen und Erfolgskriterien, bevor Code geschrieben wird.",
-            workflow2_title: "Skalierbarer Prototyp", workflow2_desc: "Ich baue eine saubere erste Version, die Cloud, KI oder Embedded Systems später erweiterbar verbindet.",
-            workflow3_title: "Deploy, Security, Monitoring", workflow3_desc: "Ich liefere auf stabiler Infrastruktur mit Monitoring, Zugriffskontrolle, Backups und klarer Betriebsdokumentation.",
-            focus_eyebrow: "Current Focus", focus_title: "Aktueller Schwerpunkt",
-            focus_ai_title: "KI-Agenten Entwicklung",
-            focus_ai_desc: "Aktuell konzentriere ich mich auf das Design autonomer KI-Agenten zur Automatisierung komplexer Arbeitsabläufe in der Cloud.",
-            proj_eyebrow: "Experience Grid", projects_title: "Erfahrungen",
-            p1_title: "Cloud Engineering",
-            p1_desc: "AWS-Infrastruktur mit Terraform. CI/CD-Setup, Docker & K8s.",
-            p2_title: "Embedded Linux",
-            p2_desc: "Entwicklung mit Yocto Project. Kernel-Konfiguration und Image-Erstellung.",
-            p3_title: "Automotive Embedded",
-            p3_desc: "Embedded Developer in Stuttgart. C++, PCB-Design mit Altium.",
-            p4_title: "Mikrocontroller",
-            p4_desc: "ARM Cortex M4 Programmierung. Schnittstellen (CAN, SPI, I2C).",
-            cta_title: "Cloud-, KI- oder IoT-Idee? Lass sie uns sauber validieren.",
-            cta_desc: "Ich helfe, aus der Idee einen klaren technischen Plan, einen Prototyp oder ein produktives Deployment zu machen.",
-            cta_primary: "Termin buchen", cta_secondary: "WhatsApp", cta_note: "Kurzer, praktischer Erstcall",
-            contact_title: "Kontaktieren Sie mich",
-            footer: "Copyright {YEAR} Mahmoud Mardini"
-        }
-    };
-
-    /* ── Language switch ── */
-    function changeLanguage(lang) {
-        document.documentElement.lang = lang;
-        document.documentElement.dir = (lang === 'ar') ? 'rtl' : 'ltr';
-        const selector = document.getElementById('langSelect');
-        if (selector && selector.value !== lang) selector.value = lang;
-        document.querySelectorAll('[data-i18n]').forEach(el => {
-            const key = el.getAttribute('data-i18n');
-            if (translations[lang]?.[key]) {
-                el.textContent = translations[lang][key].replace('{YEAR}', new Date().getFullYear());
-            }
-        });
-    }
-
-    /* ── Scroll progress & Top Button ── */
-    const progressBar  = document.getElementById('scroll-progress');
-    const scrollTopBtn = document.getElementById('scroll-top');
-
-    window.addEventListener('scroll', () => {
-        const st = window.scrollY;
-        const dh = document.documentElement.scrollHeight - window.innerHeight;
-        progressBar.style.width = (dh > 0 ? (st / dh) * 100 : 0) + '%';
-        scrollTopBtn.classList.toggle('visible', st > 400);
-    }, { passive: true });
-
-    scrollTopBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
-
-    /* ── Hamburger ── */
-    const hamburger = document.getElementById('hamburger');
-    const navLinks  = document.getElementById('navLinks');
-    hamburger.addEventListener('click', () => {
-        hamburger.classList.toggle('open');
-        navLinks.classList.toggle('open');
-    });
-
-    navLinks.querySelectorAll('a').forEach(link => {
-        link.addEventListener('click', () => {
-            hamburger.classList.remove('open');
-            navLinks.classList.remove('open');
-        });
-    });
-
-    /* ── Calendly ── */
-    const contactSection = document.getElementById('contact');
-    if (contactSection) {
-        const calendlyObserver = new IntersectionObserver(entries => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    const script = document.createElement('script');
-                    script.src = 'https://assets.calendly.com/assets/external/widget.js';
-                    script.async = true;
-                    document.body.appendChild(script);
-                    calendlyObserver.disconnect();
-                }
-            });
-        }, { rootMargin: '300px' });
-        calendlyObserver.observe(contactSection);
-    }
-
-    /* ── Stats Animation ── */
-    const countEls = document.querySelectorAll('.count-val');
-    if (countEls.length) {
-        const statsObserver = new IntersectionObserver(entries => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    countEls.forEach(el => {
-                        const target = parseInt(el.dataset.target, 10) || 0;
-                        const duration = 1500;
-                        const start = performance.now();
-                        function tick(now) {
-                            const progress = Math.min((now - start) / duration, 1);
-                            const eased = 1 - Math.pow(1 - progress, 3);
-                            el.textContent = Math.round(eased * target);
-                            if (progress < 1) requestAnimationFrame(tick);
-                        }
-                        requestAnimationFrame(tick);
-                    });
-                    statsObserver.disconnect();
-                }
-            });
-        });
-        statsObserver.observe(document.querySelector('.stats-wrapper'));
-    }
-
-    changeLanguage('en');
-</script>
+  <script src="assets/js/i18n.js"></script>
+  <script src="assets/js/main.js"></script>
 </body>
 </html>
