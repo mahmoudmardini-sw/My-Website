@@ -9,6 +9,7 @@ Live: <https://cv.mardini-ing.workers.dev/>
 - **Two themes:** the original dark teal/indigo design plus a warm light theme (ivory background, espresso text, gold/bronze accents). Switch from the header; the choice is remembered in `localStorage` under `mm-theme`.
 - **Custom emblem:** a hexagonal "engineering core" mark replaces the old monogram in the hero, header/footer brand marks, favicon, and social preview image.
 - **CV-aligned content:** eight experience entries from the 2026 CV — independent edge-cloud projects, the AWS certification track, Hoerbiger, Mercedes-Benz VAN, Odelo, Volvo/Flex, JDM, and the BSc in Renewable Energies.
+- **Cinematic 3D hero:** a procedural PCB flythrough built with locally vendored Three.js, a 4-second in-card teaser, and a full-screen cinema mode with replay/close controls. Mobile, reduced-motion, and WebGL-failure paths keep the original CSS engineering-core hero.
 - **Fully static:** plain HTML, CSS, and JavaScript with no build step.
 - **Trilingual UI:** English, Arabic (full RTL layout), and German. The language can be switched from the header and is remembered in `localStorage` (`mm-lang`).
 - **Responsive layout:** mobile navigation drawer, scroll reveal effects, animated counters, and section-aware navigation.
@@ -19,11 +20,14 @@ Live: <https://cv.mardini-ing.workers.dev/>
 
 ```text
 .
-├── index.html              # Single-page markup, metadata, hero SVG
+├── index.html              # Single-page markup, metadata, hero WebGL + CSS fallback
 ├── assets/
 │   ├── css/styles.css      # Design system, dark/light themes, layout, animations, RTL
 │   ├── js/main.js          # Theme/language UI, navigation, scrollspy, reveals, counters, Calendly
 │   ├── js/i18n.js          # en / ar / de dictionaries and language runtime
+│   ├── js/hero-scene.js    # Three.js PCB flythrough and cinema-mode controller
+│   ├── img/                # Hero poster and static image assets
+│   ├── vendor/three/       # Locally vendored Three.js r170 + addons (MIT)
 │   ├── icons.svg           # Local SVG icon sprite
 │   ├── favicon.svg         # Favicon (hexagonal engineering core)
 │   └── og-image.png        # 1200x630 social preview image

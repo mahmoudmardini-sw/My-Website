@@ -68,6 +68,15 @@
 
   <link rel="stylesheet" href="assets/css/styles.css">
 
+  <script type="importmap">
+  {
+    "imports": {
+      "three": "./assets/vendor/three/build/three.module.min.js",
+      "three/addons/": "./assets/vendor/three/examples/jsm/"
+    }
+  }
+  </script>
+
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -226,6 +235,15 @@
             </div>
 
             <div class="visual-stage">
+              <div class="scene-webgl" data-scene-webgl aria-hidden="true">
+                <img class="scene-poster" src="assets/img/hero-pcb-poster.webp" alt="" width="1200" height="1022" loading="lazy" decoding="async">
+                <div class="scene-canvas-mount" data-scene-mount>
+                  <canvas class="scene-canvas" id="heroPcbCanvas" width="1000" height="740"></canvas>
+                </div>
+                <div class="scene-scanlines" aria-hidden="true"></div>
+                <div class="scene-vignette" aria-hidden="true"></div>
+              </div>
+
               <div class="core-scene" aria-hidden="true">
                 <div class="scene-floor"></div>
                 <div class="scene-aurora"></div>
@@ -340,6 +358,14 @@
                   <span class="tech-node__copy"><strong data-i18n="node_automotive">Automotive</strong><small>CAN · A-SPICE</small></span>
                 </a>
               </div>
+
+              <button class="cinema-launch" id="cinemaLaunch" type="button" aria-haspopup="dialog" aria-controls="cinema">
+                <span class="cinema-launch__icon" aria-hidden="true">
+                  <svg class="icon"><use href="assets/icons.svg#i-play"></use></svg>
+                </span>
+                <span class="cinema-launch__label" data-i18n="cinema_play">Play cinematic</span>
+                <span class="cinema-launch__hint" aria-hidden="true">3D</span>
+              </button>
             </div>
 
             <div class="visual-foot">
@@ -930,6 +956,47 @@
   <button id="scroll-top" type="button" aria-label="Back to top" data-i18n-aria="scroll_top">
     <svg class="icon" aria-hidden="true"><use href="assets/icons.svg#i-arrow-up"></use></svg>
   </button>
+
+  <dialog class="cinema" id="cinema" aria-labelledby="cinemaTitle">
+    <h2 class="sr-only" id="cinemaTitle" data-i18n="cinema_title">Engineering core — cinematic sequence</h2>
+    <div class="cinema__stage" id="cinemaStage" aria-hidden="true"></div>
+    <div class="cinema__shade" aria-hidden="true"></div>
+    <div class="cinema__chrome">
+      <div class="cinema__top">
+        <span class="cinema__brand">
+          <svg class="icon" aria-hidden="true"><use href="assets/icons.svg#i-core"></use></svg>
+          <span>MM <i>/</i> <span data-i18n="hud_core">Engineering core</span></span>
+        </span>
+        <span class="cinema__status">
+          <i aria-hidden="true"></i>
+          <span data-i18n="cinema_status">Cinematic sequence</span>
+          <span class="cinema__time" id="cinemaTime" dir="ltr">00:00</span>
+        </span>
+      </div>
+
+      <div class="cinema__bottom">
+        <div class="cinema__chapters" id="cinemaChapters">
+          <span class="cinema__chapter is-active" data-act="0"><b>01</b><span data-i18n="cinema_act1">Signal</span></span>
+          <span class="cinema__chapter" data-act="1"><b>02</b><span data-i18n="cinema_act2">Core</span></span>
+          <span class="cinema__chapter" data-act="2"><b>03</b><span data-i18n="cinema_act3">Cloud</span></span>
+        </div>
+        <div class="cinema__controls">
+          <button class="cinema__btn" id="cinemaReplay" type="button">
+            <svg class="icon" aria-hidden="true"><use href="assets/icons.svg#i-replay"></use></svg>
+            <span data-i18n="cinema_replay">Replay</span>
+          </button>
+          <div class="cinema__progress" aria-label="Cinematic progress" data-i18n-aria="cinema_progress">
+            <span id="cinemaProgress"></span>
+          </div>
+          <button class="cinema__btn cinema__btn--close" id="cinemaClose" type="button">
+            <span data-i18n="cinema_close">Close</span>
+            <svg class="icon" aria-hidden="true"><use href="assets/icons.svg#i-close"></use></svg>
+          </button>
+        </div>
+        <span class="sr-only" id="cinemaAnnounce" aria-live="polite"></span>
+      </div>
+    </div>
+  </dialog>
 
   <script src="assets/js/i18n.js"></script>
   <script src="assets/js/main.js"></script>

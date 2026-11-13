@@ -358,7 +358,7 @@
     }
 
     coreVisual.addEventListener("pointermove", (event) => {
-      if (compactScene.matches) return;
+      if (compactScene.matches || coreVisual.classList.contains("is-webgl")) return;
       const rect = coreVisual.getBoundingClientRect();
       const x = (event.clientX - rect.left) / rect.width - 0.5;
       const y = (event.clientY - rect.top) / rect.height - 0.5;
@@ -383,6 +383,7 @@
   if (coreVisual && "IntersectionObserver" in window) {
     const sceneObserver = new IntersectionObserver(
       (entries) => {
+        if (coreVisual.classList.contains("is-webgl")) return;
         entries.forEach((entry) => {
           coreVisual.classList.toggle("is-paused", !entry.isIntersecting);
         });
@@ -444,6 +445,69 @@
     } else {
       revealCalendar();
     }
+  }
+
+  /* ---------------------------------------------------------------
+     Cinematic WebGL hero — lazy, desktop only
+     --------------------------------------------------------------- */
+  const heroSceneScript = document.currentScript;
+  const heroSceneUrl = heroSceneScript?.src
+    ? new URL("./hero-scene.js", heroSceneScript.src).href
+    : "assets/js/hero-scene.js";
+  const desktopSceneQuery = window.matchMedia("(min-width: 761px)");
+  const connection = navigator.connection || navigator.mozConnection || {};
+  let heroSceneLoading = false;
+
+  function hasWebGL() {
+    try {
+      if (!window.WebGLRenderingContext) return false;
+      const probe = document.createElement("canvas");
+      const gl = probe.getContext("webgl2") || probe.getContext("webgl");
+      if (!gl) return false;
+      gl.getExtension("WEBGL_lose_context")?.loseContext();
+      return true;
+    } catch (error) {
+      return false;
+    }
+  }
+
+  function loadHeroScene() {
+    if (heroSceneLoading || !coreVisual) return;
+    if (!desktopSceneQuery.matches || prefersReducedMotion() || connection.saveData) return;
+    if (!hasWebGL()) return;
+    heroSceneLoading = true;
+    import(heroSceneUrl)
+      .then((module) => module.initHeroScene())
+      .catch(() => {
+        heroSceneLoading = false;
+      });
+  }
+
+  if (coreVisual) {
+    if ("IntersectionObserver" in window) {
+      const heroSceneObserver = new IntersectionObserver(
+        (entries, observer) => {
+          if (entries.some((entry) => entry.isIntersecting)) {
+            observer.disconnect();
+            loadHeroScene();
+          }
+        },
+        { rootMargin: "320px 0px" }
+      );
+      heroSceneObserver.observe(coreVisual);
+    } else {
+      loadHeroScene();
+    }
+
+    desktopSceneQuery.addEventListener?.("change", loadHeroScene);
+
+    window.addEventListener(
+      "load",
+      () => {
+        window.setTimeout(loadHeroScene, 900);
+      },
+      { once: true }
+    );
   }
 
   /* ---------------------------------------------------------------
