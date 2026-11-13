@@ -1,0 +1,12 @@
+# Repository internals that must never be served as static assets
+.git
+.gitignore
+.assetsignore
+.wrangler
+.dev.vars*
+.env*
+node_modules
+README.md
+wrangler.jsonc
+package.json
+package-lock.json

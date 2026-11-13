@@ -1651,7 +1651,7 @@ html[dir="rtl"] .project-card h3 {
 /* ============================= Stack ============================= */
 .stack-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   gap: 16px;
 }
 .stack-card {
