@@ -308,26 +308,88 @@
   }
 
   /* ---------------------------------------------------------------
-     Subtle parallax on the hero core
+     Hero core scene — pointer depth, wire focus, offscreen pause
      --------------------------------------------------------------- */
   const coreVisual = document.querySelector(".core-visual");
   const visualStage = coreVisual?.querySelector(".visual-stage");
+  const wirePulses = Array.from(coreVisual?.querySelectorAll(".wire-pulse") || []);
+  const nodeSlots = Array.from(coreVisual?.querySelectorAll(".node-slot") || []);
+
+  if (coreVisual && wirePulses.length) {
+    nodeSlots.forEach((slot, index) => {
+      const wire = wirePulses[index];
+      if (!wire) return;
+      const hot = () => wire.classList.add("is-hot");
+      const cool = () => wire.classList.remove("is-hot");
+      slot.addEventListener("pointerenter", hot);
+      slot.addEventListener("pointerleave", cool);
+      slot.addEventListener("focusin", hot);
+      slot.addEventListener("focusout", cool);
+    });
+  }
 
   if (coreVisual && visualStage && finePointer && !prefersReducedMotion()) {
+    const compactScene = window.matchMedia("(max-width: 760px)");
+    const maxTilt = 7;
+    let targetX = 0;
+    let targetY = 0;
+    let currentX = 0;
+    let currentY = 0;
     let frame = 0;
+
+    function renderTilt() {
+      currentX += (targetX - currentX) * 0.12;
+      currentY += (targetY - currentY) * 0.12;
+      visualStage.style.setProperty("--ry", currentX.toFixed(2) + "deg");
+      visualStage.style.setProperty("--rx", (-currentY).toFixed(2) + "deg");
+      if (Math.abs(targetX - currentX) > 0.02 || Math.abs(targetY - currentY) > 0.02) {
+        frame = window.requestAnimationFrame(renderTilt);
+      } else {
+        currentX = targetX;
+        currentY = targetY;
+        visualStage.style.setProperty("--ry", currentX.toFixed(2) + "deg");
+        visualStage.style.setProperty("--rx", (-currentY).toFixed(2) + "deg");
+        frame = 0;
+      }
+    }
+
+    function kickTilt() {
+      if (!frame) frame = window.requestAnimationFrame(renderTilt);
+    }
+
     coreVisual.addEventListener("pointermove", (event) => {
-      if (frame) window.cancelAnimationFrame(frame);
-      frame = window.requestAnimationFrame(() => {
-        const rect = coreVisual.getBoundingClientRect();
-        const x = (event.clientX - rect.left) / rect.width - 0.5;
-        const y = (event.clientY - rect.top) / rect.height - 0.5;
-        visualStage.style.transform = `rotateX(${(-y * 2.4).toFixed(2)}deg) rotateY(${(x * 2.4).toFixed(2)}deg)`;
-      });
+      if (compactScene.matches) return;
+      const rect = coreVisual.getBoundingClientRect();
+      const x = (event.clientX - rect.left) / rect.width - 0.5;
+      const y = (event.clientY - rect.top) / rect.height - 0.5;
+      targetX = Math.max(-1, Math.min(1, x * 2)) * maxTilt;
+      targetY = Math.max(-1, Math.min(1, y * 2)) * maxTilt;
+      kickTilt();
     });
     coreVisual.addEventListener("pointerleave", () => {
-      if (frame) window.cancelAnimationFrame(frame);
-      visualStage.style.transform = "";
+      targetX = 0;
+      targetY = 0;
+      kickTilt();
     });
+    compactScene.addEventListener?.("change", () => {
+      if (compactScene.matches) {
+        targetX = 0;
+        targetY = 0;
+        kickTilt();
+      }
+    });
+  }
+
+  if (coreVisual && "IntersectionObserver" in window) {
+    const sceneObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          coreVisual.classList.toggle("is-paused", !entry.isIntersecting);
+        });
+      },
+      { rootMargin: "120px 0px" }
+    );
+    sceneObserver.observe(coreVisual);
   }
 
   /* ---------------------------------------------------------------
