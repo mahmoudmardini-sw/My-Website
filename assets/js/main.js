@@ -1,4 +1,4 @@
-/* Site behaviour — navigation, motion, stats, Calendly */
+/* Site behaviour — mission control interactions */
 (function () {
   "use strict";
 
@@ -8,6 +8,10 @@
   const reduceMotionQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
   const prefersReducedMotion = () => reduceMotionQuery.matches;
   const finePointer = window.matchMedia("(pointer: fine)").matches;
+
+  function dictionary() {
+    return window.I18N?.[root.lang] || window.I18N?.en || {};
+  }
 
   /* ---------------------------------------------------------------
      Header, scroll progress and back-to-top
@@ -55,12 +59,58 @@
   const navToggle = document.getElementById("navToggle");
   const navLinks = document.getElementById("navLinks");
 
-  function dictionary() {
-    return window.I18N?.[root.lang] || window.I18N?.en || {};
+  function syncToggleLabel(open) {
+    if (!navToggle) return;
+    const labels = dictionary();
+    navToggle.setAttribute(
+      "aria-label",
+      open ? labels.menu_close || "Close menu" : labels.menu_open || "Open menu"
+    );
+  }
+
+  function setMenu(open) {
+    if (!navToggle || !navLinks) return;
+    navToggle.setAttribute("aria-expanded", String(open));
+    navLinks.classList.toggle("is-open", open);
+    if (header) header.classList.toggle("is-open", open);
+    document.body.classList.toggle("nav-open", open);
+    syncToggleLabel(open);
+  }
+
+  if (navToggle && navLinks) {
+    syncToggleLabel(false);
+
+    navToggle.addEventListener("click", () => {
+      setMenu(navToggle.getAttribute("aria-expanded") !== "true");
+    });
+
+    navLinks.querySelectorAll("a").forEach((link) => {
+      link.addEventListener("click", () => setMenu(false));
+    });
+
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape" && navToggle.getAttribute("aria-expanded") === "true") {
+        setMenu(false);
+        navToggle.focus();
+      }
+    });
+
+    document.addEventListener("click", (event) => {
+      if (navToggle.getAttribute("aria-expanded") !== "true") return;
+      if (header && !header.contains(event.target)) setMenu(false);
+    });
+
+    window.addEventListener("resize", () => {
+      if (window.innerWidth > 900) setMenu(false);
+    });
+
+    window.addEventListener("languagechange", () => {
+      syncToggleLabel(navToggle.getAttribute("aria-expanded") === "true");
+    });
   }
 
   /* ---------------------------------------------------------------
-     Theme switching
+     Theme — night deck / daylight deck
      --------------------------------------------------------------- */
   const themeToggle = document.getElementById("themeToggle");
   const themeColorMeta = document.querySelector('meta[name="theme-color"]');
@@ -76,8 +126,8 @@
     const next = currentTheme() === "dark" ? "light" : "dark";
     const label =
       next === "light"
-        ? labels.theme_to_light || "Switch to light theme"
-        : labels.theme_to_dark || "Switch to dark theme";
+        ? labels.theme_to_light || "Switch to daylight mode"
+        : labels.theme_to_dark || "Switch to night mode";
     themeToggle.setAttribute("aria-label", label);
     themeToggle.setAttribute("title", label);
   }
@@ -98,9 +148,10 @@
     root.dataset.theme = safeTheme;
     root.style.colorScheme = safeTheme;
     if (themeColorMeta) {
-      themeColorMeta.setAttribute("content", safeTheme === "light" ? "#f7f2e8" : "#05080f");
+      themeColorMeta.setAttribute("content", safeTheme === "light" ? "#f4eee2" : "#060403");
     }
     syncThemeToggle();
+    window.dispatchEvent(new CustomEvent("themechange", { detail: { theme: safeTheme } }));
   }
 
   if (themeToggle) {
@@ -119,55 +170,10 @@
   applyTheme(currentTheme());
   window.addEventListener("languagechange", syncThemeToggle);
 
-  function syncToggleLabel(open) {
-    if (!navToggle) return;
-    const labels = dictionary();
-    navToggle.setAttribute("aria-label", open ? labels.menu_close || "Close menu" : labels.menu_open || "Open menu");
-  }
-
-  function setMenu(open) {
-    if (!navToggle || !navLinks) return;
-    navToggle.setAttribute("aria-expanded", String(open));
-    navLinks.classList.toggle("is-open", open);
-    if (header) header.classList.toggle("is-open", open);
-    document.body.classList.toggle("nav-open", open);
-    syncToggleLabel(open);
-  }
-
-  if (navToggle && navLinks) {
-    navToggle.addEventListener("click", () => {
-      setMenu(navToggle.getAttribute("aria-expanded") !== "true");
-    });
-
-    navLinks.querySelectorAll("a").forEach((link) => {
-      link.addEventListener("click", () => setMenu(false));
-    });
-
-    document.addEventListener("keydown", (event) => {
-      if (event.key === "Escape" && navToggle.getAttribute("aria-expanded") === "true") {
-        setMenu(false);
-        navToggle.focus();
-      }
-    });
-
-    document.addEventListener("click", (event) => {
-      if (navToggle.getAttribute("aria-expanded") !== "true") return;
-      if (!header.contains(event.target)) setMenu(false);
-    });
-
-    window.addEventListener("resize", () => {
-      if (window.innerWidth > 900) setMenu(false);
-    });
-
-    window.addEventListener("languagechange", () => {
-      syncToggleLabel(navToggle.getAttribute("aria-expanded") === "true");
-    });
-  }
-
   /* ---------------------------------------------------------------
-     Scroll spy for section links
+     Scroll spy
      --------------------------------------------------------------- */
-  const sectionIds = ["services", "workflow", "focus", "projects"];
+  const sectionIds = ["modules", "sequence", "mission", "log"];
   const sections = sectionIds
     .map((id) => document.getElementById(id))
     .filter(Boolean);
@@ -200,6 +206,8 @@
         if (visibleSections.size) {
           const mostVisible = Array.from(visibleSections.entries()).sort((a, b) => b[1] - a[1])[0];
           setActiveLink(mostVisible[0]);
+        } else {
+          setActiveLink(null);
         }
       },
       { rootMargin: "-22% 0px -58% 0px", threshold: [0, 0.1, 0.3, 0.6] }
@@ -220,10 +228,6 @@
 
   const revealElements = Array.from(document.querySelectorAll("[data-reveal]"));
 
-  function revealAll() {
-    revealElements.forEach((element) => element.classList.add("is-visible"));
-  }
-
   if (!prefersReducedMotion() && "IntersectionObserver" in window) {
     const revealObserver = new IntersectionObserver(
       (entries, observer) => {
@@ -238,7 +242,7 @@
     );
     revealElements.forEach((element) => revealObserver.observe(element));
   } else {
-    revealAll();
+    revealElements.forEach((element) => element.classList.add("is-visible"));
   }
 
   /* ---------------------------------------------------------------
@@ -293,105 +297,232 @@
   /* ---------------------------------------------------------------
      Pointer spotlight on cards
      --------------------------------------------------------------- */
-  if (finePointer) {
-    document.querySelectorAll(".service-card, .project-card").forEach((card) => {
-      card.addEventListener("pointermove", (event) => {
-        const rect = card.getBoundingClientRect();
-        card.style.setProperty("--mx", event.clientX - rect.left + "px");
-        card.style.setProperty("--my", event.clientY - rect.top + "px");
+  if (finePointer && !prefersReducedMotion()) {
+    document
+      .querySelectorAll(".module-card, .log-card, .rack-card, .sequence-card")
+      .forEach((card) => {
+        card.addEventListener("pointermove", (event) => {
+          const rect = card.getBoundingClientRect();
+          card.style.setProperty("--mx", event.clientX - rect.left + "px");
+          card.style.setProperty("--my", event.clientY - rect.top + "px");
+        });
+        card.addEventListener("pointerleave", () => {
+          card.style.removeProperty("--mx");
+          card.style.removeProperty("--my");
+        });
       });
-      card.addEventListener("pointerleave", () => {
-        card.style.removeProperty("--mx");
-        card.style.removeProperty("--my");
-      });
-    });
   }
 
   /* ---------------------------------------------------------------
-     Hero core scene — pointer depth, wire focus, offscreen pause
+     Deploy hero — map reticle, loadout selector, sector intel
      --------------------------------------------------------------- */
-  const coreVisual = document.querySelector(".core-visual");
-  const visualStage = coreVisual?.querySelector(".visual-stage");
-  const wirePulses = Array.from(coreVisual?.querySelectorAll(".wire-pulse") || []);
-  const nodeSlots = Array.from(coreVisual?.querySelectorAll(".node-slot") || []);
+  const deployMap = document.getElementById("deployMap");
+  const deployArt = document.querySelector(".deploy-art");
+  const reticle = document.getElementById("reticle");
+  const reticleCoord = document.getElementById("reticleCoord");
 
-  if (coreVisual && wirePulses.length) {
-    nodeSlots.forEach((slot, index) => {
-      const wire = wirePulses[index];
-      if (!wire) return;
-      const hot = () => wire.classList.add("is-hot");
-      const cool = () => wire.classList.remove("is-hot");
-      slot.addEventListener("pointerenter", hot);
-      slot.addEventListener("pointerleave", cool);
-      slot.addEventListener("focusin", hot);
-      slot.addEventListener("focusout", cool);
-    });
+  if (deployArt && typeof deployArt.pauseAnimations === "function") {
+    if (prefersReducedMotion()) {
+      deployArt.pauseAnimations();
+    } else if ("IntersectionObserver" in window) {
+      const smilObserver = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) deployArt.unpauseAnimations();
+            else deployArt.pauseAnimations();
+          });
+        },
+        { rootMargin: "60px 0px" }
+      );
+      smilObserver.observe(deployArt);
+    }
   }
 
-  if (coreVisual && visualStage && finePointer && !prefersReducedMotion()) {
-    const compactScene = window.matchMedia("(max-width: 760px)");
-    const maxTilt = 7;
-    let targetX = 0;
-    let targetY = 0;
-    let currentX = 0;
-    let currentY = 0;
-    let frame = 0;
+  if (deployMap && deployArt && reticle && reticleCoord && finePointer && !prefersReducedMotion()) {
+    let mapX = 0;
+    let mapY = 0;
+    let parallaxFrame = 0;
 
-    function renderTilt() {
-      currentX += (targetX - currentX) * 0.12;
-      currentY += (targetY - currentY) * 0.12;
-      visualStage.style.setProperty("--ry", currentX.toFixed(2) + "deg");
-      visualStage.style.setProperty("--rx", (-currentY).toFixed(2) + "deg");
-      if (Math.abs(targetX - currentX) > 0.02 || Math.abs(targetY - currentY) > 0.02) {
-        frame = window.requestAnimationFrame(renderTilt);
-      } else {
-        currentX = targetX;
-        currentY = targetY;
-        visualStage.style.setProperty("--ry", currentX.toFixed(2) + "deg");
-        visualStage.style.setProperty("--rx", (-currentY).toFixed(2) + "deg");
-        frame = 0;
-      }
+    function renderParallax() {
+      parallaxFrame = 0;
+      deployArt.style.transform = `translate3d(${mapX}px, ${mapY}px, 0) scale(1.03)`;
     }
 
-    function kickTilt() {
-      if (!frame) frame = window.requestAnimationFrame(renderTilt);
-    }
+    deployMap.addEventListener("pointermove", (event) => {
+      const rect = deployMap.getBoundingClientRect();
+      if (!rect.width || !rect.height) return;
 
-    coreVisual.addEventListener("pointermove", (event) => {
-      if (compactScene.matches || coreVisual.classList.contains("is-webgl")) return;
-      const rect = coreVisual.getBoundingClientRect();
-      const x = (event.clientX - rect.left) / rect.width - 0.5;
-      const y = (event.clientY - rect.top) / rect.height - 0.5;
-      targetX = Math.max(-1, Math.min(1, x * 2)) * maxTilt;
-      targetY = Math.max(-1, Math.min(1, y * 2)) * maxTilt;
-      kickTilt();
+      const x = event.clientX - rect.left;
+      const y = event.clientY - rect.top;
+
+      mapX = -(x / rect.width - 0.5) * 16;
+      mapY = -(y / rect.height - 0.5) * 12;
+      if (!parallaxFrame) parallaxFrame = window.requestAnimationFrame(renderParallax);
+
+      reticle.style.transform = `translate3d(${x}px, ${y}px, 0)`;
+
+      const lat = 48.7412 + (1 - y / rect.height) * 0.06;
+      const lon = 9.1562 + (x / rect.width) * 0.06;
+      reticleCoord.textContent = `${lat.toFixed(4)}N · ${lon.toFixed(4)}E`;
     });
-    coreVisual.addEventListener("pointerleave", () => {
-      targetX = 0;
-      targetY = 0;
-      kickTilt();
+
+    deployMap.addEventListener("pointerenter", () => {
+      deployMap.classList.add("has-reticle");
     });
-    compactScene.addEventListener?.("change", () => {
-      if (compactScene.matches) {
-        targetX = 0;
-        targetY = 0;
-        kickTilt();
+
+    deployMap.addEventListener("pointerleave", () => {
+      deployMap.classList.remove("has-reticle");
+      mapX = 0;
+      mapY = 0;
+      if (!parallaxFrame) parallaxFrame = window.requestAnimationFrame(renderParallax);
+    });
+  }
+
+  /* Loadout selector */
+  const classCards = Array.from(document.querySelectorAll(".d-class"));
+  const loadoutName = document.getElementById("loadoutName");
+  const loadoutNote = document.getElementById("loadoutNote");
+
+  function classNote(card) {
+    const key = card?.dataset.noteKey;
+    return (key && dictionary()[key]) || card?.dataset.note || "";
+  }
+
+  function syncLoadoutNote() {
+    const active = document.querySelector(".d-class.is-active");
+    if (!active || !loadoutName || !loadoutNote) return;
+    loadoutName.textContent = active.dataset.class;
+    loadoutNote.textContent = classNote(active);
+  }
+
+  classCards.forEach((card) => {
+    card.addEventListener("click", () => {
+      classCards.forEach((item) => {
+        item.classList.remove("is-active");
+        item.setAttribute("aria-pressed", "false");
+      });
+      card.classList.add("is-active");
+      card.setAttribute("aria-pressed", "true");
+      syncLoadoutNote();
+    });
+  });
+
+  syncLoadoutNote();
+  window.addEventListener("languagechange", syncLoadoutNote);
+
+  /* Power level count-up */
+  const powerLevels = Array.from(document.querySelectorAll(".d-class .pwr, .d-skill__lvl"));
+
+  if (powerLevels.length && !prefersReducedMotion()) {
+    powerLevels.forEach((element, index) => {
+      const target = Number.parseInt(element.textContent, 10);
+      if (!Number.isFinite(target)) return;
+
+      const duration = 620 + index * 30;
+      const startedAt = performance.now();
+      element.textContent = "0";
+
+      function tick(now) {
+        const progress = Math.min((now - startedAt) / duration, 1);
+        const eased = 1 - Math.pow(1 - progress, 3);
+        element.textContent = String(Math.round(target * eased));
+        if (progress < 1) window.requestAnimationFrame(tick);
       }
+
+      window.requestAnimationFrame(tick);
     });
   }
 
-  if (coreVisual && "IntersectionObserver" in window) {
-    const sceneObserver = new IntersectionObserver(
-      (entries) => {
-        if (coreVisual.classList.contains("is-webgl")) return;
-        entries.forEach((entry) => {
-          coreVisual.classList.toggle("is-paused", !entry.isIntersecting);
-        });
-      },
-      { rootMargin: "120px 0px" }
-    );
-    sceneObserver.observe(coreVisual);
+  /* Sector intel bar */
+  const sectorData = {
+    A: {
+      title: "Embedded",
+      tags: "STM32 · Yocto · Altium",
+      statusKey: "intel_secured",
+      contested: false,
+      coord: "48.7758N 9.1829E",
+    },
+    B: {
+      title: "Autonomy",
+      tags: "PX4 · MAVLink · Fusion",
+      statusKey: "intel_active",
+      contested: false,
+      coord: "48.7412N 9.2104E",
+    },
+    C: {
+      title: "Edge",
+      tags: "OpenWrt · Docker · Hermes",
+      statusKey: "intel_secured",
+      contested: false,
+      coord: "48.7831N 9.1817E",
+    },
+    D: {
+      title: "Cloud",
+      tags: "AWS · Terraform · EKS",
+      statusKey: "intel_active",
+      contested: false,
+      coord: "48.6895N 9.2219E",
+    },
+    E: {
+      title: "AI",
+      tags: "LLM · RAG · Tools",
+      statusKey: "intel_contested",
+      contested: true,
+      coord: "48.8013N 9.1562E",
+    },
+  };
+
+  const sectorFlags = Array.from(document.querySelectorAll(".d-flag"));
+  const intelbar = document.querySelector(".intelbar");
+  const intelCode = document.getElementById("intelCode");
+  const intelTitle = document.getElementById("intelTitle");
+  const intelTags = document.getElementById("intelTags");
+  const intelStatus = document.getElementById("intelStatus");
+  const intelCoord = document.getElementById("intelCoord");
+  let intelSwapTimer = 0;
+
+  function renderSector(flag) {
+    const data = flag && sectorData[flag.dataset.sector];
+    if (!data || !intelCode || !intelTitle || !intelTags || !intelStatus || !intelCoord) return;
+
+    intelCode.textContent = flag.dataset.sector;
+    intelTitle.textContent = data.title;
+    intelTags.textContent = data.tags;
+    intelStatus.textContent = dictionary()[data.statusKey] || "● SECURED";
+    intelStatus.classList.toggle("is-contested", data.contested);
+    intelCoord.textContent = data.coord;
   }
+
+  sectorFlags.forEach((flag) => {
+    flag.addEventListener("click", () => {
+      sectorFlags.forEach((item) => {
+        item.classList.remove("is-active");
+        item.setAttribute("aria-pressed", "false");
+      });
+      flag.classList.add("is-active");
+      flag.setAttribute("aria-pressed", "true");
+
+      flag.classList.remove("is-popping");
+      void flag.offsetWidth;
+      flag.classList.add("is-popping");
+
+      if (prefersReducedMotion() || !intelbar) {
+        renderSector(flag);
+        return;
+      }
+
+      window.clearTimeout(intelSwapTimer);
+      intelbar.classList.add("is-swapping");
+      intelSwapTimer = window.setTimeout(() => {
+        renderSector(flag);
+        intelbar.classList.remove("is-swapping");
+      }, 130);
+    });
+  });
+
+  window.addEventListener("languagechange", () => {
+    renderSector(document.querySelector(".d-flag.is-active") || sectorFlags[0]);
+  });
 
   /* ---------------------------------------------------------------
      Lazy-load Calendly
@@ -399,16 +530,26 @@
   const contactSection = document.getElementById("contact");
   const calendlyPanel = document.querySelector(".calendly-panel");
   const calendlySkeleton = document.querySelector(".calendly-skeleton");
+  let calendlyLoading = false;
 
   function revealCalendar() {
-    if (!calendlyPanel) return;
+    if (!calendlyPanel || calendlyLoading) return;
+    calendlyLoading = true;
+
     const hideSkeleton = () => calendlySkeleton?.classList.add("is-hidden");
 
     const iframeObserver = new MutationObserver(() => {
       const iframe = calendlyPanel.querySelector("iframe");
       if (iframe && iframe.dataset.loadBound !== "true") {
         iframe.dataset.loadBound = "true";
-        iframe.addEventListener("load", hideSkeleton, { once: true });
+        iframe.addEventListener(
+          "load",
+          () => {
+            /* Let the embedded page paint before removing the loading state. */
+            window.setTimeout(hideSkeleton, 700);
+          },
+          { once: true }
+        );
         iframeObserver.disconnect();
       }
     });
@@ -445,69 +586,6 @@
     } else {
       revealCalendar();
     }
-  }
-
-  /* ---------------------------------------------------------------
-     Cinematic WebGL hero — lazy, desktop only
-     --------------------------------------------------------------- */
-  const heroSceneScript = document.currentScript;
-  const heroSceneUrl = heroSceneScript?.src
-    ? new URL("./hero-scene.js", heroSceneScript.src).href
-    : "assets/js/hero-scene.js";
-  const desktopSceneQuery = window.matchMedia("(min-width: 761px)");
-  const connection = navigator.connection || navigator.mozConnection || {};
-  let heroSceneLoading = false;
-
-  function hasWebGL() {
-    try {
-      if (!window.WebGLRenderingContext) return false;
-      const probe = document.createElement("canvas");
-      const gl = probe.getContext("webgl2") || probe.getContext("webgl");
-      if (!gl) return false;
-      gl.getExtension("WEBGL_lose_context")?.loseContext();
-      return true;
-    } catch (error) {
-      return false;
-    }
-  }
-
-  function loadHeroScene() {
-    if (heroSceneLoading || !coreVisual) return;
-    if (!desktopSceneQuery.matches || prefersReducedMotion() || connection.saveData) return;
-    if (!hasWebGL()) return;
-    heroSceneLoading = true;
-    import(heroSceneUrl)
-      .then((module) => module.initHeroScene())
-      .catch(() => {
-        heroSceneLoading = false;
-      });
-  }
-
-  if (coreVisual) {
-    if ("IntersectionObserver" in window) {
-      const heroSceneObserver = new IntersectionObserver(
-        (entries, observer) => {
-          if (entries.some((entry) => entry.isIntersecting)) {
-            observer.disconnect();
-            loadHeroScene();
-          }
-        },
-        { rootMargin: "320px 0px" }
-      );
-      heroSceneObserver.observe(coreVisual);
-    } else {
-      loadHeroScene();
-    }
-
-    desktopSceneQuery.addEventListener?.("change", loadHeroScene);
-
-    window.addEventListener(
-      "load",
-      () => {
-        window.setTimeout(loadHeroScene, 900);
-      },
-      { once: true }
-    );
   }
 
   /* ---------------------------------------------------------------
