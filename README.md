@@ -1,6 +1,6 @@
 # Mahmoud Mardini — Personal Website
 
-Personal portfolio for **Mahmoud Mardini**, an embedded hardware and AI cloud engineer in Stuttgart. The site is built as a **Deployment Screen** — a Battlefield-inspired mission briefing for embedded systems, edge infrastructure, cloud and AI — while presenting the real CV: 5+ years across automotive electronics, embedded Linux, AWS cloud infrastructure, edge computing and production agent systems.
+Personal portfolio for **Mahmoud Mardini**, an embedded hardware and AI cloud engineer in Essen, NRW. The site is built as a **Deployment Screen** — a Battlefield-inspired mission briefing for embedded systems, edge infrastructure, cloud and AI — while presenting the real CV: 5+ years across automotive electronics, embedded Linux, AWS cloud infrastructure, edge computing and production agent systems.
 
 Live: <https://cv.mardini-ing.workers.dev/>
 

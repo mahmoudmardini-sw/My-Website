@@ -1438,6 +1438,27 @@ html[dir="rtl"] .objective-marker {
   color: var(--d-amber-soft);
 }
 
+.deploy-availability {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  margin-block-start: 10px;
+  font-family: var(--font-mono);
+  font-size: 9px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--d-green);
+}
+
+.deploy-availability i {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--d-green);
+  box-shadow: 0 0 8px var(--d-green);
+  animation: blink 2.8s ease-in-out infinite;
+}
+
 .deploy-lede {
   max-width: 47ch;
   margin-block-start: 15px;
@@ -2416,6 +2437,20 @@ html[dir="rtl"] .d-btn .icon { transform: scaleX(-1); }
 @media (max-width: 760px) {
   .hero--deploy { padding-block-start: 26px; }
 
+  .deploy-sweep,
+  .deploy-rings,
+  .deploy-clouds,
+  .deploy-flyby,
+  .deploy-scan {
+    display: none;
+  }
+
+  .deploy-grid,
+  .frontline,
+  .comms-line {
+    animation: none;
+  }
+
   .deploy-name { font-size: clamp(2.8rem, 12.5vw, 4rem); }
 
   .deploy-role { font-size: 9.5px; letter-spacing: 0.12em; }
@@ -2600,6 +2635,7 @@ html[lang="ar"] .intelbar__id strong {
 
 html[lang="ar"] .deploy-eyebrow,
 html[lang="ar"] .deploy-ready,
+html[lang="ar"] .deploy-availability,
 html[lang="ar"] .loadout-head,
 html[lang="ar"] .loadout-note,
 html[lang="ar"] .squad-panel__head,
@@ -2622,8 +2658,12 @@ html[lang="ar"] .map-chrome__legend b {
 
 html[lang="ar"] .deploy-name {
   font-size: clamp(2.9rem, 5vw, 4.8rem);
-  line-height: 1.14;
+  line-height: 1.12;
   text-transform: none;
+}
+
+html[lang="ar"] .deploy-availability {
+  margin-block-start: 3px;
 }
 
 html[lang="ar"] .deploy-name .accent {
@@ -2647,6 +2687,7 @@ html[lang="ar"] .deploy-name .accent {
   .deploy-reticle__ring::after,
   .objective-marker i,
   .objective-marker i::after,
+  .deploy-availability i,
   .briefing,
   .squad-panel,
   .intelbar {

@@ -322,21 +322,37 @@
   const reticle = document.getElementById("reticle");
   const reticleCoord = document.getElementById("reticleCoord");
 
-  if (deployArt && typeof deployArt.pauseAnimations === "function") {
-    if (prefersReducedMotion()) {
+  const mobileMapQuery = window.matchMedia("(max-width: 760px)");
+  let mapInView = true;
+
+  function syncMapMotion() {
+    if (!deployArt || typeof deployArt.pauseAnimations !== "function") return;
+    if (prefersReducedMotion() || mobileMapQuery.matches || !mapInView) {
       deployArt.pauseAnimations();
-    } else if ("IntersectionObserver" in window) {
+    } else {
+      deployArt.unpauseAnimations();
+    }
+  }
+
+  if (deployArt && typeof deployArt.pauseAnimations === "function") {
+    if ("IntersectionObserver" in window) {
       const smilObserver = new IntersectionObserver(
         (entries) => {
           entries.forEach((entry) => {
-            if (entry.isIntersecting) deployArt.unpauseAnimations();
-            else deployArt.pauseAnimations();
+            mapInView = entry.isIntersecting;
           });
+          syncMapMotion();
         },
         { rootMargin: "60px 0px" }
       );
       smilObserver.observe(deployArt);
     }
+
+    if (typeof mobileMapQuery.addEventListener === "function") {
+      mobileMapQuery.addEventListener("change", syncMapMotion);
+    }
+
+    syncMapMotion();
   }
 
   if (deployMap && deployArt && reticle && reticleCoord && finePointer && !prefersReducedMotion()) {
@@ -362,8 +378,8 @@
 
       reticle.style.transform = `translate3d(${x}px, ${y}px, 0)`;
 
-      const lat = 48.7412 + (1 - y / rect.height) * 0.06;
-      const lon = 9.1562 + (x / rect.width) * 0.06;
+      const lat = 51.4412 + (1 - y / rect.height) * 0.06;
+      const lon = 6.9862 + (x / rect.width) * 0.06;
       reticleCoord.textContent = `${lat.toFixed(4)}N · ${lon.toFixed(4)}E`;
     });
 
@@ -455,7 +471,7 @@
       proofKey: "sector_a_proof",
       power: 94,
       contested: false,
-      coord: "48.7758N 9.1829E",
+      coord: "51.4556N 7.0116E",
     },
     B: {
       title: "Autonomy",
@@ -465,7 +481,7 @@
       proofKey: "sector_b_proof",
       power: 90,
       contested: false,
-      coord: "48.7412N 9.2104E",
+      coord: "51.4415N 7.0288E",
     },
     C: {
       title: "Edge",
@@ -475,7 +491,7 @@
       proofKey: "sector_c_proof",
       power: 88,
       contested: false,
-      coord: "48.7831N 9.1817E",
+      coord: "51.4691N 7.0042E",
     },
     D: {
       title: "Cloud",
@@ -485,7 +501,7 @@
       proofKey: "sector_d_proof",
       power: 84,
       contested: false,
-      coord: "48.6895N 9.2219E",
+      coord: "51.4328N 7.0417E",
     },
     E: {
       title: "AI",
@@ -495,7 +511,7 @@
       proofKey: "sector_e_proof",
       power: 86,
       contested: true,
-      coord: "48.8013N 9.1562E",
+      coord: "51.4763N 6.9872E",
     },
   };
 
