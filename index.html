@@ -361,27 +361,27 @@
 
         <div class="deploy-watermark" aria-hidden="true">IKIGAI</div>
 
-        <button type="button" class="d-flag d-flag--secured is-active" data-sector="A" style="--x:48;--y:39" data-i18n-aria="sector_a" aria-label="Sector A, Embedded" aria-pressed="true">
+        <button type="button" class="d-flag d-flag--secured is-active" data-sector="A" style="--x:48;--y:39" data-i18n-aria="sector_a" aria-label="Sector A, Embedded" aria-describedby="sectorCard" aria-pressed="true">
           <span class="d-flag__mark"><span>A</span></span>
           <span class="d-flag__name">Embedded</span>
         </button>
 
-        <button type="button" class="d-flag" data-sector="B" style="--x:58;--y:27" data-i18n-aria="sector_b" aria-label="Sector B, Autonomy" aria-pressed="false">
+        <button type="button" class="d-flag" data-sector="B" style="--x:58;--y:27" data-i18n-aria="sector_b" aria-label="Sector B, Autonomy" aria-describedby="sectorCard" aria-pressed="false">
           <span class="d-flag__mark"><span>B</span></span>
           <span class="d-flag__name">Autonomy</span>
         </button>
 
-        <button type="button" class="d-flag d-flag--secured" data-sector="C" style="--x:69.8;--y:38.5" data-i18n-aria="sector_c" aria-label="Sector C, Edge" aria-pressed="false">
+        <button type="button" class="d-flag d-flag--secured" data-sector="C" style="--x:69.8;--y:38.5" data-i18n-aria="sector_c" aria-label="Sector C, Edge" aria-describedby="sectorCard" aria-pressed="false">
           <span class="d-flag__mark"><span>C</span></span>
           <span class="d-flag__name">Edge</span>
         </button>
 
-        <button type="button" class="d-flag" data-sector="D" style="--x:51.5;--y:62" data-i18n-aria="sector_d" aria-label="Sector D, Cloud" aria-pressed="false">
+        <button type="button" class="d-flag" data-sector="D" style="--x:51.5;--y:62" data-i18n-aria="sector_d" aria-label="Sector D, Cloud" aria-describedby="sectorCard" aria-pressed="false">
           <span class="d-flag__mark"><span>D</span></span>
           <span class="d-flag__name">Cloud</span>
         </button>
 
-        <button type="button" class="d-flag d-flag--contested" data-sector="E" style="--x:66;--y:66" data-i18n-aria="sector_e" aria-label="Sector E, AI, contested" aria-pressed="false">
+        <button type="button" class="d-flag d-flag--contested" data-sector="E" style="--x:66;--y:66" data-i18n-aria="sector_e" aria-label="Sector E, AI, contested" aria-describedby="sectorCard" aria-pressed="false">
           <span class="d-flag__ping"></span>
           <span class="d-flag__mark"><span>E</span></span>
           <span class="d-flag__name">AI</span>
@@ -398,6 +398,26 @@
       </div>
 
       <div class="deploy-scrim" aria-hidden="true"></div>
+
+      <div class="sector-card" id="sectorCard" role="tooltip" aria-hidden="true">
+        <div class="sector-card__body">
+          <div class="sector-card__top">
+            <span class="sector-card__id">
+              <b><span id="sectorCardCode">A</span></b>
+              <strong id="sectorCardTitle">Embedded</strong>
+            </span>
+            <span class="sector-card__status" id="sectorCardStatus">● SECURED</span>
+          </div>
+          <p class="sector-card__desc" id="sectorCardDesc">Firmware, drivers and embedded Linux — from bare-metal registers to Yocto images.</p>
+          <div class="sector-card__tags" id="sectorCardTags">
+            <span>STM32</span><span>Yocto</span><span>Altium</span>
+          </div>
+          <div class="sector-card__foot">
+            <span id="sectorCardCoord" dir="ltr">48.7758N 9.1829E</span>
+            <span class="sector-card__hint" data-i18n="sector_hint">Click for intel</span>
+          </div>
+        </div>
+      </div>
 
       <div class="container deploy-shell">
         <div class="deploy-main">

@@ -318,6 +318,7 @@
      --------------------------------------------------------------- */
   const deployMap = document.getElementById("deployMap");
   const deployArt = document.querySelector(".deploy-art");
+  const deployHero = document.querySelector(".hero--deploy");
   const reticle = document.getElementById("reticle");
   const reticleCoord = document.getElementById("reticleCoord");
 
@@ -439,6 +440,7 @@
       title: "Embedded",
       tags: "STM32 · Yocto · Altium",
       statusKey: "intel_secured",
+      descKey: "sector_a_desc",
       contested: false,
       coord: "48.7758N 9.1829E",
     },
@@ -446,6 +448,7 @@
       title: "Autonomy",
       tags: "PX4 · MAVLink · Fusion",
       statusKey: "intel_active",
+      descKey: "sector_b_desc",
       contested: false,
       coord: "48.7412N 9.2104E",
     },
@@ -453,6 +456,7 @@
       title: "Edge",
       tags: "OpenWrt · Docker · Hermes",
       statusKey: "intel_secured",
+      descKey: "sector_c_desc",
       contested: false,
       coord: "48.7831N 9.1817E",
     },
@@ -460,6 +464,7 @@
       title: "Cloud",
       tags: "AWS · Terraform · EKS",
       statusKey: "intel_active",
+      descKey: "sector_d_desc",
       contested: false,
       coord: "48.6895N 9.2219E",
     },
@@ -467,6 +472,7 @@
       title: "AI",
       tags: "LLM · RAG · Tools",
       statusKey: "intel_contested",
+      descKey: "sector_e_desc",
       contested: true,
       coord: "48.8013N 9.1562E",
     },
@@ -474,6 +480,7 @@
 
   const sectorFlags = Array.from(document.querySelectorAll(".d-flag"));
   const intelbar = document.querySelector(".intelbar");
+  const squadPanel = document.querySelector(".squad-panel");
   const intelCode = document.getElementById("intelCode");
   const intelTitle = document.getElementById("intelTitle");
   const intelTags = document.getElementById("intelTags");
@@ -491,6 +498,77 @@
     intelStatus.textContent = dictionary()[data.statusKey] || "● SECURED";
     intelStatus.classList.toggle("is-contested", data.contested);
     intelCoord.textContent = data.coord;
+  }
+
+  /* Hover curtain for the capture points */
+  const sectorCard = document.getElementById("sectorCard");
+  const sectorCardCode = document.getElementById("sectorCardCode");
+  const sectorCardTitle = document.getElementById("sectorCardTitle");
+  const sectorCardStatus = document.getElementById("sectorCardStatus");
+  const sectorCardDesc = document.getElementById("sectorCardDesc");
+  const sectorCardTags = document.getElementById("sectorCardTags");
+  const sectorCardCoord = document.getElementById("sectorCardCoord");
+  let sectorCardFlag = null;
+  let sectorCardTimer = 0;
+
+  function renderSectorCard(flag) {
+    const data = flag && sectorData[flag.dataset.sector];
+    if (!data || !sectorCard || !deployHero) return;
+    if (!sectorCardCode || !sectorCardTitle || !sectorCardStatus || !sectorCardDesc || !sectorCardTags || !sectorCardCoord) return;
+
+    sectorCardCode.textContent = flag.dataset.sector;
+    sectorCardTitle.textContent = data.title;
+    sectorCardStatus.textContent = dictionary()[data.statusKey] || "";
+    sectorCardStatus.classList.toggle("is-active", data.statusKey === "intel_active");
+    sectorCardStatus.classList.toggle("is-contested", data.contested);
+    sectorCardDesc.textContent = dictionary()[data.descKey] || "";
+    sectorCardCoord.textContent = data.coord;
+
+    sectorCardTags.replaceChildren(
+      ...data.tags.split(" · ").map((tag) => {
+        const chip = document.createElement("span");
+        chip.textContent = tag;
+        return chip;
+      })
+    );
+
+    const heroRect = deployHero.getBoundingClientRect();
+    const squadRect = squadPanel ? squadPanel.getBoundingClientRect() : null;
+    const cardW = sectorCard.offsetWidth;
+    const isRtl = document.documentElement.dir === "rtl";
+
+    let left = 12;
+    if (squadRect) {
+      left = isRtl
+        ? squadRect.right - heroRect.left + 28
+        : squadRect.left - heroRect.left - cardW - 28;
+    }
+
+    left = Math.max(12, Math.min(left, heroRect.width - cardW - 12));
+
+    sectorCard.style.left = `${left}px`;
+    sectorCard.style.top = "10px";
+    sectorCard.classList.add("is-open");
+    sectorCard.setAttribute("aria-hidden", "false");
+  }
+
+  function showSectorCard(flag) {
+    window.clearTimeout(sectorCardTimer);
+    sectorCardFlag = flag;
+    renderSectorCard(flag);
+  }
+
+  function queueSectorCard(flag) {
+    window.clearTimeout(sectorCardTimer);
+    sectorCardTimer = window.setTimeout(() => showSectorCard(flag), 90);
+  }
+
+  function hideSectorCard() {
+    window.clearTimeout(sectorCardTimer);
+    sectorCardFlag = null;
+    if (!sectorCard) return;
+    sectorCard.classList.remove("is-open");
+    sectorCard.setAttribute("aria-hidden", "true");
   }
 
   sectorFlags.forEach((flag) => {
@@ -520,8 +598,25 @@
     });
   });
 
+  sectorFlags.forEach((flag) => {
+    if (finePointer) {
+      flag.addEventListener("pointerenter", () => queueSectorCard(flag));
+      flag.addEventListener("pointerleave", hideSectorCard);
+    }
+    flag.addEventListener("focus", () => showSectorCard(flag));
+    flag.addEventListener("blur", hideSectorCard);
+  });
+
+  window.addEventListener("scroll", hideSectorCard, { passive: true });
+  window.addEventListener("resize", hideSectorCard);
+
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape") hideSectorCard();
+  });
+
   window.addEventListener("languagechange", () => {
     renderSector(document.querySelector(".d-flag.is-active") || sectorFlags[0]);
+    if (sectorCardFlag) renderSectorCard(sectorCardFlag);
   });
 
   /* ---------------------------------------------------------------
