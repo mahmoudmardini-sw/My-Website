@@ -1082,6 +1082,9 @@ html[dir="rtl"] .deploy-scrim {
 }
 
 /* ----- capture points ----- */
+.frontline { animation: deploy-front-flow 4.6s linear infinite; }
+.comms-line { animation: deploy-comms-flow 7s linear infinite; }
+
 .d-flag {
   position: absolute;
   left: calc(var(--x) * 1%);
@@ -1198,6 +1201,64 @@ html[dir="rtl"] .deploy-scrim {
 .d-flag:focus-visible .d-flag__mark {
   outline: 1px solid var(--d-amber);
   outline-offset: 5px;
+}
+
+/* ----- primary objective marker ----- */
+.objective-marker {
+  position: absolute;
+  left: calc(var(--x) * 1%);
+  top: calc(var(--y) * 1%);
+  z-index: 3;
+  width: 104px;
+  height: 104px;
+  margin: -52px 0 0 -52px;
+  pointer-events: none;
+}
+
+.objective-marker i {
+  position: absolute;
+  inset: 0;
+  border: 1px dashed rgba(255, 106, 0, 0.35);
+  border-radius: 50%;
+  animation: deploy-objective-spin 20s linear infinite;
+}
+
+.objective-marker i::before {
+  content: "";
+  position: absolute;
+  inset: 13px;
+  border: 1px solid rgba(255, 106, 0, 0.18);
+  border-radius: 50%;
+}
+
+.objective-marker i::after {
+  content: "";
+  position: absolute;
+  inset: 35px;
+  border: 1px solid rgba(255, 106, 0, 0.4);
+  border-radius: 50%;
+  animation: deploy-objective-pulse 3.6s ease-out infinite;
+}
+
+.objective-marker b {
+  position: absolute;
+  left: 50%;
+  top: -8px;
+  transform: translateX(-50%);
+  padding: 1px 4px;
+  font-family: var(--font-mono);
+  font-size: 7px;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--d-orange);
+  background: rgba(4, 6, 3, 0.82);
+  border: 1px solid rgba(255, 106, 0, 0.3);
+  white-space: nowrap;
+}
+
+html[dir="rtl"] .objective-marker {
+  left: calc((100 - var(--x)) * 1%);
 }
 
 /* ----- cursor reticle ----- */
@@ -2013,7 +2074,7 @@ html[dir="rtl"] .d-btn .icon { transform: scaleX(-1); }
 .sector-card {
   position: absolute;
   z-index: 3;
-  width: 330px;
+  width: 294px;
   pointer-events: none;
   opacity: 0;
   visibility: hidden;
@@ -2029,7 +2090,7 @@ html[dir="rtl"] .d-btn .icon { transform: scaleX(-1); }
 
 .sector-card__body {
   position: relative;
-  padding: 13px 14px 11px;
+  padding: 11px 13px 9px;
   background: rgba(7, 9, 6, 0.95);
   border: 1px solid var(--d-line-strong);
   clip-path: polygon(0 0, 100% 0, 100% calc(100% - 10px), calc(100% - 10px) 100%, 0 100%);
@@ -2106,7 +2167,7 @@ html[dir="rtl"] .d-btn .icon { transform: scaleX(-1); }
 .sector-card__status.is-contested { color: var(--d-orange); }
 
 .sector-card__desc {
-  margin-block-start: 10px;
+  margin-block-start: 8px;
   font-size: 12px;
   line-height: 1.5;
   color: var(--d-text-2);
@@ -2116,7 +2177,7 @@ html[dir="rtl"] .d-btn .icon { transform: scaleX(-1); }
   display: flex;
   align-items: center;
   gap: 7px;
-  margin-block-start: 9px;
+  margin-block-start: 8px;
   font-family: var(--font-mono);
   font-size: 7px;
   letter-spacing: 0.1em;
@@ -2152,7 +2213,7 @@ html[dir="rtl"] .d-btn .icon { transform: scaleX(-1); }
   display: flex;
   align-items: flex-start;
   gap: 8px;
-  margin-block-start: 9px;
+  margin-block-start: 8px;
 }
 
 .sector-card__proof-label {
@@ -2171,31 +2232,13 @@ html[dir="rtl"] .d-btn .icon { transform: scaleX(-1); }
   color: var(--d-text-2);
 }
 
-.sector-card__tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 4px;
-  margin-block-start: 10px;
-}
-
-.sector-card__tags span {
-  padding: 2px 5px;
-  font-family: var(--font-mono);
-  font-size: 7.5px;
-  letter-spacing: 0.02em;
-  color: var(--d-text-2);
-  background: rgba(255, 176, 32, 0.05);
-  border: 1px solid var(--d-line);
-  white-space: nowrap;
-}
-
 .sector-card__foot {
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 10px;
-  margin-block-start: 11px;
-  padding-block-start: 9px;
+  margin-block-start: 8px;
+  padding-block-start: 7px;
   font-family: var(--font-mono);
   font-size: 7px;
   letter-spacing: 0.08em;
@@ -2204,10 +2247,31 @@ html[dir="rtl"] .d-btn .icon { transform: scaleX(-1); }
 }
 
 .sector-card__hint {
+  flex: none;
   color: var(--d-amber);
   opacity: 0.8;
   white-space: nowrap;
 }
+
+.sector-card__stack {
+  min-width: 0;
+  overflow: hidden;
+  color: var(--d-muted);
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.sector-card__stem {
+  position: absolute;
+  z-index: 3;
+  pointer-events: none;
+  opacity: 0;
+  background: rgba(255, 176, 32, 0.45);
+  box-shadow: 0 0 7px rgba(255, 176, 32, 0.25);
+  transition: opacity 0.18s ease;
+}
+
+.sector-card__stem.is-open { opacity: 1; }
 
 /* ----- keyframes ----- */
 @keyframes deploy-grid-drift {
@@ -2239,6 +2303,23 @@ html[dir="rtl"] .d-btn .icon { transform: scaleX(-1); }
   3% { opacity: 1; }
   19% { opacity: 1; }
   23%, 100% { transform: translate3d(880px, 44px, 0); opacity: 0; }
+}
+
+@keyframes deploy-front-flow {
+  to { stroke-dashoffset: -52; }
+}
+
+@keyframes deploy-comms-flow {
+  to { stroke-dashoffset: -48; }
+}
+
+@keyframes deploy-objective-spin {
+  to { transform: rotate(360deg); }
+}
+
+@keyframes deploy-objective-pulse {
+  0% { transform: scale(0.8); opacity: 0.6; }
+  70%, 100% { transform: scale(1.25); opacity: 0; }
 }
 
 @keyframes deploy-flag-in {
@@ -2283,7 +2364,8 @@ html[dir="rtl"] .d-btn .icon { transform: scaleX(-1); }
 
 /* ----- responsive ----- */
 @media (max-width: 1279px) {
-  .d-flag { display: none; }
+  .d-flag,
+  .objective-marker { display: none; }
 }
 
 @media (max-width: 1180px) {
@@ -2480,6 +2562,25 @@ html[dir="rtl"] .d-flag {
   .squad-panel { padding: 12px 14px; }
 
   .d-skill { padding-block: 9px; }
+
+  .sector-card__body { padding: 11px 13px 9px; }
+
+  .sector-card__desc {
+    margin-block-start: 8px;
+    font-size: 11.5px;
+    line-height: 1.45;
+  }
+
+  .sector-card__power,
+  .sector-card__proof,
+  .sector-card__foot { margin-block-start: 8px; }
+
+  .sector-card__proof p {
+    font-size: 11px;
+    line-height: 1.4;
+  }
+
+  .sector-card__foot { padding-block-start: 7px; }
 }
 
 html[data-theme="light"] .hero--deploy {
@@ -2537,11 +2638,15 @@ html[lang="ar"] .deploy-name .accent {
   .deploy-clouds span,
   .deploy-flyby,
   .deploy-scan,
+  .frontline,
+  .comms-line,
   .d-flag,
   .d-flag__ping,
   .d-flag.is-active .d-flag__mark::after,
   .d-btn--deploy::before,
   .deploy-reticle__ring::after,
+  .objective-marker i,
+  .objective-marker i::after,
   .briefing,
   .squad-panel,
   .intelbar {
@@ -2553,7 +2658,8 @@ html[lang="ar"] .deploy-name .accent {
   .intelbar__tags,
   .intelbar__right,
   .sector-card,
-  .sector-card__meter i {
+  .sector-card__meter i,
+  .sector-card__stem {
     transition: none !important;
   }
 
@@ -4157,6 +4263,7 @@ html[data-theme="light"] .orbit__core::after {
   .deploy-map,
   .deploy-scrim,
   .sector-card,
+  .sector-card__stem,
   .deploy-actions,
   .squad-panel,
   .intelbar,

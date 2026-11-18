@@ -527,18 +527,18 @@
   const sectorCardTitle = document.getElementById("sectorCardTitle");
   const sectorCardStatus = document.getElementById("sectorCardStatus");
   const sectorCardDesc = document.getElementById("sectorCardDesc");
-  const sectorCardTags = document.getElementById("sectorCardTags");
-  const sectorCardCoord = document.getElementById("sectorCardCoord");
+  const sectorCardStack = document.getElementById("sectorCardStack");
   const sectorCardPower = document.getElementById("sectorCardPower");
   const sectorCardMeter = document.getElementById("sectorCardMeter");
   const sectorCardProof = document.getElementById("sectorCardProof");
+  const sectorCardStem = document.getElementById("sectorCardStem");
   let sectorCardFlag = null;
   let sectorCardTimer = 0;
 
   function renderSectorCard(flag) {
     const data = flag && sectorData[flag.dataset.sector];
     if (!data || !sectorCard || !deployHero) return;
-    if (!sectorCardCode || !sectorCardTitle || !sectorCardStatus || !sectorCardDesc || !sectorCardTags || !sectorCardCoord) return;
+    if (!sectorCardCode || !sectorCardTitle || !sectorCardStatus || !sectorCardDesc || !sectorCardStack) return;
 
     sectorCardCode.textContent = flag.dataset.sector;
     sectorCardTitle.textContent = data.title;
@@ -546,37 +546,81 @@
     sectorCardStatus.classList.toggle("is-active", data.statusKey === "intel_active");
     sectorCardStatus.classList.toggle("is-contested", data.contested);
     sectorCardDesc.textContent = dictionary()[data.descKey] || "";
-    sectorCardCoord.textContent = data.coord;
+    sectorCardStack.textContent = data.tags;
     if (sectorCardPower) sectorCardPower.textContent = String(data.power);
     if (sectorCardMeter) sectorCardMeter.style.width = `${data.power}%`;
     if (sectorCardProof) sectorCardProof.textContent = dictionary()[data.proofKey] || "";
 
-    sectorCardTags.replaceChildren(
-      ...data.tags.split(" · ").map((tag) => {
-        const chip = document.createElement("span");
-        chip.textContent = tag;
-        return chip;
-      })
-    );
-
     const heroRect = deployHero.getBoundingClientRect();
-    const squadRect = squadPanel ? squadPanel.getBoundingClientRect() : null;
-    const lowerFlag = document.querySelector('.d-flag[data-sector="C"]');
-    const lowerFlagRect = lowerFlag ? lowerFlag.getBoundingClientRect() : null;
+    const flagRect = flag.getBoundingClientRect();
+    const mark = flag.querySelector(".d-flag__mark");
+    const markRect = mark ? mark.getBoundingClientRect() : flagRect;
     const cardW = sectorCard.offsetWidth;
     const cardH = sectorCard.offsetHeight;
     const isRtl = document.documentElement.dir === "rtl";
+    const gap = 8;
 
-    let left = 12;
-    let top = 12;
+    const sides = isRtl
+      ? { A: "left", B: "above", C: "right", D: "above", E: "left" }
+      : { A: "right", B: "above", C: "left", D: "above", E: "right" };
+    const side = sides[flag.dataset.sector] || "right";
 
-    if (squadRect) {
-      left = isRtl
-        ? squadRect.left - heroRect.left
-        : squadRect.right - heroRect.left - cardW;
+    const markLeft = markRect.left - heroRect.left;
+    const markTop = markRect.top - heroRect.top;
+    const markRight = markRect.right - heroRect.left;
+    const markCenterX = markLeft + (markRect.width / 2);
+    const markCenterY = markTop + (markRect.height / 2);
 
-      const lowerEdge = Math.max(squadRect.bottom, lowerFlagRect ? lowerFlagRect.bottom : 0);
-      top = lowerEdge - heroRect.top + 18;
+    let left = markLeft;
+    let top = markTop;
+
+    if (side === "right") {
+      left = markRight + gap;
+      top = markCenterY - cardH / 2;
+    } else if (side === "left") {
+      left = markLeft - cardW - gap;
+      top = markCenterY - cardH / 2;
+    } else {
+      left = markCenterX - cardW / 2;
+      top = markTop - cardH - gap;
+    }
+
+    let actualSide = side;
+    if (side === "above" && top < 12) {
+      actualSide = "below";
+      left = markCenterX - cardW / 2;
+      top = flagRect.bottom - heroRect.top + gap;
+    }
+
+    if (squadPanel) {
+      const squadRect = squadPanel.getBoundingClientRect();
+      const sLeft = squadRect.left - heroRect.left;
+      const sRight = squadRect.right - heroRect.left;
+      const overlapsY =
+        top < squadRect.bottom - heroRect.top + 12 &&
+        top + cardH > squadRect.top - heroRect.top - 12;
+      const overlapX = Math.min(left + cardW, sRight) - Math.max(left, sLeft);
+
+      if (overlapsY && overlapX > 8) {
+        const cardCenter = left + cardW / 2;
+        const squadCenter = (sLeft + sRight) / 2;
+        left = cardCenter < squadCenter ? sLeft - cardW - 12 : sRight + 12;
+      }
+    }
+
+    const briefing = document.querySelector(".briefing");
+    if (briefing) {
+      const briefingRect = briefing.getBoundingClientRect();
+      const bLeft = briefingRect.left - heroRect.left;
+      const bRight = briefingRect.right - heroRect.left;
+      const overlapsY =
+        top < briefingRect.bottom - heroRect.top - 12 &&
+        top + cardH > briefingRect.top - heroRect.top + 12;
+      const overlapX = Math.min(left + cardW, bRight) - Math.max(left, bLeft);
+
+      if (overlapsY && overlapX > 8) {
+        left = isRtl ? bLeft - cardW - 12 : bRight + 12;
+      }
     }
 
     left = Math.max(12, Math.min(left, heroRect.width - cardW - 12));
@@ -586,6 +630,45 @@
     sectorCard.style.top = `${top}px`;
     sectorCard.classList.add("is-open");
     sectorCard.setAttribute("aria-hidden", "false");
+
+    if (sectorCardStem) {
+      let stemLeft = 0;
+      let stemTop = 0;
+      let stemW = 0;
+      let stemH = 0;
+
+      if (actualSide === "right") {
+        stemLeft = markRight;
+        stemTop = markCenterY;
+        stemW = left - markRight;
+        stemH = 1;
+      } else if (actualSide === "left") {
+        stemLeft = left + cardW;
+        stemTop = markCenterY;
+        stemW = markLeft - (left + cardW);
+        stemH = 1;
+      } else if (actualSide === "below") {
+        stemLeft = markCenterX;
+        stemTop = flagRect.bottom - heroRect.top;
+        stemW = 1;
+        stemH = top - (flagRect.bottom - heroRect.top);
+      } else {
+        stemLeft = markCenterX;
+        stemTop = top + cardH;
+        stemW = 1;
+        stemH = markTop - (top + cardH);
+      }
+
+      if (stemW > 0 && stemH > 0) {
+        sectorCardStem.style.left = `${stemLeft}px`;
+        sectorCardStem.style.top = `${stemTop}px`;
+        sectorCardStem.style.width = `${stemW}px`;
+        sectorCardStem.style.height = `${stemH}px`;
+        sectorCardStem.classList.add("is-open");
+      } else {
+        sectorCardStem.classList.remove("is-open");
+      }
+    }
   }
 
   function showSectorCard(flag) {
@@ -604,6 +687,7 @@
     window.clearTimeout(sectorCardTimer);
     sectorCardFlag = null;
     sectorFlags.forEach((item) => item.classList.remove("is-preview"));
+    if (sectorCardStem) sectorCardStem.classList.remove("is-open");
     if (!sectorCard) return;
     sectorCard.classList.remove("is-open");
     sectorCard.setAttribute("aria-hidden", "true");

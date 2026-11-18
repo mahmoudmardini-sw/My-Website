@@ -6,7 +6,7 @@ Live: <https://cv.mardini-ing.workers.dev/>
 
 ## Highlights
 
-- **Deployment-screen concept:** a full-bleed sector map with capture points, radar sweep, moving front lines, supply dots, an aircraft flyby and a pointer reticle. The briefing leads with a four-class loadout — **Embedded, Edge, Cloud, AI** — a squad skills panel, map instrumentation (compass, scale, status legend, Zulu clock), a live sector-intel bar and a hover curtain with power, proof, stack and coordinates.
+- **Deployment-screen concept:** a full-bleed sector map with capture points, radar sweep, animated front lines and data links, moving supply dots, an aircraft flyby and a pointer reticle. The briefing leads with a four-class loadout — **Embedded, Edge, Cloud, AI** — a squad skills panel, map instrumentation (compass, scale, status legend, Zulu clock), a pulsing objective marker on sector E, a live sector-intel bar and an icon-anchored hover curtain with status, power, proof and stack.
 - **Ikigai:** the background watermark and the briefing line tie the concept together — what I love, what I'm good at, what the world needs and what pays.
 - **Amber cockpit palette:** amber `#ffb020`, orange `#ff6a00` and signal green `#7ae582` on a warm near-black deck. The "daylight cockpit" light theme switches to parchment with bronze/forest accents; the mission display stays dark in both themes.
 - **No WebGL, no build step:** the old Three.js PCB scene is gone. The map is inline SVG with CSS/SMIL motion, paused when offscreen or when reduced motion is requested.
