@@ -379,6 +379,17 @@
     });
   }
 
+  /* Zulu clock in the map chrome */
+  const zuluClock = document.getElementById("zuluClock");
+
+  if (zuluClock) {
+    const tickZulu = () => {
+      zuluClock.textContent = new Date().toISOString().slice(11, 16);
+    };
+    tickZulu();
+    window.setInterval(tickZulu, 30000);
+  }
+
   /* Loadout selector */
   const classCards = Array.from(document.querySelectorAll(".d-class"));
   const loadoutName = document.getElementById("loadoutName");
@@ -441,6 +452,8 @@
       tags: "STM32 · Yocto · Altium",
       statusKey: "intel_secured",
       descKey: "sector_a_desc",
+      proofKey: "sector_a_proof",
+      power: 94,
       contested: false,
       coord: "48.7758N 9.1829E",
     },
@@ -449,6 +462,8 @@
       tags: "PX4 · MAVLink · Fusion",
       statusKey: "intel_active",
       descKey: "sector_b_desc",
+      proofKey: "sector_b_proof",
+      power: 90,
       contested: false,
       coord: "48.7412N 9.2104E",
     },
@@ -457,6 +472,8 @@
       tags: "OpenWrt · Docker · Hermes",
       statusKey: "intel_secured",
       descKey: "sector_c_desc",
+      proofKey: "sector_c_proof",
+      power: 88,
       contested: false,
       coord: "48.7831N 9.1817E",
     },
@@ -465,6 +482,8 @@
       tags: "AWS · Terraform · EKS",
       statusKey: "intel_active",
       descKey: "sector_d_desc",
+      proofKey: "sector_d_proof",
+      power: 84,
       contested: false,
       coord: "48.6895N 9.2219E",
     },
@@ -473,6 +492,8 @@
       tags: "LLM · RAG · Tools",
       statusKey: "intel_contested",
       descKey: "sector_e_desc",
+      proofKey: "sector_e_proof",
+      power: 86,
       contested: true,
       coord: "48.8013N 9.1562E",
     },
@@ -508,6 +529,9 @@
   const sectorCardDesc = document.getElementById("sectorCardDesc");
   const sectorCardTags = document.getElementById("sectorCardTags");
   const sectorCardCoord = document.getElementById("sectorCardCoord");
+  const sectorCardPower = document.getElementById("sectorCardPower");
+  const sectorCardMeter = document.getElementById("sectorCardMeter");
+  const sectorCardProof = document.getElementById("sectorCardProof");
   let sectorCardFlag = null;
   let sectorCardTimer = 0;
 
@@ -523,6 +547,9 @@
     sectorCardStatus.classList.toggle("is-contested", data.contested);
     sectorCardDesc.textContent = dictionary()[data.descKey] || "";
     sectorCardCoord.textContent = data.coord;
+    if (sectorCardPower) sectorCardPower.textContent = String(data.power);
+    if (sectorCardMeter) sectorCardMeter.style.width = `${data.power}%`;
+    if (sectorCardProof) sectorCardProof.textContent = dictionary()[data.proofKey] || "";
 
     sectorCardTags.replaceChildren(
       ...data.tags.split(" · ").map((tag) => {
@@ -534,20 +561,29 @@
 
     const heroRect = deployHero.getBoundingClientRect();
     const squadRect = squadPanel ? squadPanel.getBoundingClientRect() : null;
+    const lowerFlag = document.querySelector('.d-flag[data-sector="C"]');
+    const lowerFlagRect = lowerFlag ? lowerFlag.getBoundingClientRect() : null;
     const cardW = sectorCard.offsetWidth;
+    const cardH = sectorCard.offsetHeight;
     const isRtl = document.documentElement.dir === "rtl";
 
     let left = 12;
+    let top = 12;
+
     if (squadRect) {
       left = isRtl
-        ? squadRect.right - heroRect.left + 28
-        : squadRect.left - heroRect.left - cardW - 28;
+        ? squadRect.left - heroRect.left
+        : squadRect.right - heroRect.left - cardW;
+
+      const lowerEdge = Math.max(squadRect.bottom, lowerFlagRect ? lowerFlagRect.bottom : 0);
+      top = lowerEdge - heroRect.top + 18;
     }
 
     left = Math.max(12, Math.min(left, heroRect.width - cardW - 12));
+    top = Math.max(12, Math.min(top, heroRect.height - cardH - 12));
 
     sectorCard.style.left = `${left}px`;
-    sectorCard.style.top = "10px";
+    sectorCard.style.top = `${top}px`;
     sectorCard.classList.add("is-open");
     sectorCard.setAttribute("aria-hidden", "false");
   }
@@ -555,6 +591,7 @@
   function showSectorCard(flag) {
     window.clearTimeout(sectorCardTimer);
     sectorCardFlag = flag;
+    sectorFlags.forEach((item) => item.classList.toggle("is-preview", item === flag));
     renderSectorCard(flag);
   }
 
@@ -566,6 +603,7 @@
   function hideSectorCard() {
     window.clearTimeout(sectorCardTimer);
     sectorCardFlag = null;
+    sectorFlags.forEach((item) => item.classList.remove("is-preview"));
     if (!sectorCard) return;
     sectorCard.classList.remove("is-open");
     sectorCard.setAttribute("aria-hidden", "true");

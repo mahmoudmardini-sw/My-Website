@@ -334,6 +334,13 @@
         <text x="418" y="266">▲ 312</text>
         <text x="1062" y="652">▲ 268</text>
       </g>
+
+      <!-- contour labels -->
+      <g font-family="'Fira Code', monospace" font-size="6" fill="#c6d0ac" fill-opacity="0.16" letter-spacing="1.2">
+        <text x="584" y="330">240</text>
+        <text x="1242" y="694">260</text>
+        <text x="318" y="200">280</text>
+      </g>
     </svg>
 
         <div class="deploy-grid" aria-hidden="true"></div>
@@ -399,6 +406,20 @@
 
       <div class="deploy-scrim" aria-hidden="true"></div>
 
+      <div class="map-chrome" aria-hidden="true">
+        <span class="map-chrome__compass"><i></i>N</span>
+        <span class="map-chrome__scale">
+          <b>0</b><i></i><b>2</b><i></i><b>4</b><em>KM</em>
+        </span>
+        <span class="map-chrome__legend">
+          <span><i class="is-secured"></i><b data-i18n="legend_secured">SECURED</b></span>
+          <span><i class="is-active"></i><b data-i18n="legend_active">ACTIVE</b></span>
+          <span><i class="is-contested"></i><b data-i18n="legend_contested">CONTESTED</b></span>
+        </span>
+        <span class="map-chrome__clock"><b>Z</b><span id="zuluClock" dir="ltr">00:00</span></span>
+        <span class="map-chrome__meta">WGS84 · 1:50K</span>
+      </div>
+
       <div class="sector-card" id="sectorCard" role="tooltip" aria-hidden="true">
         <div class="sector-card__body">
           <div class="sector-card__top">
@@ -409,6 +430,15 @@
             <span class="sector-card__status" id="sectorCardStatus">● SECURED</span>
           </div>
           <p class="sector-card__desc" id="sectorCardDesc">Firmware, drivers and embedded Linux — from bare-metal registers to Yocto images.</p>
+          <div class="sector-card__power">
+            <span>PWR</span>
+            <b id="sectorCardPower">94</b>
+            <span class="sector-card__meter"><i id="sectorCardMeter"></i></span>
+          </div>
+          <div class="sector-card__proof">
+            <span class="sector-card__proof-label" data-i18n="sector_proof_label">Proof</span>
+            <p id="sectorCardProof">Yocto images, kernel config and driver bring-up at Hoerbiger.</p>
+          </div>
           <div class="sector-card__tags" id="sectorCardTags">
             <span>STM32</span><span>Yocto</span><span>Altium</span>
           </div>
