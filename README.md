@@ -57,6 +57,7 @@ Precedence is query parameter → saved preference → default. The default them
 - **Theme tokens:** the night deck lives under `html[data-theme="dark"]`; the daylight cockpit overrides live under `html[data-theme="light"]` at the top of `assets/css/styles.css`. The toggle and persistence logic are in `assets/js/main.js`, with the initial theme applied inline in `<head>` to avoid a flash.
 - **Icons:** add a `<symbol id="...">` to `assets/icons.svg` and reference it with `<use href="assets/icons.svg#...">`.
 - **Social image:** `assets/og-image.png` must stay at 1200×630 to match the Open Graph metadata.
+- **Asset cache busting:** after changing `styles.css`, `i18n.js` or `main.js`, bump the `?v=` query on those files in `index.html` so Cloudflare's edge cache serves the new build.
 
 ## Deployment
 
