@@ -246,55 +246,6 @@
   }
 
   /* ---------------------------------------------------------------
-     Animated counters
-     --------------------------------------------------------------- */
-  const counters = Array.from(document.querySelectorAll(".count-val"));
-  const statsSection = document.querySelector(".stats-section");
-
-  function runCounters() {
-    counters.forEach((counter) => {
-      const target = Number.parseInt(counter.dataset.target || "0", 10);
-      if (prefersReducedMotion()) {
-        counter.textContent = String(target);
-        return;
-      }
-      counter.textContent = "0";
-      const duration = 1400;
-      const startTime = performance.now();
-
-      function tick(now) {
-        const progress = Math.min((now - startTime) / duration, 1);
-        const eased = 1 - Math.pow(1 - progress, 3);
-        counter.textContent = String(Math.round(eased * target));
-        if (progress < 1) window.requestAnimationFrame(tick);
-      }
-
-      window.requestAnimationFrame(tick);
-    });
-  }
-
-  if (counters.length) {
-    if (statsSection && "IntersectionObserver" in window) {
-      let countersDone = false;
-      const statsObserver = new IntersectionObserver(
-        (entries, observer) => {
-          entries.forEach((entry) => {
-            if (entry.isIntersecting && !countersDone) {
-              countersDone = true;
-              runCounters();
-              observer.disconnect();
-            }
-          });
-        },
-        { threshold: 0.35 }
-      );
-      statsObserver.observe(statsSection);
-    } else {
-      runCounters();
-    }
-  }
-
-  /* ---------------------------------------------------------------
      Pointer spotlight on cards
      --------------------------------------------------------------- */
   if (finePointer && !prefersReducedMotion()) {

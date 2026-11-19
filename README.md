@@ -7,13 +7,14 @@ Live: <https://cv.mardini-ing.workers.dev/>
 ## Highlights
 
 - **Deployment-screen concept:** a full-bleed sector map with capture points, radar sweep, animated front lines and data links, moving supply dots, an aircraft flyby and a pointer reticle. The briefing leads with a four-class loadout — **Embedded, Edge, Cloud, AI** — a squad skills panel, map instrumentation (compass, scale, status legend, Zulu clock), a pulsing objective marker on sector E, a live sector-intel bar and an icon-anchored hover curtain with status, power, proof and stack.
+- **Recruiter fast lane:** a 10-second recruiter snapshot after the hero (target role, years, location, core stack, recent experience, selected outcomes), a downloadable **2-page CV PDF**, a clean `cv.html` web view, and plain-language nav labels — Skills / Process / Projects / Experience / Contact — over the game-themed sections.
 - **Ikigai:** the background watermark and the briefing line tie the concept together — what I love, what I'm good at, what the world needs and what pays.
 - **Amber cockpit palette:** amber `#ffb020`, orange `#ff6a00` and signal green `#7ae582` on a warm near-black deck. The "daylight cockpit" light theme switches to parchment with bronze/forest accents; the mission display stays dark in both themes.
-- **No WebGL, no build step:** the old Three.js PCB scene is gone. The map is inline SVG with CSS/SMIL motion, paused when offscreen or when reduced motion is requested.
+- **No WebGL, no build step:** the old Three.js PCB scene is gone. The map is inline SVG with CSS/SMIL motion, paused when offscreen, on small screens or when reduced motion is requested.
 - **CV-aligned content:** eight service-record entries from the 2026 CV — edge-cloud lab, AWS certification track, Hoerbiger, Mercedes-Benz VAN, Odelo, Volvo/Flex, JDM, and the BSc in Renewable Energies.
 - **Fully static:** plain HTML, CSS and JavaScript.
 - **Trilingual UI:** English, German and Arabic with a full RTL layout, Cairo typography and mirrored navigation. The language is remembered in `localStorage` (`mm-lang`).
-- **Responsive:** mobile command menu, scroll spy, reveal animations, animated counters and a pointer-lit card spotlight. Capture points are desktop-only; the map and intel bar stay on mobile.
+- **Responsive:** mobile command menu, scroll spy, reveal animations and a pointer-lit card spotlight. Capture points are desktop-only; the map, snapshot and intel bar stay on mobile.
 - **Lazy-loaded Calendly panel:** framed loading state, a direct scheduling fallback, and a safety timeout so the panel never gets stuck.
 - **Local assets:** SVG icon sprite, favicon, and a 1200×630 Open Graph image in the same visual language.
 
@@ -22,10 +23,12 @@ Live: <https://cv.mardini-ing.workers.dev/>
 ```text
 .
 ├── index.html              # Single-page markup, metadata, inline sector-map SVG
+├── cv.html                 # Clean recruiter CV view (noindex)
 ├── assets/
 │   ├── css/styles.css      # Design system, dark/light themes, deploy hero, layout, motion, RTL
 │   ├── js/main.js          # Navigation, theme, scroll spy, reveals, deploy map, Calendly
 │   ├── js/i18n.js          # en / de / ar dictionaries and language runtime
+│   ├── mahmoud-mardini-cv.pdf # Downloadable 2-page A4 CV
 │   ├── icons.svg           # Local SVG icon sprite (HUD / chip / cloud / agent set)
 │   ├── favicon.svg         # Flight-deck favicon
 │   └── og-image.png        # 1200×630 social preview image
@@ -57,6 +60,7 @@ Precedence is query parameter → saved preference → default. The default them
 - **Theme tokens:** the night deck lives under `html[data-theme="dark"]`; the daylight cockpit overrides live under `html[data-theme="light"]` at the top of `assets/css/styles.css`. The toggle and persistence logic are in `assets/js/main.js`, with the initial theme applied inline in `<head>` to avoid a flash.
 - **Icons:** add a `<symbol id="...">` to `assets/icons.svg` and reference it with `<use href="assets/icons.svg#...">`.
 - **Social image:** `assets/og-image.png` must stay at 1200×630 to match the Open Graph metadata.
+- **CV:** `cv.html` is the print-ready source; regenerate `assets/mahmoud-mardini-cv.pdf` from it with Chrome print-to-PDF (A4) whenever the CV changes.
 - **Asset cache busting:** after changing `styles.css`, `i18n.js` or `main.js`, bump the `?v=` query on those files in `index.html` so Cloudflare's edge cache serves the new build.
 
 ## Deployment
