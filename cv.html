@@ -246,6 +246,20 @@
 
   .cv-actions { display: none; }
 
+  .cv-skip {
+    position: absolute;
+    left: -9999px;
+    top: 0;
+    z-index: 100;
+    padding: 8px 12px;
+    font-family: "Fira Code", monospace;
+    font-size: 8pt;
+    color: #fffdf8;
+    background: #b45309;
+  }
+
+  .cv-skip:focus { left: 16px; top: 16px; }
+
   @media screen {
     body {
       padding: 26px 16px 48px;
@@ -318,12 +332,13 @@
 </style>
 </head>
 <body>
+<a class="cv-skip" href="#cv-main">Skip to CV</a>
 <div class="cv-actions">
   <a href="./">← Portfolio</a>
   <span>Mahmoud Mardini — CV</span>
   <a href="assets/mahmoud-mardini-cv.pdf" download="Mahmoud-Mardini-CV.pdf">Download PDF</a>
 </div>
-<div class="page">
+<div class="page" id="cv-main">
   <header class="cv-head">
     <div>
       <div class="cv-name">Mahmoud Mardini</div>

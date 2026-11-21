@@ -382,8 +382,8 @@ p {
   gap: 5px;
   padding: 9px 11px;
   font-family: var(--font-mono);
-  font-size: 10.5px;
-  letter-spacing: 0.14em;
+  font-size: 11px;
+  letter-spacing: 0.13em;
   text-transform: uppercase;
   color: var(--text-2);
   border-radius: 6px;
@@ -1398,16 +1398,6 @@ html[dir="rtl"] .objective-marker {
   color: var(--d-muted);
 }
 
-.deploy-ready {
-  margin-inline-start: auto;
-  padding: 3px 6px;
-  font-size: 8px;
-  letter-spacing: 0.14em;
-  color: var(--d-green);
-  border: 1px solid rgba(122, 229, 130, 0.28);
-  background: rgba(122, 229, 130, 0.045);
-}
-
 .deploy-name {
   margin-block-start: 18px;
   font-family: var(--font-display);
@@ -1432,8 +1422,8 @@ html[dir="rtl"] .objective-marker {
 .deploy-role {
   margin-block-start: 15px;
   font-family: var(--font-mono);
-  font-size: 10.5px;
-  letter-spacing: 0.16em;
+  font-size: 11.5px;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
   color: var(--d-amber-soft);
 }
@@ -1444,8 +1434,8 @@ html[dir="rtl"] .objective-marker {
   gap: 7px;
   margin-block-start: 10px;
   font-family: var(--font-mono);
-  font-size: 9px;
-  letter-spacing: 0.14em;
+  font-size: 10.5px;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--d-green);
 }
@@ -1496,6 +1486,8 @@ html[dir="rtl"] .objective-marker {
   gap: 10px;
   margin-block-start: 20px;
 }
+
+.deploy-actions .d-btn { flex: 1 1 0; }
 
 .d-btn {
   position: relative;
@@ -1572,55 +1564,9 @@ html[dir="rtl"] .objective-marker {
 .d-btn--ghost .icon { color: var(--d-amber); }
 .d-btn--ghost:hover { border-color: var(--d-amber); }
 
-.d-btn--cv {
-  min-width: 0;
-  padding-inline: 14px;
-  color: var(--d-amber-soft);
-  border: 1px solid var(--d-line-strong);
-  background: rgba(255, 255, 255, 0.02);
-}
-
-.d-btn--cv .icon {
-  width: 15px;
-  height: 15px;
-  color: var(--d-amber);
-}
-
-.d-btn--cv:hover {
-  border-color: var(--d-amber);
-  background: rgba(255, 176, 32, 0.08);
-}
-
 .d-btn:focus-visible {
   outline: 2px solid var(--d-amber-soft);
   outline-offset: 3px;
-}
-
-/* ----- readout strip ----- */
-.deploy-stats {
-  display: flex;
-  gap: clamp(16px, 2.4vw, 30px);
-  margin-block-start: 20px;
-}
-
-.deploy-stats small {
-  display: block;
-  font-family: var(--font-mono);
-  font-size: 6.8px;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: var(--d-muted);
-}
-
-.deploy-stats b {
-  display: block;
-  margin-block-start: 3px;
-  font-family: var(--font-mono);
-  font-size: 11.5px;
-  font-weight: 500;
-  letter-spacing: 0.07em;
-  color: var(--d-text);
-  white-space: nowrap;
 }
 
 /* ----- loadout ----- */
@@ -1631,10 +1577,10 @@ html[dir="rtl"] .objective-marker {
   align-items: baseline;
   justify-content: space-between;
   font-family: var(--font-mono);
-  font-size: 8px;
-  letter-spacing: 0.2em;
+  font-size: 9px;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: var(--d-muted);
+  color: var(--d-text-2);
 }
 
 .loadout-head b {
@@ -1682,7 +1628,7 @@ html[dir="rtl"] .objective-marker {
 
 .d-class .pwr {
   font-family: var(--font-mono);
-  font-size: 8px;
+  font-size: 8.5px;
   letter-spacing: 0.08em;
   color: var(--d-muted);
 }
@@ -1691,9 +1637,9 @@ html[dir="rtl"] .objective-marker {
   display: block;
   margin-block-start: 9px;
   font-family: var(--font-display);
-  font-size: 10px;
+  font-size: 10.5px;
   font-weight: 600;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.11em;
   text-transform: uppercase;
 }
 
@@ -1702,7 +1648,7 @@ html[dir="rtl"] .objective-marker {
   margin-block-start: 2px;
   overflow: hidden;
   font-family: var(--font-mono);
-  font-size: 6.4px;
+  font-size: 7px;
   letter-spacing: 0.02em;
   color: var(--d-muted);
   white-space: nowrap;
@@ -1993,10 +1939,10 @@ html[dir="rtl"] .d-btn .icon { transform: scaleX(-1); }
   pointer-events: none;
   direction: ltr;
   font-family: var(--font-mono);
-  font-size: 7px;
-  letter-spacing: 0.14em;
+  font-size: 8px;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: rgba(210, 220, 190, 0.4);
+  color: rgba(210, 220, 190, 0.45);
   white-space: nowrap;
 }
 
@@ -2472,17 +2418,13 @@ html[dir="rtl"] .d-btn .icon { transform: scaleX(-1); }
 
   .deploy-name { font-size: clamp(2.8rem, 12.5vw, 4rem); }
 
-  .deploy-role { font-size: 9.5px; letter-spacing: 0.12em; }
+  .deploy-role { font-size: 10.5px; letter-spacing: 0.11em; }
 
   .deploy-lede { font-size: 14px; }
 
   .deploy-ikigai { font-size: 12px; }
 
-  .deploy-stats {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 10px 20px;
-  }
+  .squad-panel { display: none; }
 
   .classes {
     display: grid;
@@ -2491,7 +2433,7 @@ html[dir="rtl"] .d-btn .icon { transform: scaleX(-1); }
 
   .d-class { height: 72px; }
 
-  .d-class small { font-size: 6.8px; }
+  .d-class small { font-size: 7.2px; }
 
   .loadout-note {
     flex-wrap: wrap;
@@ -2518,6 +2460,8 @@ html[dir="rtl"] .d-btn .icon { transform: scaleX(-1); }
     align-items: stretch;
   }
 
+  .deploy-actions .d-btn { flex: 0 0 auto; }
+
   .d-btn { width: 100%; }
 
   .d-btn--deploy { min-width: 0; }
@@ -2540,15 +2484,9 @@ html[dir="rtl"] .d-btn .icon { transform: scaleX(-1); }
 
   .deploy-name { font-size: clamp(2.6rem, 13.5vw, 3.3rem); }
 
-  .deploy-role { font-size: 8.5px; }
-
   .deploy-lede { font-size: 13.5px; }
 
   .deploy-ikigai { font-size: 11.5px; }
-
-  .squad-panel {
-    grid-template-columns: minmax(0, 1fr);
-  }
 
   .deploy-watermark {
     left: 64%;
@@ -2597,8 +2535,6 @@ html[dir="rtl"] .d-flag {
   .deploy-actions { margin-block-start: 14px; }
 
   .d-btn { height: 48px; }
-
-  .deploy-stats { margin-block-start: 14px; }
 
   .loadout { margin-block-start: 14px; }
 
@@ -2653,7 +2589,6 @@ html[lang="ar"] .intelbar__id strong {
 }
 
 html[lang="ar"] .deploy-eyebrow,
-html[lang="ar"] .deploy-ready,
 html[lang="ar"] .deploy-availability,
 html[lang="ar"] .loadout-head,
 html[lang="ar"] .loadout-note,
@@ -2661,9 +2596,7 @@ html[lang="ar"] .squad-panel__head,
 html[lang="ar"] .squad-panel__foot,
 html[lang="ar"] .intelbar,
 html[lang="ar"] .sector-card,
-html[lang="ar"] .deploy-ikigai__tag,
-html[lang="ar"] .deploy-stats small,
-html[lang="ar"] .deploy-stats b {
+html[lang="ar"] .deploy-ikigai__tag {
   letter-spacing: 0;
 }
 
@@ -2824,14 +2757,14 @@ html[lang="ar"] .deploy-name .accent {
 
 .snapshot-cv b {
   font-family: var(--font-mono);
-  font-size: 10px;
+  font-size: 10.5px;
   font-weight: 500;
   letter-spacing: 0.08em;
 }
 
 .snapshot-cv small {
   font-family: var(--font-mono);
-  font-size: 7.5px;
+  font-size: 8px;
   letter-spacing: 0.08em;
   color: var(--muted);
 }
@@ -2852,8 +2785,8 @@ html[lang="ar"] .deploy-name .accent {
 .snapshot-meta {
   margin-block-start: 9px;
   font-family: var(--font-mono);
-  font-size: 9px;
-  letter-spacing: 0.12em;
+  font-size: 10px;
+  letter-spacing: 0.11em;
   text-transform: uppercase;
   color: var(--amber);
 }
@@ -2861,10 +2794,11 @@ html[lang="ar"] .deploy-name .accent {
 .snapshot-stack {
   margin-block-start: 10px;
   font-family: var(--font-mono);
-  font-size: 8.5px;
+  font-size: 9.5px;
   line-height: 1.7;
   letter-spacing: 0.02em;
   color: var(--text-2);
+  text-wrap: balance;
 }
 
 .snapshot-desc {
@@ -2878,11 +2812,11 @@ html[lang="ar"] .deploy-name .accent {
 .snapshot-outcomes h3 {
   margin-block-end: 4px;
   font-family: var(--font-mono);
-  font-size: 9px;
+  font-size: 9.5px;
   font-weight: 500;
-  letter-spacing: 0.16em;
+  letter-spacing: 0.15em;
   text-transform: uppercase;
-  color: var(--muted);
+  color: var(--text-2);
 }
 
 .snapshot-row {
@@ -2897,8 +2831,8 @@ html[lang="ar"] .deploy-name .accent {
 
 .snapshot-date {
   font-family: var(--font-mono);
-  font-size: 8px;
-  letter-spacing: 0.08em;
+  font-size: 8.5px;
+  letter-spacing: 0.07em;
   color: var(--muted);
 }
 
@@ -4563,8 +4497,7 @@ html[data-theme="light"] .orbit__core::after {
   }
 
   .deploy-lede,
-  .deploy-ikigai,
-  .deploy-stats b {
+  .deploy-ikigai {
     color: #222;
   }
 
